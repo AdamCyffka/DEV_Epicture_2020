@@ -4,21 +4,21 @@ import { Searchbar } from 'react-native-paper';
 import CardImage from './Card';
 
 async function getGalleryTop(page) {
-  return fetch(`https://api.imgur.com/3/gallery/top/${page}&mature=true`, {
+  return fetch(`https://api.imgur.com/3/gallery/top/${page}`, {
     "method": "GET",
     "headers": {
       "Authorization": "Client-ID 7282df4b8e311c8"
     },
   })
-    .then((response) => {
-        return response.json();
-    })
-    .then((result) => {
-        if (result.success)
-            return Promise.resolve(result.data);
-        else
-            return Promise.reject(result.data);
-    })
+  .then((response) => {
+      return response.json();
+  })
+  .then((result) => {
+      if (result.success)
+          return Promise.resolve(result.data);
+      else
+          return Promise.reject(result.data);
+  })
 }
 
 export default class Home extends React.Component {

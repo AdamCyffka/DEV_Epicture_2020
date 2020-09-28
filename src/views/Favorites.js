@@ -68,7 +68,7 @@ export default class Favorites extends React.Component {
   render() {
     return (
         <View style={{ flex: 1, backgroundColor: 'grey' }}>
-            {/* <ScrollView >
+            <ScrollView >
                 {this.state.data !== null ? this.state.data.map((row, i) => {
                     return (
                         // <Text key={i} >hello {row.id}</Text>
@@ -85,7 +85,7 @@ export default class Favorites extends React.Component {
                         </Card>
                     );
                 }) : null}
-            </ScrollView> */}
+            </ScrollView>
         </View>
     );
 }

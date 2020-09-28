@@ -1,10 +1,10 @@
 import React from 'react';
-import { View, Text, SafeAreaView, StyleSheet, ActivityIndicator, FlatList } from "react-native";
+import { View, Text, ScrollView, ActivityIndicator } from "react-native";
 import { Card } from "react-native-elements";
 import AsyncStorage from '@react-native-community/async-storage';
 
 export default class Posts extends React.Component {
-  
+
   extentions = [
     'png',
     'jpg',
@@ -68,8 +68,8 @@ export default class Posts extends React.Component {
 
   render() {
     return (
-      <SafeAreaView style={styles.container}>
-        {/* <ScrollView >
+      <View style={{ flex: 1, backgroundColor: '#191970' }}>
+        <ScrollView >
           {this.state.data !== null ? this.state.data.map((row, i) => {
             return (
               <Card
@@ -86,48 +86,9 @@ export default class Posts extends React.Component {
             );
           })
           : <ActivityIndicator />}
-      </ScrollView> */}
-      {this.state.items !== null ?
-                    <FlatList style={styles.cardContent}
-                        data={this.state.items}
-                        initialNumToRender={5}
-                        maxToRenderPerBatch={5}
-                        windowSize={15}
-                        keyExtractor={(item, index) => index.toString()}
-                        renderItem={({ item, index }) => {
-                            if (!item.images)
-                                return;
-                            return <CardImage
-                                image={item.images[0]}
-                                item={{}}
-                            />
-                        }}
-                    />
-                    :
-                    <ActivityIndicator style={styles.appLoading} size="small" color="#FFF" />}
-      </SafeAreaView>
+      </ScrollView>
+      </View>
     );
   }
-}
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#191970',
-  },
-  inputContainer: {
-    justifyContent: 'center',
-    paddingHorizontal: 15,
-  },
-  background: {
-      flex: 1,
-      backgroundColor: '#11181F',
-  },
-  cardContent: {
-      marginTop: 30,
-  },
-  appLoading: {
-      flex: 1,
-      justifyContent: 'center'
-  }
-});
+}
