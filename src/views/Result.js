@@ -2,11 +2,10 @@ import React from 'react';
 import { View, Text, StyleSheet, ScrollView } from 'react-native';
 import AsyncStorage from '@react-native-community/async-storage';
 import ImageCard from '../components/ImageCard';
-import CardImage from './Card';
 
 export default class Result extends React.Component {
   constructor(props) {
-    super(props)
+    super()
     this.state = {
       dataSource: null,
       favorites: [],

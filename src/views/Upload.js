@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 import { SafeAreaView, ScrollView, StyleSheet, Text, Touchable, View, Button, Image, TextInput, Alert } from 'react-native';
 import AsyncStorage from '@react-native-community/async-storage';
 import ImagePicker from 'react-native-image-picker';
@@ -7,7 +7,7 @@ import AwesomeButton from "react-native-really-awesome-button";
 
 export default class Upload extends React.Component {
 
-    constructor(props) {
+    constructor() {
       super()
       this.state = {
         photo: null,
@@ -32,7 +32,7 @@ export default class Upload extends React.Component {
       }
       const uri = 'https://api.imgur.com/3/upload/'
       const response = await fetch(uri, {
-        method: 'post',
+        method: 'POST',
         headers: {
           'Authorization': 'Bearer ' + token,
           'Content-Type': 'application/json',
@@ -67,9 +67,12 @@ export default class Upload extends React.Component {
             <View style={{ flexDirection: 'row' }}>
               <View style={{ flex: 1, marginRight: 'auto', paddingTop: 10, paddingLeft: 10, alignItems: 'flex-start' }}>
                 <AwesomeButton
+                  size='small'
+                  type="primaryFlat"
+                  activeOpacity={0.75}
                   disabled={this.state.selectButton}
-                  backgroundColor={ '#33AFFF' }
-                  backgroundDarker={ 'white' }
+                  backgroundColor='#33AFFF'
+                  backgroundDarker='white'
                   onPress={this.handleChoosePhoto}
                 >
                   Select Photo
@@ -78,8 +81,8 @@ export default class Upload extends React.Component {
               <View style={{ flex: 1, marginLeft: 'auto', paddingTop: 10, paddingRight: 10, alignItems: 'flex-end' }}>
                 <AwesomeButton
                   disabled={this.state.uploadButton}
-                  backgroundColor={ '#016FB6' }
-                  backgroundDarker={ 'white' }
+                  backgroundColor='#016FB6'
+                  backgroundDarker='white'
                   onPress={() => this.uploadImage()}
                 >
                   Upload Photo

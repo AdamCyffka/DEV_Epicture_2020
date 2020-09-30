@@ -1,7 +1,7 @@
 import React from 'react';
 import { SafeAreaView, StyleSheet, FlatList, ActivityIndicator } from 'react-native';
 import AsyncStorage from '@react-native-community/async-storage';
-import CardImage from './Card';
+import CardImage from '../components/Card';
 
 async function getUserFavorites() {
   const token = await AsyncStorage.getItem('accessToken');

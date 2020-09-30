@@ -1,7 +1,7 @@
 import React from 'react';
 import { StatusBar, View, FlatList, ActivityIndicator, StyleSheet, SafeAreaView } from 'react-native';
 import { Searchbar } from 'react-native-paper';
-import CardImage from './Card';
+import CardImage from '../components/Card';
 
 async function getGalleryTop(page) {
   return fetch(`https://api.imgur.com/3/gallery/top/${page}`, {
