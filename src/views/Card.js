@@ -48,7 +48,7 @@ export default class CardImage extends React.PureComponent {
                             <Text style={styles.white}>{this.state.downs}</Text>
                         </Button>
                         <Button transparent>
-                            <Icon style={this.state.fav ? styles.active : styles.white} name="heart" />
+                            <Icon style={this.state.fav ? styles.activeFav : styles.white} name="heart" />
                             <Text style={styles.white}>{this.props.item.favorite_count}</Text>
                         </Button>
                     </Left>
@@ -68,6 +68,9 @@ const styles = StyleSheet.create({
     },
     active: {
         color: '#19B76F',
+    },
+    activeFav: {
+        color: 'red',
     },
     title: {
         color: 'white',

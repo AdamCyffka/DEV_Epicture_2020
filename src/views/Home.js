@@ -27,7 +27,6 @@ export default class Home extends React.Component {
     this.state = {
       input: '',
       isReady: false,
-      isFetching: false,
       isRefreshing: false,
       items: null,
       page: 0,

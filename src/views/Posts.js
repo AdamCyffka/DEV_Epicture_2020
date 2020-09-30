@@ -1,41 +1,11 @@
 import React from 'react';
-import { View, Text, ScrollView, ActivityIndicator } from "react-native";
-import { Card } from "react-native-elements";
+import { SafeAreaView, StyleSheet, FlatList, ActivityIndicator } from 'react-native';
 import AsyncStorage from '@react-native-community/async-storage';
+import CardImage from './Card';
 
-export default class Posts extends React.Component {
-
-  extentions = [
-    'png',
-    'jpg',
-    'jpeg',
-    'bmp',
-    'gif',
-    'webp'
-  ];
-
-  constructor(props) {
-    super(props);
-    this.state = {
-      user: null,
-      data: null,
-    };
-    this._bootstrapAsync();
-  }
-
-  // info user
-  _bootstrapAsync = async () => {
-    const user = await AsyncStorage.getItem('userName');
-
-    await this.setState(prevState => {
-      this._getPhotosFormImgur(user);
-      return prevState;
-    });
-  };
-
-  _getPhotosFormImgur = async (user) => {
-    const token = await AsyncStorage.getItem('accessToken');
-    return fetch('https://api.imgur.com/3/account/me/images', {
+async function getUserPosts() {
+  const token = await AsyncStorage.getItem('accessToken');
+  return fetch('https://api.imgur.com/3/account/me/images', {
       method: 'GET',
       headers: {
         Accept: 'application/json',
@@ -43,52 +13,73 @@ export default class Posts extends React.Component {
         'Authorization': 'Bearer ' + token
       }
     })
-      .then(res => res.json())
-      .then(resJson => {
-        this.setState(prevState => {
-          prevState.data = resJson.data;
-          return prevState;
-        });
-      })
-      .catch(err => {
-        console.log(err);
-      });
+  .then((response) => {
+    return response.json();
+  })
+  .then((result) => {
+    if (result.success)
+      return Promise.resolve(result.data);
+    return Promise.reject(result.data);
+  });
+}
+
+export default class Posts extends React.Component {
+
+  state = {
+    isReady: false,
+    isRefreshing: false,
   };
+  items = null;
 
-  _getPhotoFromData(row) {
-    let extention = row.link.split('.')[row.link.split('.').length - 1];
-    let res = this.extentions.find(elem => elem === extention);
-
-    if (res == null) {
-      return 'https://banner2.kisspng.com/20180530/rsz/kisspng-istock-royalty-free-fail-stamp-5b0e3cc6d5b971.1366345315276597188754.jpg'
-    } else {
-      return row.link
-    }
+  componentDidMount() {
+    this.loadPost()
   }
+
+  loadPost = () => {
+    getUserPosts().then((data) => {
+      this.items = data;
+      this.setState({ isReady: true });
+    }).catch((err) => err)
+  }
+
+  handleRefresh = () => {
+    this.setState({isRefreshing: true,}, () => {this.loadPost();});
+  };
 
   render() {
     return (
-      <View style={{ flex: 1, backgroundColor: '#191970' }}>
-        <ScrollView >
-          {this.state.data !== null ? this.state.data.map((row, i) => {
-            return (
-              <Card
-                title={`${row.title != null ? row.title : 'No title'}`}
-                image={{ uri: this._getPhotoFromData(row) }}
-                imageStyle={{ width: 370, height: 410, marginLeft: 'auto', marginRight: 'auto' }}
-                imageProps={{ resizeMode: 'contain' }}
-                key={i}
-              >
-                <Text style={{ marginBottom: 10 }}>
-                  { row.description ? row.description : 'No desc' }
-                </Text>
-              </Card>
-            );
-          })
-          : <ActivityIndicator />}
-      </ScrollView>
-      </View>
+      <SafeAreaView style={styles.container}>
+        {this.items !== null ?
+          <FlatList
+            data={this.items}
+            initialNumToRender={5}
+            maxToRenderPerBatch={10}
+            windowSize={10}
+            refreshing={this.state.isRefreshing}
+            onRefresh={this.handleRefresh}
+            keyExtractor={(item, index) => index.toString()}
+            renderItem={({ item }) => {
+              return <CardImage
+                image={{ id: item.id, height: item.height, width: item.width, type: item.type }}
+                item={item}
+              />
+            }}
+          />
+        :
+          <ActivityIndicator style={styles.appLoading} size="small" color="#FFF" />
+        }
+      </SafeAreaView>
     );
   }
-
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#191970',
+  },
+  appLoading: {
+    flex: 1,
+    justifyContent: 'center',
+  }
+});
