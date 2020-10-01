@@ -1,6 +1,6 @@
 import React from 'react';
 import { StatusBar, View, FlatList, ActivityIndicator, StyleSheet, SafeAreaView } from 'react-native';
-import { Searchbar } from 'react-native-paper';
+import { SearchBar } from 'react-native-elements';
 import CardImage from '../components/Card';
 
 async function getGalleryTop(page) {
@@ -10,18 +10,19 @@ async function getGalleryTop(page) {
       "Authorization": "Client-ID 7282df4b8e311c8"
     },
   })
-  .then((response) => {
+    .then((response) => {
       return response.json();
-  })
-  .then((result) => {
+    })
+    .then((result) => {
       if (result.success)
-          return Promise.resolve(result.data);
+        return Promise.resolve(result.data);
       else
-          return Promise.reject(result.data);
-  })
+        return Promise.reject(result.data);
+    })
 }
 
 export default class Home extends React.Component {
+
   constructor () {
     super()
     this.state = {
@@ -77,40 +78,41 @@ export default class Home extends React.Component {
   render() {
     return (
       <SafeAreaView style={styles.container}>
-          <StatusBar
-            barStyle="light-content"
-            backgroundColor="#000000"
+        <StatusBar
+          barStyle="light-content"
+          backgroundColor="#000000"
+        />
+        <View style={styles.inputContainer}>
+          <SearchBar
+            placeholder="Type here..."
+            value={this.state.input}
+            onChangeText={(text) => this._updateInput(text)}
+            onSubmitEditing={() => this.handleSubmit()}
           />
-          {/* <View style={styles.inputContainer}>
-            <Searchbar
-              placeholder="Search"
-              value={this.state.input}
-              onChangeText={(text) => this._updateInput(text)}
-              onSubmitEditing={() => this.handleSubmit()}
-            />
-          </View> */}
-          {this.state.items !== null ?
-                    <FlatList
-                        data={this.state.items}
-                        initialNumToRender={5}
-                        maxToRenderPerBatch={5}
-                        windowSize={15}
-                        refreshing={this.state.isRefreshing}
-                        onRefresh={this.handleRefresh}
-                        onEndReached={this.handleLoadMore}
-                        onEndThreshold={0}
-                        keyExtractor={(item, index) => index.toString()}
-                        renderItem={({ item, index }) => {
-                            if (!item.images)
-                                return;
-                            return <CardImage
-                                image={item.images[0]}
-                                item={item}
-                            />
-                        }}
-                    />
-                    :
-                    <ActivityIndicator style={styles.appLoading} size="small" color="#FFF" />}
+        </View>
+        {this.state.items !== null ?
+          <FlatList style={styles.cardContent}
+            data={this.state.items}
+            initialNumToRender={5}
+            maxToRenderPerBatch={5}
+            windowSize={15}
+            refreshing={this.state.isRefreshing}
+            onRefresh={this.handleRefresh}
+            onEndReached={this.handleLoadMore}
+            onEndThreshold={0}
+            keyExtractor={(item, index) => index.toString()}
+            renderItem={({ item, index }) => {
+              if (!item.images)
+                return;
+              return <CardImage
+                image={item.images[0]}
+                item={item}
+              />
+            }}
+          />
+        :
+          <ActivityIndicator style={styles.appLoading} size="small" color="#FFF" />
+        }
       </SafeAreaView>
     );
   }
@@ -128,6 +130,9 @@ const styles = StyleSheet.create({
   background: {
       flex: 1,
       backgroundColor: '#11181F',
+  },
+  cardContent: {
+      marginTop: 10,
   },
   appLoading: {
       flex: 1,
