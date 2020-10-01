@@ -81,16 +81,16 @@ export default class Home extends React.Component {
             barStyle="light-content"
             backgroundColor="#000000"
           />
-          <View style={styles.inputContainer}>
+          {/* <View style={styles.inputContainer}>
             <Searchbar
               placeholder="Search"
               value={this.state.input}
               onChangeText={(text) => this._updateInput(text)}
               onSubmitEditing={() => this.handleSubmit()}
             />
-          </View>
+          </View> */}
           {this.state.items !== null ?
-                    <FlatList style={styles.cardContent}
+                    <FlatList
                         data={this.state.items}
                         initialNumToRender={5}
                         maxToRenderPerBatch={5}
@@ -128,9 +128,6 @@ const styles = StyleSheet.create({
   background: {
       flex: 1,
       backgroundColor: '#11181F',
-  },
-  cardContent: {
-      marginTop: 30,
   },
   appLoading: {
       flex: 1,
