@@ -30,7 +30,7 @@ export default class Upload extends React.Component {
         title: this.title,
         description: this.description,
       }
-      const uri = 'https://api.imgur.com/3/upload/'
+      const uri = 'https://api.imgur.com/3/image'
       const response = await fetch(uri, {
         method: 'POST',
         headers: {
@@ -65,28 +65,21 @@ export default class Upload extends React.Component {
         <SafeAreaView style={styles.container}>
           <View style={{ flex: 1 }}>
             <View style={{ flexDirection: 'row' }}>
-              <View style={{ flex: 1, marginRight: 'auto', paddingTop: 10, paddingLeft: 10, alignItems: 'flex-start' }}>
-                <AwesomeButton
-                  size='small'
-                  type="primaryFlat"
-                  activeOpacity={0.75}
-                  disabled={this.state.selectButton}
-                  backgroundColor='#33AFFF'
-                  backgroundDarker='white'
+              <View style={{ flex: 1, marginRight: 'auto', marginTop: 'auto', paddingTop: 10, paddingLeft: 10, alignItems: 'flex-start' }}>
+                <Button
                   onPress={this.handleChoosePhoto}
-                >
-                  Select Photo
-                </AwesomeButton>
+                  title="Select photo"
+                  color="#841584"
+                  disabled={this.state.selectButton}
+                />
  		  				</View>
               <View style={{ flex: 1, marginLeft: 'auto', paddingTop: 10, paddingRight: 10, alignItems: 'flex-end' }}>
-                <AwesomeButton
-                  disabled={this.state.uploadButton}
-                  backgroundColor='#016FB6'
-                  backgroundDarker='white'
+                <Button
                   onPress={() => this.uploadImage()}
-                >
-                  Upload Photo
-                </AwesomeButton>
+                  title="Upload Photo"
+                  color="green"
+                  disabled={this.state.uploadButton}
+                />
    						</View>
             </View>
           </View>

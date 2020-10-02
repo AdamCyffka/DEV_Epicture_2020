@@ -88,6 +88,7 @@ export default class Home extends React.Component {
             value={this.state.input}
             onChangeText={(text) => this._updateInput(text)}
             onSubmitEditing={() => this.handleSubmit()}
+            round={true}
           />
         </View>
         {this.state.items !== null ?
@@ -126,6 +127,7 @@ const styles = StyleSheet.create({
   inputContainer: {
     justifyContent: 'center',
     paddingHorizontal: 15,
+    paddingTop: 10,
   },
   background: {
       flex: 1,
