@@ -74,7 +74,11 @@ export default class Result extends React.Component {
       results =
         dataSource &&
         dataSource.map((el) => (
-          <ImageCard key={el.id} result={el} userFavorites={favorites} />
+          <ImageCard
+            key={el.id}
+            result={el}
+            userFavorites={favorites}
+          />
         ))
     }
 

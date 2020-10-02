@@ -1,5 +1,6 @@
 import React from 'react';
 import { TouchableOpacity, StatusBar, View, Text, StyleSheet, SafeAreaView } from 'react-native';
+import LottieView from 'lottie-react-native';
 
 export default class Welcome extends React.Component {
   render() {
@@ -10,6 +11,15 @@ export default class Welcome extends React.Component {
             backgroundColor="#000000"
           />
           <View style={{alignItems: "center"}}>
+            <LottieView
+              source={require('./sending-email.json')}
+              autoPlay
+              loop
+              style={{
+                height: 350,
+                marginTop: 5,
+              }}
+            />
             <Text style={styles.welcomeTitle}>Epicture</Text>
           </View>
           <View style={styles.buttons}>
@@ -34,7 +44,6 @@ export default class Welcome extends React.Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: '#191970',
   },
