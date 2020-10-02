@@ -12,7 +12,7 @@ export default class Welcome extends React.Component {
           />
           <View style={{alignItems: "center"}}>
             <LottieView
-              source={require('./sending-email.json')}
+              source={require('../assets/sending-email.json')}
               autoPlay
               loop
               style={{
@@ -50,7 +50,7 @@ const styles = StyleSheet.create({
   welcomeTitle: {
     color: '#FFFFFF',
     fontSize: 40,
-    paddingBottom: 10,
+    paddingTop: 30,
     textAlign: "center",
   },
   buttons: {

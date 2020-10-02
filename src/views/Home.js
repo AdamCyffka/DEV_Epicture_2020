@@ -2,6 +2,7 @@ import React from 'react';
 import { StatusBar, View, FlatList, ActivityIndicator, StyleSheet, SafeAreaView } from 'react-native';
 import { SearchBar } from 'react-native-elements';
 import CardImage from '../components/Card';
+import LottieView from 'lottie-react-native';
 
 async function getGalleryTop(page) {
   return fetch(`https://api.imgur.com/3/gallery/top/${page}`, {
@@ -112,7 +113,16 @@ export default class Home extends React.Component {
             }}
           />
         :
-          <ActivityIndicator style={styles.appLoading} size="small" color="#FFF" />
+          <View style={styles.lottieView}>
+            <LottieView
+              source={require('../assets/loading.json')}
+              autoPlay
+              loop
+              style={{
+                height: 350,
+              }}
+            />
+          </View>
         }
       </SafeAreaView>
     );
@@ -123,6 +133,11 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#191970',
+  },
+  lottieView: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   inputContainer: {
     justifyContent: 'center',

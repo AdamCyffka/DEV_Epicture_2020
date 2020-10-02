@@ -1,6 +1,7 @@
 import React from 'react';
-import { TouchableOpacity, StatusBar, View, Text, StyleSheet, SafeAreaView } from 'react-native';
+import { StatusBar, StyleSheet, SafeAreaView } from 'react-native';
 import AsyncStorage from '@react-native-community/async-storage';
+import LottieView from 'lottie-react-native';
 
 export default class Loading extends React.Component {
   componentDidMount() {
@@ -19,16 +20,20 @@ export default class Loading extends React.Component {
             barStyle="light-content"
             backgroundColor="#000000"
           />
-          <Text>Loading</Text>
+          <LottieView
+              source={require('../assets/loading.json')}
+              autoPlay
+              loop
+              style={{
+                height: 350,
+              }}
+            />
         </SafeAreaView>
     );
   }
 }
 
 const styles = StyleSheet.create({
-  linearGradient: {
-    flex: 1,
-  },
   container: {
     flex: 1,
     justifyContent: 'center',

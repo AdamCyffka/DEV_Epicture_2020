@@ -1,7 +1,8 @@
 import React from 'react';
-import { SafeAreaView, StyleSheet, FlatList, ActivityIndicator } from 'react-native';
+import { SafeAreaView, StyleSheet, FlatList, View } from 'react-native';
 import AsyncStorage from '@react-native-community/async-storage';
 import CardImage from '../components/Card';
+import LottieView from 'lottie-react-native';
 
 async function getUserFavorites() {
   const token = await AsyncStorage.getItem('accessToken');
@@ -56,7 +57,16 @@ export default class Favorites extends React.Component {
             }}
           />
         :
-          <ActivityIndicator style={styles.appLoading} size="small" color="#FFF" />
+          <View style={styles.lottieView}>
+            <LottieView
+              source={require('../assets/loading.json')}
+              autoPlay
+              loop
+              style={{
+                height: 350,
+              }}
+            />
+          </View>
         }
       </SafeAreaView>
     );
@@ -67,6 +77,11 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#191970',
+  },
+  lottieView: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   appLoading: {
     flex: 1,
