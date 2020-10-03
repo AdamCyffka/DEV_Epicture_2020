@@ -3,7 +3,6 @@ import { SafeAreaView, ScrollView, StyleSheet, Text, Touchable, View, Button, Im
 import AsyncStorage from '@react-native-community/async-storage';
 import ImagePicker from 'react-native-image-picker';
 import LoadingView from 'react-native-loading-view';
-import AwesomeButton from "react-native-really-awesome-button";
 
 export default class Upload extends React.Component {
 
