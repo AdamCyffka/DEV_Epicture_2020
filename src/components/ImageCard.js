@@ -77,4 +77,4 @@ export default class ImageCard extends React.Component {
   }
 }
 
-let windowWidth = Dimensions.get('window').width
+let windowWidth = Dimensions.get('window').width;

@@ -3,6 +3,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs';
 
+import Settings from '../views/Settings';
 import Loading from '../views/Loading';
 import Home from '../views/Home';
 import Profile from '../views/Profile';
@@ -74,6 +75,11 @@ export default class AppContainer extends React.Component {
           headerTitleAlign: 'center'
         }}
       >
+        <Stack.Screen
+          name="Settings"
+          options={{headerShown: true}}
+          component={Settings}
+        />
         <Stack.Screen
           name="Loading"
           options={{headerShown: false}}

@@ -10,19 +10,20 @@ export default class Welcome extends React.Component {
             barStyle="light-content"
             backgroundColor="#000000"
           />
-          <View style={{alignItems: "center"}}>
+          <View style={styles.lottieView}>
             <LottieView
               source={require('../assets/sending-email.json')}
               autoPlay
               loop
               style={{
-                height: 350,
-                marginTop: 5,
+                justifyContent: 'center',
+                alignItems: 'center',
+                width: '100%',
               }}
             />
             <Text style={styles.welcomeTitle}>Epicture</Text>
           </View>
-          <View style={styles.buttons}>
+          <View style={styles.buttonsView}>
             <TouchableOpacity
               onPress={() => this.props.navigation.navigate('Login')}
               style={styles.button}
@@ -44,25 +45,30 @@ export default class Welcome extends React.Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    justifyContent: 'space-around',
     alignItems: 'center',
     backgroundColor: '#191970',
   },
+  lottieView: {
+    flex: 2,
+    alignItems: 'center',
+    justifyContent: 'center',
+    maxHeight: '70%',
+    width: '80%',
+  },
   welcomeTitle: {
     color: '#FFFFFF',
+    width: '100%',
     fontSize: 40,
-    paddingTop: 30,
     textAlign: "center",
   },
-  buttons: {
-    position: "absolute",
-    bottom: 50,
+  buttonsView: {
     width: "80%",
   },
   button: {
     backgroundColor: "#FFFFFF",
     borderColor: "#FFFFFF",
     borderWidth: 2,
-    textAlign: "center",
     padding: 10,
     margin: 10,
     borderRadius: 60,
