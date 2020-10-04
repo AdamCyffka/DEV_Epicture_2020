@@ -29,7 +29,7 @@ export default class Upload extends React.Component {
         title: this.title,
         description: this.description,
       }
-      const uri = 'https://api.imgur.com/3/image'
+      const uri = 'https://api.imgur.com/3/upload'
       const response = await fetch(uri, {
         method: 'POST',
         headers: {

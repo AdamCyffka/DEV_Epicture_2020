@@ -5,7 +5,7 @@ import CardImage from '../components/Card';
 import LottieView from 'lottie-react-native';
 
 async function getGalleryTop(page) {
-  return fetch(`https://api.imgur.com/3/gallery/top/${page}`, {
+  return fetch(`https://api.imgur.com/3/gallery/hot/time/day/${page}?showViral=true&mature=true&album_previews=false`, {
     "method": "GET",
     "headers": {
       "Authorization": "Client-ID 7282df4b8e311c8"

@@ -77,7 +77,13 @@ export default class AppContainer extends React.Component {
       >
         <Stack.Screen
           name="Settings"
-          options={{headerShown: true}}
+          options={{
+            title: 'Login',
+            headerStyle: {
+              backgroundColor: '#191970',
+            },
+            headerTintColor: '#fff',
+            }}
           component={Settings}
         />
         <Stack.Screen

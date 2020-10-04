@@ -30,18 +30,19 @@ export default class CardImage extends React.PureComponent {
     fav: this.props.item.favorite,
     ups: this.props.item.ups ?this.props.item.ups : 0 ,
     downs: this.props.item.downs ?this.props.item.downs : 0,
-    shouldPlay: false,
-    isLooping: false,
-    showIcon: true,
   };
 
   isFav() {
-    favImage(this.props.item.id).then((data) => {
-      if (data === "unfavorited")
-        this.setState({ fav: false });
-      else
-        this.setState({ fav: true });
-    }).catch(e => e);
+    if (this.props.item.is_album) {
+      console.log('Album');
+    } else {
+      favImage(this.props.item.id).then((data) => {
+        if (data === "unfavorited")
+          this.setState({ fav: false });
+        else
+          this.setState({ fav: true });
+      }).catch(e => e);
+    }
   }
 
   render() {
