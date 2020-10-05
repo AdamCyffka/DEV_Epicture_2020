@@ -19,7 +19,7 @@ export default class Upload extends React.Component {
       this.title = ''
       this.description = ''
     }
-
+    
     async uploadImage() {
       const token = AsyncStorage.getItem('accessToken')
       this.setState({ isLoading: true, uploadButton: true, selectButton: true })
@@ -46,10 +46,11 @@ export default class Upload extends React.Component {
         Alert.alert('An error occured', data.data.error)
       }
     }
-
+    
     handleChoosePhoto = () => {
       const options = {
         noData: false,
+        base64: true,
       };
       ImagePicker.showImagePicker(options, response => {
         if (response.uri) {
@@ -57,7 +58,7 @@ export default class Upload extends React.Component {
         }
       });
     };
-
+    
     render() {
       const { photo } = this.state;
       return (
