@@ -13,31 +13,41 @@ async function getUserFavorites() {
       'Authorization': 'Bearer ' + token
     }
   })
-  .then((response) => {
-    return response.json();
-  })
-  .then((result) => {
-    if (result.success)
-      return Promise.resolve(result.data);
-    return Promise.reject(result.data);
-  });
+    .then((response) => {
+      return response.json();
+    })
+    .then((result) => {
+      if (result.success)
+        return Promise.resolve(result.data);
+      return Promise.reject(result.data);
+    });
 }
 
 export default class Favorites extends React.Component {
 
   state = {
-    items: null,
     isReady: false,
-    isFetching: false,
   };
   items = null;
 
   componentDidMount() {
+    this.loadPost();
+  }
+
+  loadPost = () => {
     getUserFavorites().then((data) => {
       this.items = data;
-      this.setState({ isReady: true });
+      this.setState({ isReady: false });
     }).catch((err) => err)
   }
+
+  handleRefresh = () => {
+    this.setState({
+      isReady: true
+    }, () => {
+      this.loadPost();
+    });
+  };
 
   render() {
     return (
@@ -48,6 +58,8 @@ export default class Favorites extends React.Component {
             initialNumToRender={5}
             maxToRenderPerBatch={10}
             windowSize={10}
+            refreshing={this.state.isReady}
+            onRefresh={this.handleRefresh}
             keyExtractor={(item, index) => index.toString()}
             renderItem={({ item }) => {
               return <CardImage

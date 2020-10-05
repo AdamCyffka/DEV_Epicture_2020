@@ -36,6 +36,10 @@ export default class Home extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
+  componentDidMount() {
+    this.loadPost()
+  }
+
   _updateInput (input) {
     this.setState({ input });
   }
@@ -71,10 +75,6 @@ export default class Home extends React.Component {
       this.loadPost();
     });
   };
-
-  componentDidMount() {
-    this.loadPost()
-  }
 
   render() {
     return (

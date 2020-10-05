@@ -14,21 +14,20 @@ async function getUserPosts() {
         'Authorization': 'Bearer ' + token
       }
     })
-  .then((response) => {
-    return response.json();
-  })
-  .then((result) => {
-    if (result.success)
-      return Promise.resolve(result.data);
-    return Promise.reject(result.data);
-  });
+    .then((response) => {
+      return response.json();
+    })
+    .then((result) => {
+      if (result.success)
+        return Promise.resolve(result.data);
+      return Promise.reject(result.data);
+    });
 }
 
 export default class Posts extends React.Component {
 
   state = {
     isReady: false,
-    isRefreshing: false,
   };
   items = null;
 
@@ -39,12 +38,16 @@ export default class Posts extends React.Component {
   loadPost = () => {
     getUserPosts().then((data) => {
       this.items = data;
-      this.setState({ isReady: true });
+      this.setState({ isReady: false });
     }).catch((err) => err)
   }
 
   handleRefresh = () => {
-    this.setState({isRefreshing: true,}, () => {this.loadPost();});
+    this.setState({
+      isReady: true
+    }, () => {
+      this.loadPost();
+    });
   };
 
   render() {
@@ -56,7 +59,7 @@ export default class Posts extends React.Component {
             initialNumToRender={5}
             maxToRenderPerBatch={10}
             windowSize={10}
-            refreshing={this.state.isRefreshing}
+            refreshing={this.state.isReady}
             onRefresh={this.handleRefresh}
             keyExtractor={(item, index) => index.toString()}
             renderItem={({ item }) => {
