@@ -1,5 +1,5 @@
 import React from 'react';
-import { SafeAreaView, ScrollView, StyleSheet, Text, Touchable, View, Button, Image, TextInput, Alert } from 'react-native';
+import { SafeAreaView, Keyboard, StyleSheet, Text, TouchableWithoutFeedback, View, Button, Image, TextInput, Alert } from 'react-native';
 import AsyncStorage from '@react-native-community/async-storage';
 import ImagePicker from 'react-native-image-picker';
 import LoadingView from 'react-native-loading-view';
@@ -61,70 +61,72 @@ export default class Upload extends React.Component {
     render() {
       const { photo } = this.state;
       return (
-        <SafeAreaView style={styles.container}>
-          <View style={{ flex: 1 }}>
-            <View style={{ flexDirection: 'row' }}>
-              <View style={{ flex: 1, marginRight: 'auto', marginTop: 'auto', paddingTop: 10, paddingLeft: 10, alignItems: 'flex-start' }}>
-                <Button
-                  onPress={this.handleChoosePhoto}
-                  title="Select photo"
-                  color="#841584"
-                  disabled={this.state.selectButton}
-                />
- 		  				</View>
-              <View style={{ flex: 1, marginLeft: 'auto', paddingTop: 10, paddingRight: 10, alignItems: 'flex-end' }}>
-                <Button
-                  onPress={() => this.uploadImage()}
-                  title="Upload Photo"
-                  color="green"
-                  disabled={this.state.uploadButton}
-                />
-   						</View>
+        <TouchableWithoutFeedback style={{flex: 1}} onPress={Keyboard.dismiss} accessible={false}>
+          <SafeAreaView style={styles.container}>
+            <View style={{ flex: 1 }}>
+              <View style={{ flexDirection: 'row' }}>
+                <View style={{ flex: 1, marginRight: 'auto', marginTop: 'auto', paddingTop: 10, paddingLeft: 10, alignItems: 'flex-start' }}>
+                  <Button
+                    onPress={this.handleChoosePhoto}
+                    title="Select photo"
+                    color="#841584"
+                    disabled={this.state.selectButton}
+                  />
+                </View>
+                <View style={{ flex: 1, marginLeft: 'auto', paddingTop: 10, paddingRight: 10, alignItems: 'flex-end' }}>
+                  <Button
+                    onPress={() => this.uploadImage()}
+                    title="Upload Photo"
+                    color="green"
+                    disabled={this.state.uploadButton}
+                  />
+                </View>
+              </View>
             </View>
-          </View>
-          <View style={{ flex: 1 }}></View>
-          <View style={{ flex: 10, alignItems: 'center', justifyContent: 'center', paddingBottom: 10 }}>
-            <LoadingView loading={this.state.isLoading}>
-              {photo ? (
-                <Image
-                  source={{ uri: photo.uri }}
-                  style={{ flex: 1, aspectRatio: 1, resizeMode: 'contain', borderRadius: 10 }}
-                />
-              ) : (
-                <Image
-                  source={require('../assets/noImage.png')}
-                  style={{ flex: 1, aspectRatio: 0.8, resizeMode: 'contain', borderRadius: 10 }}
-                />
-              )}
-            </LoadingView>
- 				  </View>
- 				  <View style={{ flex: 1 }}></View>
-          <Text style={[styles.textTitle]}>Title</Text>
-          <View style={{ flexDirection: 'row' }}>
             <View style={{ flex: 1 }}></View>
-            <TextInput
-              placeholder={'Title'}
-              placeholderTextColor={'grey'}
-              style={[styles.textInput]}
-              onChangeText={text => this.title = text}
-            >
-            </TextInput>
+            <View style={{ flex: 10, alignItems: 'center', justifyContent: 'center', paddingBottom: 10 }}>
+              <LoadingView loading={this.state.isLoading}>
+                {photo ? (
+                  <Image
+                    source={{ uri: photo.uri }}
+                    style={{ flex: 1, aspectRatio: 1, resizeMode: 'contain', borderRadius: 10 }}
+                  />
+                ) : (
+                  <Image
+                    source={require('../assets/noImage.png')}
+                    style={{ flex: 1, aspectRatio: 0.8, resizeMode: 'contain', borderRadius: 10 }}
+                  />
+                )}
+              </LoadingView>
+            </View>
             <View style={{ flex: 1 }}></View>
-          </View>
-          <Text style={[styles.textTitle]}>Description</Text>
-          <View style={{ flexDirection: 'row' }}>
+            <Text style={[styles.textTitle]}>Title</Text>
+            <View style={{ flexDirection: 'row' }}>
+              <View style={{ flex: 1 }}></View>
+              <TextInput
+                placeholder={'Title'}
+                placeholderTextColor={'grey'}
+                style={[styles.textInput]}
+                onChangeText={text => this.title = text}
+              >
+              </TextInput>
+              <View style={{ flex: 1 }}></View>
+            </View>
+            <Text style={[styles.textTitle]}>Description</Text>
+            <View style={{ flexDirection: 'row' }}>
+              <View style={{ flex: 1 }}></View>
+              <TextInput
+                placeholder={'Description'}
+                placeholderTextColor={'grey'}
+                style={[styles.textInput]}
+                onChangeText={text => this.description = text}
+              >
+              </TextInput>
+              <View style={{ flex: 1 }}></View>
+            </View>
             <View style={{ flex: 1 }}></View>
-            <TextInput
-              placeholder={'Description'}
-              placeholderTextColor={'grey'}
-              style={[styles.textInput]}
-              onChangeText={text => this.description = text}
-            >
-            </TextInput>
-            <View style={{ flex: 1 }}></View>
-          </View>
-          <View style={{ flex: 1 }}></View>
-        </SafeAreaView>
+          </SafeAreaView>
+        </TouchableWithoutFeedback>
       );
     }
 }
