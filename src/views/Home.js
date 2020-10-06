@@ -1,6 +1,9 @@
 import React from 'react';
-import { StatusBar, View, FlatList, ActivityIndicator, StyleSheet, SafeAreaView } from 'react-native';
+import { StatusBar, View, FlatList, ActivityIndicator, StyleSheet, SafeAreaView, TouchableOpacity} from 'react-native';
 import { SearchBar } from 'react-native-elements';
+import ActionSheet from 'react-native-actionsheet';
+import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
+import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import CardImage from '../components/Card';
 import LottieView from 'lottie-react-native';
 
@@ -76,6 +79,20 @@ export default class Home extends React.Component {
     });
   };
 
+  showChoiceActionSheet = () => {
+    
+    this.ChoiceAS.show()
+  }
+
+  showCategoryActionSheet = () => {
+    this.CategoryAS.show()
+    console.log("bb jtm")
+  }
+
+  showSortActionSheet = () => {
+    this.SortAS.show()
+  }
+
   render() {
     return (
       <SafeAreaView style={styles.container}>
@@ -89,7 +106,68 @@ export default class Home extends React.Component {
             value={this.state.input}
             onChangeText={(text) => this._updateInput(text)}
             onSubmitEditing={() => this.handleSubmit()}
+            containerStyle={styles.searchBarContainer}
+            inputContainerStyle={styles.searchBarInputContainerStyle}
             round={true}
+          />
+          <TouchableOpacity onPress={this.showChoiceActionSheet}>
+            <MaterialCommunityIcons name="filter-plus-outline" size={38} style={{ color: "white"}} />
+          </TouchableOpacity>
+          <ActionSheet
+            ref={o => this.ChoiceAS = o}
+            title={'Add a filter'}
+            options={['Category', 'Sort', 'Cancel']}
+            cancelButtonIndex={2}
+            destructiveButtonIndex={2}
+            onPress={(index) => {
+              if (index === 0) {
+                this.showCategoryActionSheet()
+              } else if (index === 1) {
+                this.showSortActionSheet()
+              }
+            }}
+          />
+          <ActionSheet
+            ref={o => this.CategoryAS = o}
+            title={'Choose a category'}
+            options={['Hot',
+                      'Top',
+                      <MaterialIcons name="arrow-back-ios" size={24} style={{ color: "blue"}} />,
+                      'Cancel']
+                    }
+            cancelButtonIndex={3}
+            destructiveButtonIndex={3}
+            onPress={(index) => {
+              if (index === 0) {
+
+              } else if (index === 1) {
+
+              } else {
+                this.showChoiceActionSheet()
+              }
+            }}
+          />
+          <ActionSheet
+            ref={o => this.SortAS = o}
+            title={'Sort by'}
+            options={['Viral',
+                      'Top',
+                      'Time',
+                      <MaterialIcons name="arrow-back-ios" size={24} style={{ color: "blue"}} />,
+                      'Cancel']}
+            cancelButtonIndex={4}
+            destructiveButtonIndex={4}
+            onPress={(index) => {
+              if (index === 0) {
+                console.log("oui")
+              } else if (index === 1) {
+
+              } else if (index === 2) {
+
+              } else {
+                this.showChoiceActionSheet()
+              }
+            }}
           />
         </View>
         {this.state.items !== null ?
@@ -140,9 +218,18 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   inputContainer: {
+    flexDirection: "row",
     justifyContent: 'center',
+    alignItems: 'center',
     paddingHorizontal: 15,
     paddingTop: 10,
+  },
+  searchBarContainer: {
+    backgroundColor: "transparent",
+    width: '90%',
+  },
+  searchBarInputContainerStyle: {
+    backgroundColor: "white",
   },
   background: {
       flex: 1,
