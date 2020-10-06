@@ -38,20 +38,13 @@ export default class Profile extends React.Component {
     getAccountInfo()
       .then((response) => {
         const data = response.data
-        console.log(response)
-        console.log("Cover = " + response.data)
         this.setState({
           loading: false,
           avatar: data.avatar,
           background: data.cover,
           reputation: data.reputation,
         })
-      }, (error) => {
-        console.log('error: ', error)
-        this.setState({
-            error: true,
-        })
-      })
+      }).catch(err => err);
   }
 
   render() {

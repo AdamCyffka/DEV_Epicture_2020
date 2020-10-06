@@ -7,13 +7,13 @@ import LottieView from 'lottie-react-native';
 async function getUserPosts() {
   const token = await AsyncStorage.getItem('accessToken');
   return fetch('https://api.imgur.com/3/account/me/images', {
-      method: 'GET',
-      headers: {
-        Accept: 'application/json',
-        'Content-Type': 'application/json',
-        'Authorization': 'Bearer ' + token
-      }
-    })
+    method: 'GET',
+    headers: {
+      Accept: 'application/json',
+      'Content-Type': 'application/json',
+      'Authorization': 'Bearer ' + token
+    }
+  })
     .then((response) => {
       return response.json();
     })

@@ -3,41 +3,42 @@ import { TouchableOpacity, StatusBar, View, Text, StyleSheet, SafeAreaView } fro
 import LottieView from 'lottie-react-native';
 
 export default class Welcome extends React.Component {
+
   render() {
     return (
-        <SafeAreaView style={styles.container}>
-          <StatusBar
-            barStyle="light-content"
-            backgroundColor="#000000"
+      <SafeAreaView style={styles.container}>
+        <StatusBar
+          barStyle="light-content"
+          backgroundColor="#000000"
+        />
+        <View style={styles.lottieView}>
+          <LottieView
+            source={require('../assets/sending-email.json')}
+            autoPlay
+            loop
+            style={{
+              justifyContent: 'center',
+              alignItems: 'center',
+              width: '100%',
+            }}
           />
-          <View style={styles.lottieView}>
-            <LottieView
-              source={require('../assets/sending-email.json')}
-              autoPlay
-              loop
-              style={{
-                justifyContent: 'center',
-                alignItems: 'center',
-                width: '100%',
-              }}
-            />
-            <Text style={styles.welcomeTitle}>Epicture</Text>
-          </View>
-          <View style={styles.buttonsView}>
-            <TouchableOpacity
-              onPress={() => this.props.navigation.navigate('Login')}
-              style={styles.button}
-            >
-              <Text style={styles.buttonText}>Login</Text>
-            </TouchableOpacity>
-            <TouchableOpacity
-              onPress={() => this.props.navigation.navigate('Home')}
-              style={styles.button}
-            >
-              <Text style={styles.buttonText}>Continue as guest</Text>
-            </TouchableOpacity>
-          </View>
-        </SafeAreaView>
+          <Text style={styles.welcomeTitle}>Epicture</Text>
+        </View>
+        <View style={styles.buttonsView}>
+          <TouchableOpacity
+            onPress={() => this.props.navigation.navigate('Login')}
+            style={styles.button}
+          >
+            <Text style={styles.buttonText}>Login</Text>
+          </TouchableOpacity>
+          <TouchableOpacity
+            onPress={() => this.props.navigation.navigate('Home')}
+            style={styles.button}
+          >
+            <Text style={styles.buttonText}>Continue as guest</Text>
+          </TouchableOpacity>
+        </View>
+      </SafeAreaView>
     );
   }
 }

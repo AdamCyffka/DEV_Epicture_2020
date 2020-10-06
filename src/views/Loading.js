@@ -4,6 +4,7 @@ import AsyncStorage from '@react-native-community/async-storage';
 import LottieView from 'lottie-react-native';
 
 export default class Loading extends React.Component {
+
   componentDidMount() {
     this._bootstrapAsync();
   }
@@ -15,20 +16,20 @@ export default class Loading extends React.Component {
 
   render() {
     return (
-        <SafeAreaView style={styles.container}>
-          <StatusBar
-            barStyle="light-content"
-            backgroundColor="#000000"
-          />
-          <LottieView
-              source={require('../assets/loading.json')}
-              autoPlay
-              loop
-              style={{
-                height: 350,
-              }}
-            />
-        </SafeAreaView>
+      <SafeAreaView style={styles.container}>
+        <StatusBar
+          barStyle="light-content"
+          backgroundColor="#000000"
+        />
+        <LottieView
+          source={require('../assets/loading.json')}
+          autoPlay
+          loop
+          style={{
+            height: 350,
+          }}
+        />
+      </SafeAreaView>
     );
   }
 }

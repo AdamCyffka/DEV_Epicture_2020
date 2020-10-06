@@ -80,7 +80,6 @@ export default class Home extends React.Component {
   };
 
   showChoiceActionSheet = () => {
-    
     this.ChoiceAS.show()
   }
 
