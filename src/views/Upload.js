@@ -18,7 +18,7 @@ export default class Upload extends React.Component {
       this.title = ''
       this.description = ''
     }
-    
+
     async uploadImage() {
       const token = AsyncStorage.getItem('accessToken')
       this.setState({ isLoading: true, uploadButton: true, selectButton: true })

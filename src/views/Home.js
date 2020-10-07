@@ -1,5 +1,5 @@
 import React from 'react';
-import { StatusBar, View, FlatList, ActivityIndicator, StyleSheet, SafeAreaView, TouchableOpacity} from 'react-native';
+import { StatusBar, View, FlatList, StyleSheet, SafeAreaView, TouchableOpacity } from 'react-native';
 import { SearchBar } from 'react-native-elements';
 import ActionSheet from 'react-native-actionsheet';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
@@ -109,7 +109,7 @@ export default class Home extends React.Component {
             round={true}
           />
           <TouchableOpacity onPress={this.showChoiceActionSheet}>
-            <MaterialCommunityIcons name="filter-plus-outline" size={38} style={{ color: "white"}} />
+            <MaterialCommunityIcons name="filter-plus-outline" size={38} style={{ color: "white" }} />
           </TouchableOpacity>
           {/* <ActionSheet
             ref={o => this.ChoiceAS = o}
