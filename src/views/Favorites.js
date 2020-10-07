@@ -55,8 +55,8 @@ export default class Favorites extends React.Component {
           <FlatList
             data={this.items}
             initialNumToRender={5}
-            maxToRenderPerBatch={10}
-            windowSize={10}
+            maxToRenderPerBatch={5}
+            windowSize={15}
             refreshing={this.state.isReady}
             onRefresh={this.handleRefresh}
             keyExtractor={(item, index) => index.toString()}
@@ -94,8 +94,4 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
   },
-  appLoading: {
-    flex: 1,
-    justifyContent: 'center',
-  }
 });

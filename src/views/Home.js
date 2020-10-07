@@ -223,21 +223,13 @@ const styles = StyleSheet.create({
     paddingTop: 10,
   },
   searchBarContainer: {
-    backgroundColor: "transparent",
+    backgroundColor: "white",
     width: '90%',
   },
   searchBarInputContainerStyle: {
     backgroundColor: "white",
   },
-  background: {
-      flex: 1,
-      backgroundColor: '#11181F',
-  },
   cardContent: {
-      marginTop: 10,
+    marginTop: 10,
   },
-  appLoading: {
-      flex: 1,
-      justifyContent: 'center'
-  }
 });
