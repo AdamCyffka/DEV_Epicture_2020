@@ -5,7 +5,6 @@ import ImagePicker from 'react-native-image-picker';
 import LoadingView from 'react-native-loading-view';
 
 export default class Upload extends React.Component {
-
     constructor() {
       super()
       this.state = {

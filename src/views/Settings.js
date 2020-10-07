@@ -3,7 +3,6 @@ import { StyleSheet, Text, View, TouchableOpacity, Alert } from 'react-native';
 import AsyncStorage from '@react-native-community/async-storage';
 
 export default class Settings extends React.Component {
-
   logOut = async () => {
     await AsyncStorage.removeItem('accessToken');
     await AsyncStorage.removeItem('userName');
@@ -14,14 +13,14 @@ export default class Settings extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-					<View style={{ width: "80%" }}>
-            <TouchableOpacity style={styles.button} onPress={this.logOut}>
-              <Text style={styles.buttonText}>Sign Out</Text>
-            </TouchableOpacity>
-            <TouchableOpacity style={styles.button}>
-              <Text style={styles.buttonRed}>Delete account</Text>
-            </TouchableOpacity>
-					</View>
+        <View style={{ width: "80%" }}>
+          <TouchableOpacity style={styles.button} onPress={this.logOut}>
+            <Text style={styles.buttonText}>Sign Out</Text>
+          </TouchableOpacity>
+          <TouchableOpacity style={styles.button}>
+            <Text style={styles.buttonRed}>Delete account</Text>
+          </TouchableOpacity>
+        </View>
 			</View>
     );
   }

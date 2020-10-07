@@ -23,7 +23,6 @@ async function getAccountInfo() {
 }
 
 export default class Profile extends React.Component {
-
   constructor() {
     super()
     this.state = {

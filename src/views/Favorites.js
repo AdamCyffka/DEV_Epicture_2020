@@ -24,7 +24,6 @@ async function getUserFavorites() {
 }
 
 export default class Favorites extends React.Component {
-
   state = {
     isReady: false,
   };

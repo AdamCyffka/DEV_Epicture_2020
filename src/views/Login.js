@@ -4,7 +4,6 @@ import WebView from 'react-native-webview';
 import AsyncStorage from '@react-native-community/async-storage';
 
 export default class Login extends React.Component {
-
   _onNavigationStateChange = async ( webViewState ) => {
     if ( webViewState.url.startsWith( 'https://www.getpostman.com/oauth2/callback' ) ) {
       const regex = 'access_token=([^&]+)(?:&expires=(.*))?';
@@ -31,5 +30,4 @@ export default class Login extends React.Component {
       />
     );
   }
-
 }
