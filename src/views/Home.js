@@ -113,7 +113,7 @@ export default class Home extends React.Component {
           <TouchableOpacity onPress={this.showChoiceActionSheet}>
             <MaterialCommunityIcons name="filter-plus-outline" size={38} style={{ color: "white"}} />
           </TouchableOpacity>
-          <ActionSheet
+          {/* <ActionSheet
             ref={o => this.ChoiceAS = o}
             title={'Add a filter'}
             options={['Category', 'Sort', 'Cancel']}
@@ -168,7 +168,7 @@ export default class Home extends React.Component {
                 this.showChoiceActionSheet()
               }
             }}
-          />
+          /> */}
         </View>
         {this.state.items !== null ?
           <FlatList style={styles.cardContent}

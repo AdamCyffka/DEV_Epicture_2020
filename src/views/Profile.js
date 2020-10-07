@@ -1,37 +1,94 @@
 import React from 'react';
-import { Header, Container } from "native-base";
-import { TouchableOpacity, ImageBackground, StatusBar, Dimensions, StyleSheet, } from 'react-native';
+import { Header, Body, Thumbnail } from "native-base";
+import { TouchableOpacity, ImageBackground, StatusBar, Dimensions, StyleSheet, Text, Platform } from 'react-native';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import TopTabs from '../navigation/TopTabs';
+import AsyncStorage from '@react-native-community/async-storage';
+import { SafeAreaView } from 'react-native-safe-area-context';
 
-export default class Profile extends React.Component {I 
+async function getAccountInfo() {
+  const token = await AsyncStorage.getItem('accessToken');
+  const username = await AsyncStorage.getItem('userName');
+  return fetch('https://api.imgur.com/3/account/' + username, {
+    method: 'GET',
+    headers: {
+      Accept: 'application/json',
+      'Content-Type': 'application/json',
+      'Authorization': 'Bearer ' + token
+    }
+  })
+    .then((response) => {
+      return response.json();
+    })
+}
+
+export default class Profile extends React.Component {
+
+  constructor() {
+    super()
+    this.state = {
+      loading: true,
+      avatar : null,
+      background: null,
+      reputation: null,
+      username: null
+    }
+  }
+
+  componentDidMount() {
+    getAccountInfo()
+      .then((response) => {
+        const data = response.data
+        this.setState({
+          loading: false,
+          avatar: data.avatar,
+          background: data.cover,
+          reputation: data.reputation,
+        })
+      }).catch(err => err);
+  }
+
   render() {
     return (
-      <Container style={styles.container}>
+      <SafeAreaView style={styles.container}>
         <ImageBackground
-          source={{ uri: "http://www.allwhitebackground.com/images/6/Space-Star-Background-Image.jpg" }}
+          source={{ uri: this.state.background }}
           style={{
             width: width,
             height: height * 0.2,
-            justifyContent: 'center',
           }}
           imageStyle={{ opacity: 0.8 }}
         >
           <TouchableOpacity
             onPress={() => this.props.navigation.navigate('Settings')}
             style={{
-              padding: 5,
-              paddingTop: 30,
+              marginLeft: '87%',
+              marginTop: '13%',
             }}
           >
             <Ionicons name="ios-settings" size={38} style={{ color: "white" }} />
           </TouchableOpacity>
           <Header transparent>
-            <StatusBar barStyle="light-content" />
+            <StatusBar
+              barStyle="light-content"
+              backgroundColor="#000000"
+            />
+            <Body style={{ justifyContent: "center", alignItems: "center", marginBottom: Platform.OS === 'ios' ? '0%' : '15%' }}>
+              <Thumbnail source={{ uri: this.state.avatar }} />
+              <Text style={styles.username}>
+                {/* {this.state.username} */}
+                AdamCyffka
+              </Text>
+              <Text style={styles.info}>
+                {/* {this.state.userInfo.reputation_name} â€¢{" "}
+                {this.state.userInfo.reputation} Points */}
+                1500 points
+              </Text>
+            </Body>
           </Header>
         </ImageBackground>
         <TopTabs />
-      </Container >
+      </SafeAreaView >
     );
   }
 }
@@ -42,5 +99,17 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#191970',
+  },
+  username: {
+    color: "white",
+    fontSize: 14,
+    marginTop: 5,
+    fontWeight: "bold",
+  },
+  info: {
+    color: "white",
+    fontSize: 14,
+    marginTop: 2,
+    marginBottom: 2,
   },
 });
