@@ -96,8 +96,4 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
   },
-  appLoading: {
-    flex: 1,
-    justifyContent: 'center',
-  }
 });

@@ -1,146 +1,100 @@
 import React from 'react';
-import { View, Text, StyleSheet, ScrollView } from 'react-native';
+import { View, FlatList, Text, StyleSheet, SafeAreaView } from 'react-native';
+import CardImage from '../components/Card';
+import LottieView from 'lottie-react-native';
 import AsyncStorage from '@react-native-community/async-storage';
 
+function getUserSearch(tag) {
+  const id = '7282df4b8e311c8';
+  return fetch('https://api.imgur.com/3/gallery/search?q=' + tag, {
+    method: 'GET',
+    headers: {
+      'Authorization': 'Client-ID ' + id
+    }
+  })
+    .then((response) => {
+      return response.json();
+    })
+    .then((result) => {
+      if (result.success)
+        return Promise.resolve(result.data);
+      return Promise.reject(result.data);
+  })
+}
+
 export default class Result extends React.Component {
-  constructor(props) {
+
+  constructor() {
     super()
     this.state = {
-      dataSource: null,
-      favorites: [],
       loading: true,
+      items: null,
     }
   }
-
-  searchByTag = async (tag) => {
-    const id = '7282df4b8e311c8'
-    return fetch('https://api.imgur.com/3/gallery/t/' + tag, {
-      headers: {
-        'Authorization': 'Client-ID ' + id
-      }
-    })
-    .then((response) => {
-      return response.json()
-    })
-  };
-
-  getUserFavorites = async () => {
-    const token = await AsyncStorage.getItem('accessToken');
-    const username = await AsyncStorage.getItem('userName');
-    return fetch('https://api.imgur.com/3/account/' + username + '/favorites/', {
-      method: 'GET',
-      headers: {
-        'Authorization': 'Bearer ' + token
-      }
-    })
-    .then((response) => {
-      return response.json()
-    })
-  };
 
   componentDidMount() {
-    this.getUserFavorites().then(
-      (response) => {
-        this.setState({ favorites: response.data })
-        this.searchByTag(this.props.route.params.search).then(
-          (response) => {
-            this.setState({ dataSource: response.data.items, loading: false })
-          },
-          (error) => {
-            console.log('error: ', error)
-          },
-        )
-      },
-      (error) => {
-        console.log('error: ', error)
-      },
-    )
+    this.loadSearch()
   }
 
+  loadSearch = () => {
+    getUserSearch(this.props.route.params.search).then((data) => {
+      this.state.items = data;
+      this.setState({ loading: false });
+    }).catch((err) => err)
+  }
+
+  handleRefresh = () => {
+    this.setState({
+      loading: true
+    }, () => {
+      this.loadSearch();
+    });
+  };
+
   render() {
-    let { loading, dataSource, favorites } = this.state
-    let results = null
-
-    if (loading) {
-      results = (
-        <View style={style.loadingContainer}>
-          <Text style={style.loading}>Loading your best search</Text>
-        </View>
-      )
-    }
-
-    if (!loading) {
-      results =
-        dataSource &&
-        dataSource.map((el) => (
-          <ImageCard
-            key={el.id}
-            result={el}
-            userFavorites={favorites}
-          />
-        ))
-    }
-
     return (
-      <View style={style.container}>
-        <ScrollView style={style.mainContainer}>
-          <View style={{ flex: 1 }}>{results}</View>
-        </ScrollView>
-      </View>
-    )
+      <SafeAreaView style={styles.container}>
+        {this.state.items !== null ?
+          <FlatList
+            data={this.state.items}
+            initialNumToRender={5}
+            maxToRenderPerBatch={5}
+            windowSize={15}
+            refreshing={this.state.loading}
+            onRefresh={this.handleRefresh}
+            keyExtractor={(item, index) => index.toString()}
+            renderItem={({ item, index }) => {
+              return <CardImage
+                image={item.images[0]}
+                item={item}
+              />
+            }}
+          />
+        :
+          <View style={styles.lottieView}>
+            <LottieView
+              source={require('../assets/loading.json')}
+              autoPlay
+              loop
+              style={{
+                height: 350,
+              }}
+            />
+          </View>
+        }
+      </SafeAreaView>
+    );
   }
 }
 
-const style = StyleSheet.create({
+const styles = StyleSheet.create({
   container: {
     flex: 1,
+    backgroundColor: '#191970',
   },
-  headingContainer: {
-    justifyContent: 'center',
-    alignItems: 'center',
-    height: 70,
-    borderBottomWidth: 1,
-    borderBottomColor: '#ededed',
-  },
-  heading: {
-    fontSize: 20,
-    marginTop: 10,
-  },
-  mainContainer: {
+  lottieView: {
     flex: 1,
-  },
-  closeButton: {
-    height: 20,
-    marginBottom: 10,
     justifyContent: 'center',
     alignItems: 'center',
-    borderBottomColor: '#e6e6e6',
-    borderBottomWidth: 1,
-  },
-  closeButtonText: {
-    fontSize: 16,
-    color: '#afafaf',
-    marginTop: 10,
-  },
-  loadingContainer: {
-    alignItems: 'center',
-    marginTop: 160,
-  },
-  loading: {
-    fontSize: 22,
-    color: '#7f7f7f',
-  },
-  results: {
-    color: '#c9c9c9',
-    textAlign: 'center',
-    fontSize: 13,
-    fontWeight: 'bold',
-    marginBottom: 17,
-  },
-  resultsContainer: {
-    marginTop: 20,
-    paddingTop: 20,
-    borderTopWidth: 1,
-    borderTopColor: '#ededed',
   },
 })

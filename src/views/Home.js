@@ -43,7 +43,7 @@ export default class Home extends React.Component {
     this.loadPost()
   }
 
-  _updateInput (input) {
+  _updateInput(input) {
     this.setState({ input });
   }
 
