@@ -1,10 +1,9 @@
 import React from 'react';
 import { Header, Body, Thumbnail } from "native-base";
-import { TouchableOpacity, ImageBackground, StatusBar, Dimensions, StyleSheet, Text, Platform } from 'react-native';
+import { TouchableOpacity, ImageBackground, StatusBar, Dimensions, StyleSheet, Text, Platform, SafeAreaView } from 'react-native';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import TopTabs from '../navigation/TopTabs';
 import AsyncStorage from '@react-native-community/async-storage';
-import { SafeAreaView } from 'react-native-safe-area-context';
 
 async function getAccountInfo() {
   const token = await AsyncStorage.getItem('accessToken');

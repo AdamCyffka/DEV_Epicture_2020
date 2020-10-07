@@ -11,14 +11,14 @@ async function favImage(imageHash) {
       'Authorization': 'Bearer ' + token
     }
   })
-  .then((response) => {
+    .then((response) => {
       return response.json();
-  })
-  .then((result) => {
+    })
+    .then((result) => {
       if (result.success)
-          return Promise.resolve(result.data);
+        return Promise.resolve(result.data);
       return Promise.reject(result.data);
-  });
+    });
 }
 
 export default class CardImage extends React.PureComponent {
@@ -64,7 +64,7 @@ export default class CardImage extends React.PureComponent {
               style={{ aspectRatio: this.props.image.width / this.props.image.height, flex: 1 }}
             />
             {this.props.image.type.includes('video') && <View style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, justifyContent: 'center', alignItems: 'center' }}>
-              <Icon style={{ fontSize: 50, color: 'white' }} name='play' />
+              <Icon style={{ fontSize: 40, color: 'white' }} name='play' />
             </View>}
           </View>
         </CardItem>
