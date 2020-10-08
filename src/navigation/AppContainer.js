@@ -1,7 +1,7 @@
 import React from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
 import Ionicons from 'react-native-vector-icons/Ionicons';
-import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
 import Settings from '../views/Settings';
 import Loading from '../views/Loading';
@@ -12,7 +12,7 @@ import Upload from '../views/Upload';
 import Welcome from '../views/Welcome';
 import Login from '../views/Login';
 
-const BottomTab = createMaterialBottomTabNavigator();
+const BottomTab = createBottomTabNavigator();
 
 function BottomTabs() {
   return (

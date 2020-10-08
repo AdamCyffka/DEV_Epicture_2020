@@ -1,8 +1,8 @@
 import React from 'react';
 import { SafeAreaView, Keyboard, StyleSheet, Text, TouchableWithoutFeedback, View, Button, Image, TextInput, Alert } from 'react-native';
 import AsyncStorage from '@react-native-community/async-storage';
-import ImagePicker from 'react-native-image-picker';
 import LoadingView from 'react-native-loading-view';
+import ActionSheet from 'react-native-actionsheet';
 
 export default class Upload extends React.Component {
     constructor() {
@@ -46,17 +46,19 @@ export default class Upload extends React.Component {
       }
     }
     
-    handleChoosePhoto = () => {
-      const options = {
-        noData: false,
-        base64: true,
-      };
-      ImagePicker.showImagePicker(options, response => {
-        if (response.uri) {
-          this.setState({ photo: response, uploadButton: false });
-        }
-      });
-    };
+    // handleChoosePhoto = () => {
+    //   const options = {
+    //   };
+    //   ImagePicker.showImagePicker(options, response => {
+    //     if (response.uri) {
+    //       this.setState({ photo: response, uploadButton: false });
+    //     }
+    //   });
+    // };
+
+    showActionSheet = () => {
+      this.ActionSheet.show()
+    }
     
     render() {
       const { photo } = this.state;
@@ -67,10 +69,24 @@ export default class Upload extends React.Component {
               <View style={{ flexDirection: 'row' }}>
                 <View style={{ flex: 1, marginRight: 'auto', marginTop: 'auto', paddingTop: 10, paddingLeft: 10, alignItems: 'flex-start' }}>
                   <Button
-                    onPress={this.handleChoosePhoto}
+                    onPress={this.showActionSheet}
                     title="Select photo"
                     color="#841584"
                     disabled={this.state.selectButton}
+                  />
+                  <ActionSheet
+                    ref={o => this.ActionSheet = o}
+                    title={'Upload a photo'}
+                    options={['Take photo', 'Choose from library', 'Cancel']}
+                    cancelButtonIndex={2}
+                    destructiveButtonIndex={2}
+                    onPress={(index) => {
+                      if (index === 0) {
+                        console.warn('take photo')
+                      } else if (index === 1) {
+                        console.warn('choose')
+                      }
+                    }}
                   />
                 </View>
                 <View style={{ flex: 1, marginLeft: 'auto', paddingTop: 10, paddingRight: 10, alignItems: 'flex-end' }}>
