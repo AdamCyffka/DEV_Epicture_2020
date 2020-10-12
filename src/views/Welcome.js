@@ -30,12 +30,6 @@ export default class Welcome extends React.Component {
           >
             <Text style={styles.buttonText}>Login</Text>
           </TouchableOpacity>
-          <TouchableOpacity
-            onPress={() => this.props.navigation.navigate('Home')}
-            style={styles.button}
-          >
-            <Text style={styles.buttonText}>Continue as guest</Text>
-          </TouchableOpacity>
         </View>
       </SafeAreaView>
     );
