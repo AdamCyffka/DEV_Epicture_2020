@@ -4,7 +4,6 @@ import WebView from 'react-native-webview';
 import AsyncStorage from '@react-native-community/async-storage';
 
 export default class Login extends React.Component {
-
   _onNavigationStateChange = async ( webViewState ) => {
     if ( webViewState.url.startsWith( 'https://www.getpostman.com/oauth2/callback' ) ) {
       const regex = 'access_token=([^&]+)(?:&expires=(.*))?';
@@ -26,10 +25,9 @@ export default class Login extends React.Component {
         automaticallyAdjustContentInsets={ false }
         onNavigationStateChange={ this._onNavigationStateChange.bind( this ) }
         source={{
-          uri: `https://api.imgur.com/oauth2/authorize?client_id=${Api.clientID}&response_type=token`,
+          uri: 'https://api.imgur.com/oauth2/authorize?client_id=' + Api.clientID + '&response_type=token',
         }}
       />
     );
   }
-
 }

@@ -2,10 +2,12 @@ import React from 'react';
 import { Text, Button, Thumbnail, Card, CardItem, Left, Body, Icon, Right } from 'native-base';
 import { StyleSheet, Image, View } from 'react-native';
 import AsyncStorage from '@react-native-community/async-storage';
+import MaterialIcons from 'react-native-vector-icons/MaterialIcons'
+import ActionSheet from "react-native-action-sheet";
 
 async function favImage(imageHash) {
   const token = AsyncStorage.getItem('accessToken');
-  return fetch(`https://api.imgur.com/3/image/${imageHash}/favorite`, {
+  return fetch('https://api.imgur.com/3/image/' + imageHash + '/favorite', {
     method: 'POST',
     headers: {
       'Authorization': 'Bearer ' + token
@@ -23,7 +25,7 @@ async function favImage(imageHash) {
 
 async function downVoteImage(imageHash) {
   const token = AsyncStorage.getItem('accessToken');
-  return fetch(`https://api.imgur.com/3/gallery/${imageHash}/vote/down`, {
+  return fetch('https://api.imgur.com/3/gallery/' + imageHash + '/vote/down', {
     method: 'POST',
     headers: {
       'Authorization': 'Bearer ' + token
@@ -41,7 +43,7 @@ async function downVoteImage(imageHash) {
 
 async function upVoteImage(imageHash) {
   const token = AsyncStorage.getItem('accessToken');
-  return fetch(`https://api.imgur.com/3/gallery/${imageHash}/vote/up`, {
+  return fetch('https://api.imgur.com/3/gallery/' + imageHash + '/vote/up', {
     method: 'POST',
     headers: {
       'Authorization': 'Bearer ' + token
@@ -57,7 +59,25 @@ async function upVoteImage(imageHash) {
     });
 }
 
-export default class CardImage extends React.PureComponent {
+async function deleteImage(imageHash) {
+  const token = AsyncStorage.getItem('accessToken');
+  return fetch('https://api.imgur.com/3/image/' + imageHash, {
+    method: 'DELETE',
+    headers: {
+      'Authorization': 'Bearer ' + token
+    }
+  })
+    .then((response) => {
+        return response.json();
+    })
+    .then((result) => {
+      if (result.success)
+        return Promise.resolve(result.data);
+      return Promise.reject(result.data);
+    });
+}
+
+export default class ProfileCardImage extends React.PureComponent {
 
   state = {
     upVoted: this.props.item.vote === "up" ? true : false,
@@ -65,6 +85,7 @@ export default class CardImage extends React.PureComponent {
     fav: this.props.item.favorite,
     ups: this.props.item.ups ?this.props.item.ups : 0 ,
     downs: this.props.item.downs ?this.props.item.downs : 0,
+    loading: false,
   };
 
   isUpVoted() {
@@ -72,15 +93,15 @@ export default class CardImage extends React.PureComponent {
     tmp2 = this.state.ups
     tmp3 = this.state.downs
 
-    this.setState({ upVoted: tmp });
+    this.setState({ upVoted: tmp })
     if (tmp) {
       upVoteImage(this.props.item.id).catch(err => err)
-      this.setState({ ups: tmp2 + 1 });
+      this.setState({ ups: tmp2 + 1 })
       if (this.state.downVoted) {
-        this.setState({ downs: tmp3 - 1, downVoted: false });
+        this.setState({ downs: tmp3 - 1, downVoted: false })
       }
     } else {
-      this.setState({ ups: tmp2 - 1 });
+      this.setState({ ups: tmp2 - 1 })
     }
   }
 
@@ -89,25 +110,53 @@ export default class CardImage extends React.PureComponent {
     tmp2 = this.state.downs
     tmp3 = this.state.ups
 
-    this.setState({ downVoted: tmp });
+    this.setState({ downVoted: tmp })
     if (tmp) {
       downVoteImage(this.props.item.id).catch(err => err)
-      this.setState({ downs: tmp2 + 1 });
+      this.setState({ downs: tmp2 + 1 })
       if (this.state.upVoted) {
         this.setState({ ups: tmp3 - 1, upVoted: false });
       }
     } else {
-      this.setState({ downs: tmp2 - 1 });
+      this.setState({ downs: tmp2 - 1 })
     }
   }
 
   isFav() {
     favImage(this.props.item.id).then((data) => {
       if (data === "unfavorited")
-        this.setState({ fav: false });
+        this.setState({ fav: false })
       else
-        this.setState({ fav: true });
-    }).catch(e => e);
+        this.setState({ fav: true })
+    }).catch(e => e)
+  }
+
+  deleteImage() {
+    this.setState({ loading: true })
+    deleteImage(this.props.item.id).then((response) => response.json())
+    .then((responseJson) => {
+      console.log('SUCCESS => ', responseJson)
+      this.showOwnImages()
+    })
+    .catch((error) => {
+      console.error(error);
+      this.setState({ loading: false })
+    })
+  }
+
+  showActionSheet = () => {
+    ActionSheet.showActionSheetWithOptions({
+      options: ['Delete post', 'Cancel'],
+      cancelButtonIndex: 1,
+      destructiveButtonIndex: 2,
+    },
+    (buttonIndex) => {
+      if (buttonIndex === 0) {
+        this.handletakePhoto()
+      } else if (buttonIndex === 1) {
+        this.handleChoosePhoto()
+      }
+    })
   }
 
   render() {
@@ -121,6 +170,11 @@ export default class CardImage extends React.PureComponent {
               <Text style={styles.username}>{this.props.item.account_url}</Text>
             </Body>
           </Left>
+          <Right>
+          <Button transparent onPress={() => this.showActionSheet()}>
+              <MaterialIcons style={styles.share} name="more-vert" />
+            </Button>
+          </Right>
         </CardItem>
         <CardItem cardBody style={{ aspectRatio: this.props.image.width / this.props.image.height, flex: 1 }}>
           <View>

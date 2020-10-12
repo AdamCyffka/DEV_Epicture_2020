@@ -1,8 +1,7 @@
 import React from 'react';
-import { StatusBar, View, FlatList, ActivityIndicator, StyleSheet, SafeAreaView, TouchableOpacity} from 'react-native';
+import { StatusBar, View, FlatList, StyleSheet, SafeAreaView, TouchableOpacity } from 'react-native';
 import { SearchBar } from 'react-native-elements';
-import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
-import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
+import Icon from 'react-native-vector-icons/Ionicons';
 import CardImage from '../components/Card';
 import LottieView from 'lottie-react-native';
 
@@ -25,7 +24,6 @@ async function getGalleryTop(page) {
 }
 
 export default class Home extends React.Component {
-
   constructor () {
     super()
     this.state = {
@@ -42,9 +40,9 @@ export default class Home extends React.Component {
     this.loadPost()
   }
 
-  _updateInput (input) {
+  updateSearch = (input) => {
     this.setState({ input });
-  }
+  };
 
   handleSubmit() {
     this.props.navigation.push('Result', {search: this.state.input})
@@ -136,14 +134,15 @@ export default class Home extends React.Component {
           <SearchBar
             placeholder="Type here..."
             value={this.state.input}
-            onChangeText={(text) => this._updateInput(text)}
+            searchIcon={{ size: 24 }}
+            onChangeText={this.updateSearch}
             onSubmitEditing={() => this.handleSubmit()}
             containerStyle={styles.searchBarContainer}
             inputContainerStyle={styles.searchBarInputContainerStyle}
             round={true}
           />
           <TouchableOpacity onPress={this.showChoiceActionSheet}>
-            <MaterialCommunityIcons name="filter-plus-outline" size={38} style={{ color: "white"}} />
+            <Icon name="filter" size={38} style={{ color: "white" }} />
           </TouchableOpacity>
         </View>
         {this.state.items !== null ?
@@ -201,21 +200,13 @@ const styles = StyleSheet.create({
     paddingTop: 10,
   },
   searchBarContainer: {
-    backgroundColor: "transparent",
+    backgroundColor: "white",
     width: '90%',
   },
   searchBarInputContainerStyle: {
     backgroundColor: "white",
   },
-  background: {
-      flex: 1,
-      backgroundColor: '#11181F',
-  },
   cardContent: {
-      marginTop: 10,
+    marginTop: 10,
   },
-  appLoading: {
-      flex: 1,
-      justifyContent: 'center'
-  }
 });

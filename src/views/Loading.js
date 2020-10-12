@@ -15,20 +15,20 @@ export default class Loading extends React.Component {
 
   render() {
     return (
-        <SafeAreaView style={styles.container}>
-          <StatusBar
-            barStyle="light-content"
-            backgroundColor="#000000"
-          />
-          <LottieView
-              source={require('../assets/loading.json')}
-              autoPlay
-              loop
-              style={{
-                height: 350,
-              }}
-            />
-        </SafeAreaView>
+      <SafeAreaView style={styles.container}>
+        <StatusBar
+          barStyle="light-content"
+          backgroundColor="#000000"
+        />
+        <LottieView
+          source={require('../assets/loading.json')}
+          autoPlay
+          loop
+          style={{
+            height: 350,
+          }}
+        />
+      </SafeAreaView>
     );
   }
 }

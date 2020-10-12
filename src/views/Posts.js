@@ -1,19 +1,19 @@
 import React from 'react';
 import { SafeAreaView, StyleSheet, FlatList, View } from 'react-native';
 import AsyncStorage from '@react-native-community/async-storage';
-import CardImage from '../components/Card';
+import ProfileCardImage from '../components/ProfileCard';
 import LottieView from 'lottie-react-native';
 
 async function getUserPosts() {
   const token = await AsyncStorage.getItem('accessToken');
   return fetch('https://api.imgur.com/3/account/me/images', {
-      method: 'GET',
-      headers: {
-        Accept: 'application/json',
-        'Content-Type': 'application/json',
-        'Authorization': 'Bearer ' + token
-      }
-    })
+    method: 'GET',
+    headers: {
+      Accept: 'application/json',
+      'Content-Type': 'application/json',
+      'Authorization': 'Bearer ' + token
+    }
+  })
     .then((response) => {
       return response.json();
     })
@@ -25,7 +25,6 @@ async function getUserPosts() {
 }
 
 export default class Posts extends React.Component {
-
   state = {
     isReady: false,
   };
@@ -57,13 +56,13 @@ export default class Posts extends React.Component {
           <FlatList
             data={this.items}
             initialNumToRender={5}
-            maxToRenderPerBatch={10}
-            windowSize={10}
+            maxToRenderPerBatch={5}
+            windowSize={15}
             refreshing={this.state.isReady}
             onRefresh={this.handleRefresh}
             keyExtractor={(item, index) => index.toString()}
             renderItem={({ item }) => {
-              return <CardImage
+              return <ProfileCardImage
                 image={{ id: item.id, height: item.height, width: item.width, type: item.type }}
                 item={item}
               />
@@ -96,8 +95,4 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
   },
-  appLoading: {
-    flex: 1,
-    justifyContent: 'center',
-  }
 });
