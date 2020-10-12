@@ -1,12 +1,13 @@
 import React from 'react';
 import { StatusBar, View, FlatList, StyleSheet, SafeAreaView, TouchableOpacity } from 'react-native';
 import { SearchBar } from 'react-native-elements';
+import ActionSheet from 'react-native-action-sheet'
 import Icon from 'react-native-vector-icons/Ionicons';
 import CardImage from '../components/Card';
 import LottieView from 'lottie-react-native';
 
-async function getGalleryTop(page) {
-  return fetch(`https://api.imgur.com/3/gallery/hot/time/day/${page}?showViral=true&mature=true&album_previews=false`, {
+async function getGalleryTop(category, sort, page) {
+  return fetch(`https://api.imgur.com/3/gallery/${category}/${(category === "user") ? sort : "time/day"}/${page}?showViral=true&mature=true&album_previews=false`, {
     "method": "GET",
     "headers": {
       "Authorization": "Client-ID 7282df4b8e311c8"
@@ -32,6 +33,8 @@ export default class Home extends React.Component {
       isRefreshing: false,
       items: null,
       page: 0,
+      category: "hot",
+      sort: "time/day"
     }
     this.handleSubmit = this.handleSubmit.bind(this);
   }
@@ -49,7 +52,7 @@ export default class Home extends React.Component {
   }
 
   loadPost = () => {
-    getGalleryTop(this.state.page).then((data) => {
+    getGalleryTop(this.state.category, this.state.sort, this.state.page).then((data) => {
       this.setState(prevState => ({
         items: this.state.page === 0 ? data : [...prevState.items, ...data],
         isRefreshing: false,
@@ -78,32 +81,51 @@ export default class Home extends React.Component {
 
   showCategoryActionSheet = () => {
     ActionSheet.showActionSheetWithOptions({
-      options: ['Hot', 'Top', 'Cancel'],
-      cancelButtonIndex: 2,
-      destructiveButtonIndex: 3,
+      options: ['Hot', 'Top', 'User', 'Return', 'Cancel'],
+      cancelButtonIndex: 4,
+      destructiveButtonIndex: 5,
     },
     (buttonIndex) => {
       if (buttonIndex === 0) {
-        console.log("Category0")
+        this.setState({ category: "hot" })
+        this.handleRefresh()
       } else if (buttonIndex === 1) {
-        console.log("Category1")
+        this.setState({ category: "top" })
+        this.handleRefresh()
+      } else if (buttonIndex === 2) {
+        this.setState({ category: "user" })
+        this.handleRefresh()
+      } else if (buttonIndex === 3) {
+        this.showFilterActionSheet()
       }
     })
   }
 
   showSortActionSheet = () => {
     ActionSheet.showActionSheetWithOptions({
-      options: ['1', '2', '3', 'Cancel'],
-      cancelButtonIndex: 3,
-      destructiveButtonIndex: 4,
+      options: ['Viral', 'Top', 'Time', 'Rising', 'Return', 'Cancel'],
+      cancelButtonIndex: 5,
+      destructiveButtonIndex: 6
     },
     (buttonIndex) => {
       if (buttonIndex === 0) {
-        console.log("Category0")
+        this.setState({ category: "user" })
+        this.setState({ sort: "viral" })
+        this.handleRefresh()
       } else if (buttonIndex === 1) {
-        console.log("Category1")
+        this.setState({ category: "user" })
+        this.setState({ sort: "top" })
+        this.handleRefresh()
       } else if (buttonIndex === 2) {
-        console.log("Category2")
+        this.setState({ category: "user" })
+        this.setState({ sort: "time" })
+        this.handleRefresh()
+      } else if (buttonIndex === 3) {
+        this.setState({ category: "user" })
+        this.setState({ sort: "rising" })
+        this.handleRefresh()
+      } else if (buttonIndex === 4) {
+        this.showFilterActionSheet()
       }
     })
   }
@@ -141,7 +163,7 @@ export default class Home extends React.Component {
             inputContainerStyle={styles.searchBarInputContainerStyle}
             round={true}
           />
-          <TouchableOpacity onPress={this.showChoiceActionSheet}>
+          <TouchableOpacity onPress={this.showFilterActionSheet}>
             <Icon name="filter" size={38} style={{ color: "white" }} />
           </TouchableOpacity>
         </View>
@@ -194,14 +216,14 @@ const styles = StyleSheet.create({
   },
   inputContainer: {
     flexDirection: "row",
-    justifyContent: 'center',
+    justifyContent: 'space-around',
     alignItems: 'center',
     paddingHorizontal: 15,
     paddingTop: 10,
   },
   searchBarContainer: {
     backgroundColor: "white",
-    width: '90%',
+    width: '85%',
   },
   searchBarInputContainerStyle: {
     backgroundColor: "white",
