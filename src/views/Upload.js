@@ -1,6 +1,7 @@
 import React from 'react';
 import { SafeAreaView, Keyboard, StyleSheet, Text, TouchableWithoutFeedback, View, Button, Image, TextInput, Alert } from 'react-native';
 import AsyncStorage from '@react-native-community/async-storage';
+import ImagePicker from 'react-native-image-crop-picker';
 import LoadingView from 'react-native-loading-view';
 import ActionSheet from "react-native-action-sheet";
 
@@ -84,9 +85,9 @@ export default class Upload extends React.Component {
       },
       (buttonIndex) => {
         if (buttonIndex === 0) {
-          this.handletakePhoto()
-        } else if (buttonIndex === 1) {
           this.handleChoosePhoto()
+        } else if (buttonIndex === 1) {
+          this.handletakePhoto()
         }
       })
     }
