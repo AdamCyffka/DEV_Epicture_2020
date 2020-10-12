@@ -59,18 +59,20 @@ export default class Upload extends React.Component {
       ImagePicker.openPicker({
         width: 960,
         height: 796,
-        cropping: true
+        cropping: true,
+        includeBase64: true,
       }).then(image => {
         console.log(image);
         this.setState({ photo: image, uploadButton: false })
       });
     }
 
-    handletakePhoto = () => {
+    handleTakePhoto = () => {
       ImagePicker.openCamera({
         width: 960,
         height: 796,
         cropping: true,
+        includeBase64: true,
       }).then(image => {
         console.log(image);
         this.setState({ photo: image, uploadButton: false })
@@ -87,7 +89,7 @@ export default class Upload extends React.Component {
         if (buttonIndex === 0) {
           this.handleChoosePhoto()
         } else if (buttonIndex === 1) {
-          this.handletakePhoto()
+          this.handleTakePhoto()
         }
       })
     }
@@ -122,7 +124,7 @@ export default class Upload extends React.Component {
               <LoadingView loading={this.state.isLoading}>
                 {photo ? (
                   <Image
-                    source={{ uri: photo.uri }}
+                    source={{ uri: photo.path }}
                     style={{ flex: 1, aspectRatio: 1, resizeMode: 'contain', borderRadius: 10 }}
                   />
                 ) : (
