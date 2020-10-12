@@ -1,9 +1,7 @@
 import React from 'react';
 import { StatusBar, View, FlatList, StyleSheet, SafeAreaView, TouchableOpacity } from 'react-native';
 import { SearchBar } from 'react-native-elements';
-import ActionSheet from 'react-native-actionsheet';
-import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
-import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
+import Icon from 'react-native-vector-icons/Ionicons';
 import CardImage from '../components/Card';
 import LottieView from 'lottie-react-native';
 
@@ -42,9 +40,9 @@ export default class Home extends React.Component {
     this.loadPost()
   }
 
-  _updateInput (input) {
+  updateSearch = (input) => {
     this.setState({ input });
-  }
+  };
 
   handleSubmit() {
     this.props.navigation.push('Result', {search: this.state.input})
@@ -78,18 +76,18 @@ export default class Home extends React.Component {
     });
   };
 
-  showChoiceActionSheet = () => {
-    this.ChoiceAS.show()
-  }
+  // showChoiceActionSheet = () => {
+  //   this.ChoiceAS.show()
+  // }
 
-  showCategoryActionSheet = () => {
-    this.CategoryAS.show()
-    console.log("bb jtm")
-  }
+  // showCategoryActionSheet = () => {
+  //   this.CategoryAS.show()
+  //   console.log("bb jtm")
+  // }
 
-  showSortActionSheet = () => {
-    this.SortAS.show()
-  }
+  // showSortActionSheet = () => {
+  //   this.SortAS.show()
+  // }
 
   render() {
     return (
@@ -102,14 +100,15 @@ export default class Home extends React.Component {
           <SearchBar
             placeholder="Type here..."
             value={this.state.input}
-            onChangeText={(text) => this._updateInput(text)}
+            searchIcon={{ size: 24 }}
+            onChangeText={this.updateSearch}
             onSubmitEditing={() => this.handleSubmit()}
             containerStyle={styles.searchBarContainer}
             inputContainerStyle={styles.searchBarInputContainerStyle}
             round={true}
           />
           <TouchableOpacity onPress={this.showChoiceActionSheet}>
-            <MaterialCommunityIcons name="filter-plus-outline" size={38} style={{ color: "white" }} />
+            <Icon name="filter" size={38} style={{ color: "white" }} />
           </TouchableOpacity>
           {/* <ActionSheet
             ref={o => this.ChoiceAS = o}

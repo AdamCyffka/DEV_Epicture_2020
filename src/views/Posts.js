@@ -1,7 +1,7 @@
 import React from 'react';
 import { SafeAreaView, StyleSheet, FlatList, View } from 'react-native';
 import AsyncStorage from '@react-native-community/async-storage';
-import CardImage from '../components/Card';
+import ProfileCardImage from '../components/ProfileCard';
 import LottieView from 'lottie-react-native';
 
 async function getUserPosts() {
@@ -62,7 +62,7 @@ export default class Posts extends React.Component {
             onRefresh={this.handleRefresh}
             keyExtractor={(item, index) => index.toString()}
             renderItem={({ item }) => {
-              return <CardImage
+              return <ProfileCardImage
                 image={{ id: item.id, height: item.height, width: item.width, type: item.type }}
                 item={item}
               />

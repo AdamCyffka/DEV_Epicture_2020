@@ -10,7 +10,10 @@ export default function TopTabs() {
   return (
     <Tab.Navigator
       tabBarOptions={{
-        style: { backgroundColor: '#fff' },
+        activeTintColor: 'black',
+        style: {
+          backgroundColor: '#fff'
+        },
       }}
     >
       <Tab.Screen name="Posts" component={Posts} />

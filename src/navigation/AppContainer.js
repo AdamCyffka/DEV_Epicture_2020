@@ -1,7 +1,8 @@
 import React from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
-import Ionicons from 'react-native-vector-icons/Ionicons';
+import Icon from 'react-native-vector-icons/Ionicons';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { Platform } from 'react-native'
 
 import Settings from '../views/Settings';
 import Loading from '../views/Loading';
@@ -19,9 +20,17 @@ function BottomTabs() {
     <BottomTab.Navigator
       initialRouteName="Home"
       tabBarOptions={{
+        style: {
+          ...Platform.select({
+              android: {
+                  backgroundColor: 'white'
+              }
+          })
+      },
         showLabel: false,
+        activeTintColor: '#000',
+        inactiveTintColor: '#d1cece',
       }}
-      shifting={true}
     >
       <BottomTab.Screen
         name="Home"
@@ -29,7 +38,7 @@ function BottomTabs() {
         options={{
           tabBarLabel: 'Home',
           tabBarIcon: ({ color, size }) => (
-            <Ionicons name="ios-home" color={color} size={25} />
+            <Icon name="home" color={color} size={25} />
           ),
         }}
       />
@@ -39,7 +48,7 @@ function BottomTabs() {
         options={{
           tabBarLabel: 'Upload',
           tabBarIcon: ({ color, size }) => (
-            <Ionicons name="ios-camera" color={color} size={25} />
+            <Icon name="cloud-upload" color={color} size={25} />
           ),
         }}
       />
@@ -49,7 +58,7 @@ function BottomTabs() {
         options={{
           tabBarLabel: 'Profile',
           tabBarIcon: ({ color, size }) => (
-            <Ionicons name="ios-person" color={color} size={25} />
+            <Icon name="person" color={color} size={25} />
           ),
         }}
       />

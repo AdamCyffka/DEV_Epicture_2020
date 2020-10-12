@@ -25,7 +25,7 @@ export default class Login extends React.Component {
         automaticallyAdjustContentInsets={ false }
         onNavigationStateChange={ this._onNavigationStateChange.bind( this ) }
         source={{
-          uri: `https://api.imgur.com/oauth2/authorize?client_id=${Api.clientID}&response_type=token`,
+          uri: 'https://api.imgur.com/oauth2/authorize?client_id=' + Api.clientID + '&response_type=token',
         }}
       />
     );

@@ -4,5 +4,6 @@ const URI = 'https://api.imgur.com/3';
 
 export default {
   clientID,
-  clientSecret
+  clientSecret,
+  URI
 };

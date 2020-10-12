@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "833195447318",
+    "firebase_url": "https://epimgur-f13b4.firebaseio.com",
+    "project_id": "epimgur-f13b4",
+    "storage_bucket": "epimgur-f13b4.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:833195447318:android:d3ca0ae9145b5c47c05137",
+        "android_client_info": {
+          "package_name": "com.epicture"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "833195447318-alu5cibc7j3num2r4i36br80m3is7v9h.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCSh5THew2XBQ5g9VKqehKYfXv7dFTLZ54"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "833195447318-alu5cibc7j3num2r4i36br80m3is7v9h.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "833195447318-l8634rndr9r2n043uk5qqp558heptnet.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "org.reactjs.native.example.epicture"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
