@@ -1,7 +1,6 @@
 import React from 'react';
 import { StatusBar, View, FlatList, ActivityIndicator, StyleSheet, SafeAreaView, TouchableOpacity} from 'react-native';
 import { SearchBar } from 'react-native-elements';
-import ActionSheet from 'react-native-actionsheet';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import CardImage from '../components/Card';
@@ -79,18 +78,51 @@ export default class Home extends React.Component {
     });
   };
 
-  showChoiceActionSheet = () => {
-    
-    this.ChoiceAS.show()
-  }
-
   showCategoryActionSheet = () => {
-    this.CategoryAS.show()
-    console.log("bb jtm")
+    ActionSheet.showActionSheetWithOptions({
+      options: ['Hot', 'Top', 'Cancel'],
+      cancelButtonIndex: 2,
+      destructiveButtonIndex: 3,
+    },
+    (buttonIndex) => {
+      if (buttonIndex === 0) {
+        console.log("Category0")
+      } else if (buttonIndex === 1) {
+        console.log("Category1")
+      }
+    })
   }
 
   showSortActionSheet = () => {
-    this.SortAS.show()
+    ActionSheet.showActionSheetWithOptions({
+      options: ['1', '2', '3', 'Cancel'],
+      cancelButtonIndex: 3,
+      destructiveButtonIndex: 4,
+    },
+    (buttonIndex) => {
+      if (buttonIndex === 0) {
+        console.log("Category0")
+      } else if (buttonIndex === 1) {
+        console.log("Category1")
+      } else if (buttonIndex === 2) {
+        console.log("Category2")
+      }
+    })
+  }
+
+  showFilterActionSheet = () => {
+    ActionSheet.showActionSheetWithOptions({
+      options: ['Category', 'Sort', 'Cancel'],
+      cancelButtonIndex: 2,
+      destructiveButtonIndex: 3,
+    },
+    (buttonIndex) => {
+      if (buttonIndex === 0) {
+        this.showCategoryActionSheet()
+      } else if (buttonIndex === 1) {
+        this.showSortActionSheet()
+      }
+    })
   }
 
   render() {
@@ -113,62 +145,6 @@ export default class Home extends React.Component {
           <TouchableOpacity onPress={this.showChoiceActionSheet}>
             <MaterialCommunityIcons name="filter-plus-outline" size={38} style={{ color: "white"}} />
           </TouchableOpacity>
-          <ActionSheet
-            ref={o => this.ChoiceAS = o}
-            title={'Add a filter'}
-            options={['Category', 'Sort', 'Cancel']}
-            cancelButtonIndex={2}
-            destructiveButtonIndex={2}
-            onPress={(index) => {
-              if (index === 0) {
-                this.showCategoryActionSheet()
-              } else if (index === 1) {
-                this.showSortActionSheet()
-              }
-            }}
-          />
-          <ActionSheet
-            ref={o => this.CategoryAS = o}
-            title={'Choose a category'}
-            options={['Hot',
-                      'Top',
-                      <MaterialIcons name="arrow-back-ios" size={24} style={{ color: "blue"}} />,
-                      'Cancel']
-                    }
-            cancelButtonIndex={3}
-            destructiveButtonIndex={3}
-            onPress={(index) => {
-              if (index === 0) {
-
-              } else if (index === 1) {
-
-              } else {
-                this.showChoiceActionSheet()
-              }
-            }}
-          />
-          <ActionSheet
-            ref={o => this.SortAS = o}
-            title={'Sort by'}
-            options={['Viral',
-                      'Top',
-                      'Time',
-                      <MaterialIcons name="arrow-back-ios" size={24} style={{ color: "blue"}} />,
-                      'Cancel']}
-            cancelButtonIndex={4}
-            destructiveButtonIndex={4}
-            onPress={(index) => {
-              if (index === 0) {
-                console.log("oui")
-              } else if (index === 1) {
-
-              } else if (index === 2) {
-
-              } else {
-                this.showChoiceActionSheet()
-              }
-            }}
-          />
         </View>
         {this.state.items !== null ?
           <FlatList style={styles.cardContent}
