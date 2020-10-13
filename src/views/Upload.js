@@ -62,7 +62,6 @@ export default class Upload extends React.Component {
         cropping: true,
         includeBase64: true,
       }).then(image => {
-        console.log(image);
         this.setState({ photo: image, uploadButton: false })
       });
     }
@@ -74,7 +73,6 @@ export default class Upload extends React.Component {
         cropping: true,
         includeBase64: true,
       }).then(image => {
-        console.log(image);
         this.setState({ photo: image, uploadButton: false })
       });
     }
