@@ -62,7 +62,7 @@ export default class Favorites extends React.Component {
             keyExtractor={(item, index) => index.toString()}
             renderItem={({ item }) => {
               return <CardImage
-                image={{ id: item.cover, height: item.height, width: item.width, type: item.type }}
+                image={{ id: item.cover, height: item.height, width: item.width, type: item.type, link: item.link }}
                 item={item}
               />
             }}

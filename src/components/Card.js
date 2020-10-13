@@ -2,6 +2,7 @@ import React from 'react';
 import { Text, Button, Thumbnail, Card, CardItem, Left, Body, Icon, Right } from 'native-base';
 import { StyleSheet, Image, View } from 'react-native';
 import AsyncStorage from '@react-native-community/async-storage';
+import Share from 'react-native-share';
 
 async function favImage(imageHash) {
   const token = AsyncStorage.getItem('accessToken');
@@ -110,6 +111,15 @@ export default class CardImage extends React.PureComponent {
     }).catch(e => e);
   }
 
+  shareSingleImage = async () => {
+    const shareOptions = {
+      title: 'Share file',
+      url: `https://i.imgur.com/${this.props.image.id}`,
+      failOnCancel: false
+    }
+    await Share.open(shareOptions)
+  }
+
   render() {
     return (
       <Card transparent>
@@ -146,7 +156,7 @@ export default class CardImage extends React.PureComponent {
             </Button>
           </Left>
           <Right>
-            <Button transparent onPress={() => {}}>
+            <Button transparent onPress={() => this.shareSingleImage()}>
               <Icon style={styles.share} name="share-social" />
             </Button>
           </Right>

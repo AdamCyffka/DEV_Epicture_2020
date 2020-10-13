@@ -12,7 +12,7 @@ export default class Welcome extends React.Component {
         />
         <View style={styles.lottieView}>
           <LottieView
-            source={require('../assets/sending-email.json')}
+            source={require('../assets/image.json')}
             autoPlay
             loop
             style={{
@@ -21,7 +21,7 @@ export default class Welcome extends React.Component {
               width: '100%',
             }}
           />
-          <Text style={styles.welcomeTitle}>Epicture</Text>
+          <Text style={styles.welcomeTitle}>Epimgur</Text>
         </View>
         <View style={styles.buttonsView}>
           <TouchableOpacity
