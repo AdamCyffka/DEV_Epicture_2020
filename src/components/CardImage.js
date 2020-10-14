@@ -3,6 +3,7 @@ import { Text, Button, Thumbnail, Card, CardItem, Left, Body, Icon, Right } from
 import { StyleSheet, Image, View } from 'react-native'
 import AsyncStorage from '@react-native-community/async-storage'
 import Share from 'react-native-share'
+import VideoPlayer from 'react-native-video-player';
 
 async function favImage(imageHash) {
   const token = await AsyncStorage.getItem('accessToken')
@@ -169,6 +170,14 @@ export default class CardImage extends React.Component {
               source={{ uri: `https://i.imgur.com/${this.props.image.id}.gif` }}
               style={{ aspectRatio: this.props.image.width / this.props.image.height, flex: 1 }}
             />
+            {/* <VideoPlayer
+              autoplay
+              defaultMuted
+              loop
+              video={{ uri: 'https://i.imgur.com/MCreGys.mp4' }}
+              videoWidth={this.props.image.width}
+              videoHeight={this.props.image.height}
+            /> */}
           </View>
         </CardItem>
         <CardItem style={styles.card}>
@@ -221,5 +230,12 @@ const styles = StyleSheet.create({
   username: {
     color: 'white',
     fontSize: 14
-  }
+  },
+  backgroundVideo: {
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    bottom: 0,
+    right: 0,
+  },
 })
