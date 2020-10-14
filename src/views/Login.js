@@ -1,7 +1,7 @@
-import React from 'react';
-import Api from '../config/Api';
-import WebView from 'react-native-webview';
-import AsyncStorage from '@react-native-community/async-storage';
+import React from 'react'
+import Api from '../config/Api'
+import WebView from 'react-native-webview'
+import AsyncStorage from '@react-native-community/async-storage'
 
 export default class Login extends React.Component {
   _onNavigationStateChange = async ( webViewState ) => {

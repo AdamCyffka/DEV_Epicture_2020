@@ -1,17 +1,17 @@
-import React from 'react';
-import { StatusBar, View, FlatList, StyleSheet, SafeAreaView, TouchableOpacity } from 'react-native';
-import { SearchBar } from 'react-native-elements';
+import React from 'react'
+import { StatusBar, View, FlatList, StyleSheet, SafeAreaView, TouchableOpacity } from 'react-native'
+import { SearchBar } from 'react-native-elements'
 import ActionSheet from 'react-native-action-sheet'
-import Icon from 'react-native-vector-icons/Ionicons';
-import LottieView from 'lottie-react-native';
+import Icon from 'react-native-vector-icons/Ionicons'
+import LottieView from 'lottie-react-native'
 
 import CardImage from '../components/CardImage'
 
 async function getGalleryTop(category, sort, page) {
-  return fetch(`https://api.imgur.com/3/gallery/${category}/${(category === "user") ? sort : "time/day"}/${page}?showViral=true&mature=true&album_previews=false`, {
-    "method": "GET",
-    "headers": {
-      "Authorization": "Client-ID 7282df4b8e311c8"
+  return fetch(`https://api.imgur.com/3/gallery/${category}/${(category === 'user') ? sort : 'time/day'}/${page}?showViral=true&mature=true&album_previews=false`, {
+    'method': 'GET',
+    'headers': {
+      'Authorization': 'Client-ID 7282df4b8e311c8'
     }
   })
   .then((response) => {
@@ -33,10 +33,10 @@ export default class Home extends React.Component {
       isRefreshing: false,
       items: null,
       page: 0,
-      category: "hot",
-      sort: "time/day"
+      category: 'hot',
+      sort: 'time/day'
     }
-    this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this)
   }
 
   componentDidMount() {
@@ -44,8 +44,8 @@ export default class Home extends React.Component {
   }
 
   updateSearch = (input) => {
-    this.setState({ input });
-  };
+    this.setState({ input })
+  }
 
   handleSubmit() {
     this.props.navigation.push('Result', {search: this.state.input})
@@ -55,10 +55,10 @@ export default class Home extends React.Component {
     getGalleryTop(this.state.category, this.state.sort, this.state.page).then((data) => {
       this.setState(prevState => ({
         items: this.state.page === 0 ? data : [...prevState.items, ...data],
-        isRefreshing: false,
-      }));
-      this.setState({ isReady: true });
-    }).catch(err => err);
+        isRefreshing: false
+      }))
+      this.setState({ isReady: true })
+    }).catch(err => err)
   }
 
   handleRefresh = () => {
@@ -67,17 +67,17 @@ export default class Home extends React.Component {
       page: 0,
       items: null
     }, () => {
-      this.loadPost();
-    });
-  };
+      this.loadPost()
+    })
+  }
 
   handleLoadMore = () => {
     this.setState({
       page: this.state.page + 1
     }, () => {
-      this.loadPost();
-    });
-  };
+      this.loadPost()
+    })
+  }
 
   showCategoryActionSheet = () => {
     ActionSheet.showActionSheetWithOptions({
@@ -87,13 +87,13 @@ export default class Home extends React.Component {
     },
     (buttonIndex) => {
       if (buttonIndex === 0) {
-        this.setState({ category: "hot" })
+        this.setState({ category: 'hot' })
         this.handleRefresh()
       } else if (buttonIndex === 1) {
-        this.setState({ category: "top" })
+        this.setState({ category: 'top' })
         this.handleRefresh()
       } else if (buttonIndex === 2) {
-        this.setState({ category: "user" })
+        this.setState({ category: 'user' })
         this.handleRefresh()
       } else if (buttonIndex === 3) {
         this.showFilterActionSheet()
@@ -109,20 +109,20 @@ export default class Home extends React.Component {
     },
     (buttonIndex) => {
       if (buttonIndex === 0) {
-        this.setState({ category: "user" })
-        this.setState({ sort: "viral" })
+        this.setState({ category: 'user' })
+        this.setState({ sort: 'viral' })
         this.handleRefresh()
       } else if (buttonIndex === 1) {
-        this.setState({ category: "user" })
-        this.setState({ sort: "top" })
+        this.setState({ category: 'user' })
+        this.setState({ sort: 'top' })
         this.handleRefresh()
       } else if (buttonIndex === 2) {
-        this.setState({ category: "user" })
-        this.setState({ sort: "time" })
+        this.setState({ category: 'user' })
+        this.setState({ sort: 'time' })
         this.handleRefresh()
       } else if (buttonIndex === 3) {
-        this.setState({ category: "user" })
-        this.setState({ sort: "rising" })
+        this.setState({ category: 'user' })
+        this.setState({ sort: 'rising' })
         this.handleRefresh()
       } else if (buttonIndex === 4) {
         this.showFilterActionSheet()
@@ -149,12 +149,12 @@ export default class Home extends React.Component {
     return (
       <SafeAreaView style={styles.container}>
         <StatusBar
-          barStyle="light-content"
-          backgroundColor="#000000"
+          barStyle='light-content'
+          backgroundColor='#000000'
         />
         <View style={styles.inputContainer}>
           <SearchBar
-            placeholder="Type here..."
+            placeholder='Type here...'
             value={this.state.input}
             searchIcon={{ size: 24 }}
             onChangeText={this.updateSearch}
@@ -164,7 +164,7 @@ export default class Home extends React.Component {
             round={true}
           />
           <TouchableOpacity onPress={this.showFilterActionSheet}>
-            <Icon name="filter" size={38} style={{ color: "white" }} />
+            <Icon name='filter' size={38} style={{ color: 'white' }} />
           </TouchableOpacity>
         </View>
         {this.state.items !== null ?
@@ -180,7 +180,7 @@ export default class Home extends React.Component {
             keyExtractor={(item, index) => index.toString()}
             renderItem={({ item, index }) => {
               if (!item.images)
-              return;
+              return
               return <CardImage
                 image={item.images[0]}
                 item={item}
@@ -200,35 +200,35 @@ export default class Home extends React.Component {
           </View>
         }
       </SafeAreaView>
-    );
+    )
   }
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#191970',
+    backgroundColor: '#191970'
   },
   lottieView: {
     flex: 1,
     justifyContent: 'center',
-    alignItems: 'center',
+    alignItems: 'center'
   },
   inputContainer: {
-    flexDirection: "row",
+    flexDirection: 'row',
     justifyContent: 'space-around',
     alignItems: 'center',
     paddingHorizontal: 15,
-    paddingTop: 10,
+    paddingTop: 10
   },
   searchBarContainer: {
-    backgroundColor: "white",
-    width: '85%',
+    backgroundColor: 'white',
+    width: '85%'
   },
   searchBarInputContainerStyle: {
-    backgroundColor: "white",
+    backgroundColor: 'white'
   },
   cardContent: {
-    marginTop: 10,
-  },
-});
+    marginTop: 10
+  }
+})

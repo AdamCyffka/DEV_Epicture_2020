@@ -49,7 +49,7 @@ async function upVoteImage(imageHash) {
     }
   })
   .then((response) => {
-      return response.json()
+    return response.json()
   })
   .then((result) => {
     if (result.success)
@@ -82,7 +82,7 @@ export default class CardImage extends React.Component {
     downVoted: this.props.item.vote === 'down' ? true : false,
     fav: this.props.item.favorite,
     ups: this.props.item.ups ?this.props.item.ups : 0 ,
-    downs: this.props.item.downs ?this.props.item.downs : 0,
+    downs: this.props.item.downs ?this.props.item.downs : 0
   }
 
   componentDidMount() {

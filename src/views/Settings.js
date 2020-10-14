@@ -1,6 +1,6 @@
-import React from 'react';
-import { StyleSheet, Text, View, TouchableOpacity, Alert } from 'react-native';
-import AsyncStorage from '@react-native-community/async-storage';
+import React from 'react'
+import { StyleSheet, Text, View, TouchableOpacity, Alert } from 'react-native'
+import AsyncStorage from '@react-native-community/async-storage'
 
 export default class Settings extends React.Component {
   logOut = async () => {
@@ -8,7 +8,7 @@ export default class Settings extends React.Component {
     await AsyncStorage.removeItem('userName');
     Alert.alert('You have been disconnected')
     this.props.navigation.navigate('Welcome');
-  };
+  }
 
   render() {
     return (
@@ -22,7 +22,7 @@ export default class Settings extends React.Component {
           </TouchableOpacity>
         </View>
 			</View>
-    );
+    )
   }
 }
 
