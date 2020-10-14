@@ -10,9 +10,9 @@ export default function TopTabs() {
   return (
     <Tab.Navigator
       tabBarOptions={{
-        activeTintColor: 'black',
+        activeTintColor: '#fff',
         style: {
-          backgroundColor: '#fff'
+          backgroundColor: '#0972B6'
         },
       }}
     >

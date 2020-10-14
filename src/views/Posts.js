@@ -1,8 +1,9 @@
 import React from 'react';
 import { SafeAreaView, StyleSheet, FlatList, View } from 'react-native';
 import AsyncStorage from '@react-native-community/async-storage';
-import CardImage from '../components/Card';
 import LottieView from 'lottie-react-native';
+
+import CardImage from '../components/CardImage'
 
 async function getUserPosts() {
   const token = await AsyncStorage.getItem('accessToken');

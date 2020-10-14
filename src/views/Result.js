@@ -1,22 +1,22 @@
-import React from 'react';
-import { View, StyleSheet, SafeAreaView, FlatList } from 'react-native';
-import AsyncStorage from '@react-native-community/async-storage';
-import CardImage from '../components/Card';
-import LottieView from 'lottie-react-native';
+import React from 'react'
+import { View, StyleSheet, SafeAreaView, FlatList } from 'react-native'
+import LottieView from 'lottie-react-native'
 
-function searchPost(query) {
+import CardImage from '../components/CardImage'
+
+async function searchPost(query) {
   return fetch('https://api.imgur.com/3/gallery/search?q=' + query, {
     headers: {
       'Authorization': 'Client-ID 7282df4b8e311c8'
     }
   })
     .then((response) => {
-      return response.json();
+      return response.json()
     })
     .then((result) => {
       if (result.success)
-        return Promise.resolve(result.data);
-      return Promise.reject(result.data);
+        return Promise.resolve(result.data)
+      return Promise.reject(result.data)
     })
 }
 
@@ -25,12 +25,12 @@ export default class Result extends React.Component {
     super()
     this.state = {
       items: null,
-      isFetching: false,
+      isFetching: false
     }
   }
 
   componentDidMount() {
-    this.handleSearch(this.props.route.params.search);
+    this.handleSearch(this.props.route.params.search)
   }
 
   handleSearch = () => {
@@ -46,9 +46,9 @@ export default class Result extends React.Component {
       isRefreshing: true,
       items: null
     }, () => {
-      this.handleSearch(this.props.route.params.search);
-    });
-  };
+      this.handleSearch(this.props.route.params.search)
+    })
+  }
 
   render() {
     return (
@@ -64,7 +64,7 @@ export default class Result extends React.Component {
             keyExtractor={(item, index) => index.toString()}
             renderItem={({ item }) => {
               if (!item.images)
-                return;
+                return
               return <CardImage
                 image={item.images[0]}
                 item={item}
@@ -84,7 +84,7 @@ export default class Result extends React.Component {
           </View>
         }
       </SafeAreaView>
-    );
+    )
   }
 }
 

@@ -1,28 +1,27 @@
 import React from 'react';
 import { StatusBar, View, FlatList, StyleSheet, SafeAreaView, TouchableOpacity } from 'react-native';
 import { SearchBar } from 'react-native-elements';
-import AsyncStorage from '@react-native-community/async-storage';
 import ActionSheet from 'react-native-action-sheet'
 import Icon from 'react-native-vector-icons/Ionicons';
-import CardImage from '../components/Card';
 import LottieView from 'lottie-react-native';
+
+import CardImage from '../components/CardImage'
 
 async function getGalleryTop(category, sort, page) {
   return fetch(`https://api.imgur.com/3/gallery/${category}/${(category === "user") ? sort : "time/day"}/${page}?showViral=true&mature=true&album_previews=false`, {
     "method": "GET",
     "headers": {
       "Authorization": "Client-ID 7282df4b8e311c8"
-    },
+    }
   })
-    .then((response) => {
-      return response.json();
-    })
-    .then((result) => {
-      if (result.success)
-        return Promise.resolve(result.data);
-      else
-        return Promise.reject(result.data);
-    })
+  .then((response) => {
+    return response.json()
+  })
+  .then((result) => {
+    if (result.success)
+      return Promise.resolve(result.data)
+    return Promise.reject(result.data)
+  })
 }
 
 export default class Home extends React.Component {

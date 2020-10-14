@@ -1,12 +1,13 @@
 import React from 'react';
 import { Thumbnail, Icon, View } from "native-base";
 import { TouchableOpacity, ImageBackground, StatusBar, Dimensions, StyleSheet, Text, SafeAreaView } from 'react-native';
-import TopTabs from '../navigation/TopTabs';
 import AsyncStorage from '@react-native-community/async-storage';
 
+import TopTabs from '../navigation/TopTabs'
+
 async function getAccountInfo() {
-  const token = await AsyncStorage.getItem('accessToken');
-  const username = await AsyncStorage.getItem('userName');
+  const token = await AsyncStorage.getItem('accessToken')
+  const username = await AsyncStorage.getItem('userName')
   return fetch('https://api.imgur.com/3/account/' + username, {
     method: 'GET',
     headers: {
@@ -15,9 +16,9 @@ async function getAccountInfo() {
       'Authorization': 'Bearer ' + token
     }
   })
-    .then((response) => {
-      return response.json();
-    })
+  .then((response) => {
+    return response.json()
+  })
 }
 
 export default class Profile extends React.Component {
