@@ -1,78 +1,73 @@
-import React from 'react';
-import { createStackNavigator } from '@react-navigation/stack';
-import Icon from 'react-native-vector-icons/Ionicons';
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { Platform } from 'react-native'
+import React from 'react'
+import { createStackNavigator } from '@react-navigation/stack'
+import Icon from 'react-native-vector-icons/Ionicons'
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 
-import Settings from '../views/Settings';
-import Loading from '../views/Loading';
-import Home from '../views/Home';
-import Profile from '../views/Profile';
-import Result from '../views/Result';
-import Upload from '../views/Upload';
-import Welcome from '../views/Welcome';
-import Login from '../views/Login';
+import Settings from '../views/Settings'
+import Loading from '../views/Loading'
+import Home from '../views/Home'
+import Profile from '../views/Profile'
+import Result from '../views/Result'
+import Upload from '../views/Upload'
+import Welcome from '../views/Welcome'
+import Login from '../views/Login'
 
-const BottomTab = createBottomTabNavigator();
+const BottomTab = createBottomTabNavigator()
 
 function BottomTabs() {
   return (
     <BottomTab.Navigator
-      initialRouteName="Home"
+      initialRouteName='Home'
       tabBarOptions={{
         style: {
-          ...Platform.select({
-              android: {
-                  backgroundColor: 'white'
-              }
-          })
+          backgroundColor: '#0972B6'
       },
         showLabel: false,
-        activeTintColor: '#000',
-        inactiveTintColor: '#d1cece',
+        activeTintColor: '#fff',
+        inactiveTintColor: 'gray'
       }}
     >
       <BottomTab.Screen
-        name="Home"
+        name='Home'
         component={Home}
         options={{
           tabBarLabel: 'Home',
           tabBarIcon: ({ color, size }) => (
-            <Icon name="home" color={color} size={25} />
+            <Icon name='home' color={color} size={25} />
           ),
         }}
       />
       <BottomTab.Screen
-        name="Upload"
+        name='Upload'
         component={Upload}
         options={{
           tabBarLabel: 'Upload',
           tabBarIcon: ({ color, size }) => (
-            <Icon name="cloud-upload" color={color} size={25} />
+            <Icon name='cloud-upload' color={color} size={25} />
           ),
         }}
       />
       <BottomTab.Screen
-        name="Profile"
+        name='Profile'
         component={Profile}
         options={{
           tabBarLabel: 'Profile',
           tabBarIcon: ({ color, size }) => (
-            <Icon name="person" color={color} size={25} />
+            <Icon name='person' color={color} size={25} />
           ),
         }}
       />
     </BottomTab.Navigator>
-  );
+  )
 }
 
-const Stack = createStackNavigator();
+const Stack = createStackNavigator()
 
 export default class AppContainer extends React.Component {
   render () {
     return (
       <Stack.Navigator
-        initialRouteName="Loading"
+        initialRouteName='Loading'
         screenOptions={{
           headerStyle: {
             backgroundColor: '#1e3f83',
@@ -85,7 +80,7 @@ export default class AppContainer extends React.Component {
         }}
       >
         <Stack.Screen
-          name="Settings"
+          name='Settings'
           options={{
             title: 'Settings',
             headerStyle: {
@@ -96,17 +91,17 @@ export default class AppContainer extends React.Component {
           component={Settings}
         />
         <Stack.Screen
-          name="Loading"
+          name='Loading'
           options={{headerShown: false}}
           component={Loading}
         />
         <Stack.Screen
-          name="Welcome"
+          name='Welcome'
           options={{headerShown: false}}
           component={Welcome}
         />
         <Stack.Screen
-          name="Login"
+          name='Login'
           options={{
             title: 'Login',
             headerStyle: {
@@ -117,12 +112,12 @@ export default class AppContainer extends React.Component {
           component={Login}
         />
         <Stack.Screen
-          name="Home"
+          name='Home'
           options={{headerShown: false}}
           component={BottomTabs}
         />
         <Stack.Screen
-          name="Result"
+          name='Result'
           options={{
             title: 'Search result',
             headerStyle: {
@@ -133,6 +128,6 @@ export default class AppContainer extends React.Component {
           component={Result}
         />
       </Stack.Navigator>
-    );
+    )
   }
 }

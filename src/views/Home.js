@@ -1,6 +1,7 @@
 import React from 'react';
 import { StatusBar, View, FlatList, StyleSheet, SafeAreaView, TouchableOpacity } from 'react-native';
 import { SearchBar } from 'react-native-elements';
+import AsyncStorage from '@react-native-community/async-storage';
 import ActionSheet from 'react-native-action-sheet'
 import Icon from 'react-native-vector-icons/Ionicons';
 import CardImage from '../components/Card';
@@ -170,8 +171,8 @@ export default class Home extends React.Component {
         {this.state.items !== null ?
           <FlatList style={styles.cardContent}
             data={this.state.items}
-            initialNumToRender={5}
-            maxToRenderPerBatch={5}
+            initialNumToRender={1}
+            maxToRenderPerBatch={1}
             windowSize={15}
             refreshing={this.state.isRefreshing}
             onRefresh={this.handleRefresh}
@@ -180,7 +181,7 @@ export default class Home extends React.Component {
             keyExtractor={(item, index) => index.toString()}
             renderItem={({ item, index }) => {
               if (!item.images)
-                return;
+              return;
               return <CardImage
                 image={item.images[0]}
                 item={item}

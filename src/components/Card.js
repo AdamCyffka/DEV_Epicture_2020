@@ -5,7 +5,7 @@ import AsyncStorage from '@react-native-community/async-storage';
 import Share from 'react-native-share';
 
 async function favImage(imageHash) {
-  const token = AsyncStorage.getItem('accessToken');
+  const token = await AsyncStorage.getItem('accessToken');
   return fetch(`https://api.imgur.com/3/image/${imageHash}/favorite`, {
     method: 'POST',
     headers: {
@@ -23,7 +23,7 @@ async function favImage(imageHash) {
 }
 
 async function downVoteImage(imageHash) {
-  const token = AsyncStorage.getItem('accessToken');
+  const token = await AsyncStorage.getItem('accessToken');
   return fetch(`https://api.imgur.com/3/gallery/${imageHash}/vote/down`, {
     method: 'POST',
     headers: {
@@ -41,7 +41,7 @@ async function downVoteImage(imageHash) {
 }
 
 async function upVoteImage(imageHash) {
-  const token = AsyncStorage.getItem('accessToken');
+  const token = await AsyncStorage.getItem('accessToken');
   return fetch(`https://api.imgur.com/3/gallery/${imageHash}/vote/up`, {
     method: 'POST',
     headers: {
@@ -58,6 +58,25 @@ async function upVoteImage(imageHash) {
     });
 }
 
+async function getImageInfo(imageHash) {
+  const token = await AsyncStorage.getItem('accessToken');
+  return fetch(`https://api.imgur.com/3/image/${imageHash}`, {
+    "method": "GET",
+    "headers": {
+      "Authorization": "Bearer " + token
+    },
+  })
+    .then((response) => {
+      return response.json();
+    })
+    .then((result) => {
+      if (result.success)
+        return Promise.resolve(result.data);
+      else
+        return Promise.reject(result.data);
+    })
+}
+
 export default class CardImage extends React.PureComponent {
 
   state = {
@@ -68,6 +87,10 @@ export default class CardImage extends React.PureComponent {
     downs: this.props.item.downs ?this.props.item.downs : 0,
   };
 
+  componentDidMount() {
+    this.updateItem()
+  }
+
   isUpVoted() {
     tmp = !this.state.upVoted
     tmp2 = this.state.ups
@@ -75,7 +98,7 @@ export default class CardImage extends React.PureComponent {
 
     this.setState({ upVoted: tmp });
     if (tmp) {
-      upVoteImage(this.props.item.id).catch(err => err)
+      upVoteImage(this.props.image.id).catch(err => err)
       this.setState({ ups: tmp2 + 1 });
       if (this.state.downVoted) {
         this.setState({ downs: tmp3 - 1, downVoted: false });
@@ -92,7 +115,7 @@ export default class CardImage extends React.PureComponent {
 
     this.setState({ downVoted: tmp });
     if (tmp) {
-      downVoteImage(this.props.item.id).catch(err => err)
+      downVoteImage(this.props.image.id).catch(err => err)
       this.setState({ downs: tmp2 + 1 });
       if (this.state.upVoted) {
         this.setState({ ups: tmp3 - 1, upVoted: false });
@@ -103,12 +126,22 @@ export default class CardImage extends React.PureComponent {
   }
 
   isFav() {
-    favImage(this.props.item.id).then((data) => {
+    favImage(this.props.image.id).then((data) => {
       if (data === "unfavorited")
         this.setState({ fav: false });
       else
         this.setState({ fav: true });
     }).catch(e => e);
+  }
+
+  updateItem = () => {
+    getImageInfo(this.props.image.id).then((data) => {
+      this.setState({ fav: data.favorite })
+      if (data.vote == "up")
+        this.setState({ upVoted: true })
+      else if (data.vote == "down")
+        this.setState({ upVoted: false })
+    }).catch((err) => err)
   }
 
   shareSingleImage = async () => {
