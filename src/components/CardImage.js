@@ -183,15 +183,15 @@ export default class CardImage extends React.Component {
         <CardItem style={styles.card}>
           <Left>
             <Button transparent>
-              <Icon style={this.state.upVoted ? styles.active : styles.white} name='arrow-up' />
+              <Icon style={this.state.upVoted ? styles.active : styles.grey} name='arrow-up' />
               <Text style={styles.white}>{this.state.ups}</Text>
             </Button>
             <Button transparent>
-              <Icon style={this.state.downVoted ? styles.active : styles.white} name='arrow-down' />
+              <Icon style={this.state.downVoted ? styles.active : styles.grey} name='arrow-down' />
               <Text style={styles.white}>{this.state.downs}</Text>
             </Button>
             <Button transparent onPress={() => this.isFav()}>
-              <Icon style={this.state.fav ? styles.activeFav : styles.white} name='heart' />
+              <Icon style={this.state.fav ? styles.activeFav : styles.grey} name='heart' />
               <Text style={styles.white}>{this.props.item.favorite_count}</Text>
             </Button>
           </Left>
@@ -201,6 +201,12 @@ export default class CardImage extends React.Component {
             </Button>
           </Right>
         </CardItem>
+        <View
+          style={{
+            borderBottomColor: '#3f4e59',
+            borderBottomWidth: 1
+          }}
+        />
       </Card>
     )
   }
@@ -210,25 +216,28 @@ const styles = StyleSheet.create({
   card: {
     backgroundColor: '#17202A'
   },
+  grey: {
+    color: '#3f4e59'
+  },
   white: {
-    color: 'white'
+    color: '#ffffff'
   },
   share: {
-    color: 'white',
+    color: '#3f4e59',
     fontSize: 25
   },
   active: {
     color: '#19B76F'
   },
   activeFav: {
-    color: 'red'
+    color: '#dc143c'
   },
   title: {
-    color: 'white',
+    color: '#ffffff',
     fontSize: 18
   },
   username: {
-    color: 'white',
+    color: '#ffffff',
     fontSize: 14
   },
   backgroundVideo: {
@@ -236,6 +245,6 @@ const styles = StyleSheet.create({
     top: 0,
     left: 0,
     bottom: 0,
-    right: 0,
-  },
+    right: 0
+  }
 })

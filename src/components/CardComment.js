@@ -1,6 +1,6 @@
 import React from 'react'
 import {Text, Button, Thumbnail, Card, CardItem, Left, Body, Icon } from 'native-base'
-import { StyleSheet } from 'react-native'
+import { StyleSheet, View } from 'react-native'
 
 export default class CardComment extends React.Component {
   state = {
@@ -37,6 +37,12 @@ export default class CardComment extends React.Component {
             </Button>
           </Left>
         </CardItem>
+        <View
+          style={{
+            borderBottomColor: '#3f4e59',
+            borderBottomWidth: 1
+          }}
+        />
       </Card>
     )
   }
@@ -44,22 +50,22 @@ export default class CardComment extends React.Component {
 
 const styles = StyleSheet.create({
   card: {
-    backgroundColor: '#17202A'
+    backgroundColor: '#16202b'
   },
   cardItem: {
-    backgroundColor: '#17202A',
+    backgroundColor: '#16202b',
     paddingTop: 0,
     paddingBottom: 0
   },
   white: {
-    color: 'white'
+    color: '#ffffff'
   },
   title: {
-    color: 'white',
+    color: '#ffffff',
     fontSize: 14
   },
   username: {
-    color: 'white',
+    color: '#ffffff',
     fontSize: 14,
     fontWeight: 'bold'
   },

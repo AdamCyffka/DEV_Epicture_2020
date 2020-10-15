@@ -29,26 +29,28 @@ export default class Settings extends React.Component {
 const styles = StyleSheet.create({
 	container: {
     flex: 1,
+    backgroundColor: '#17202A',
     justifyContent: 'space-around',
-    alignItems: 'center',
-    backgroundColor: '#191970'
+    alignItems: 'center'
   },
   button: {
-    backgroundColor: "#FFFFFF",
-    borderColor: "#FFFFFF",
+    backgroundColor: "#1ea1f1",
+    borderColor: "#1ea1f1",
     borderWidth: 2,
     padding: 10,
     margin: 10,
     borderRadius: 60
   },
   buttonText: {
-    color: "#191970",
+    color: "#ffffff",
     fontSize: 20,
+    fontWeight: 'bold',
     textAlign: "center"
   },
   buttonRed: {
-    color: "red",
+    color: "#dc143c",
     fontSize: 20,
+    fontWeight: 'bold',
     textAlign: "center"
   }
 })

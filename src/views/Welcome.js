@@ -20,7 +20,7 @@ export default class Welcome extends React.Component {
             style={{
               justifyContent: 'center',
               alignItems: 'center',
-              width: '100%',
+              width: '100%'
             }}
           />
           <Text style={styles.welcomeTitle}>Epimgur</Text>
@@ -34,7 +34,7 @@ export default class Welcome extends React.Component {
           </TouchableOpacity>
         </View>
       </SafeAreaView>
-    );
+    )
   }
 }
 
@@ -43,35 +43,36 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'space-around',
     alignItems: 'center',
-    backgroundColor: '#191970',
+    backgroundColor: '#17202A'
   },
   lottieView: {
     flex: 2,
     alignItems: 'center',
     justifyContent: 'center',
     maxHeight: '70%',
-    width: '80%',
+    width: '80%'
   },
   welcomeTitle: {
-    color: '#FFFFFF',
+    color: '#ffffff',
     width: '100%',
     fontSize: 40,
-    textAlign: "center",
+    textAlign: "center"
   },
   buttonsView: {
-    width: "80%",
+    width: "80%"
   },
   button: {
-    backgroundColor: "#FFFFFF",
-    borderColor: "#FFFFFF",
+    backgroundColor: "#1ea1f1",
+    borderColor: "#1ea1f1",
     borderWidth: 2,
     padding: 10,
     margin: 10,
-    borderRadius: 60,
+    borderRadius: 60
   },
   buttonText: {
-    color: "#191970",
+    color: "#ffffff",
     fontSize: 20,
     textAlign: "center",
-  },
+    fontWeight: 'bold'
+  }
 })

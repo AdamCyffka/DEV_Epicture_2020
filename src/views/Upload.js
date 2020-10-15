@@ -95,7 +95,7 @@ export default class Upload extends React.Component {
                   <Button
                     onPress={this.showActionSheet}
                     title={I18n.t('upload.selectPhoto')}
-                    color="#841584"
+                    color="#DC143C"
                     disabled={this.state.selectButton}
                   />
                 </View>
@@ -103,7 +103,7 @@ export default class Upload extends React.Component {
                   <Button
                     onPress={() => this.uploadImage()}
                     title={I18n.t('upload.uploadPhoto')}
-                    color="green"
+                    color="#008000"
                     disabled={this.state.uploadButton}
                   />
                 </View>
@@ -160,10 +160,10 @@ export default class Upload extends React.Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#191970'
+    backgroundColor: '#17202A'
   },
   textTitle: {
-    color: 'grey',
+    color: '#1ea1f1',
     fontSize: 10,
     paddingLeft: 20,
     paddingTop: 10

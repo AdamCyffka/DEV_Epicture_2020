@@ -91,7 +91,7 @@ export default class Result extends React.Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#191970',
+    backgroundColor: '#17202A',
   },
   lottieView: {
     flex: 1,

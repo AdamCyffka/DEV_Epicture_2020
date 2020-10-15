@@ -104,22 +104,22 @@ const height = Dimensions.get("window").height
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#191970'
+    backgroundColor: '#16202b'
   },
   username: {
-    color: 'white',
+    color: '#ffffff',
     fontSize: 14,
     marginTop: 5,
     fontWeight: 'bold'
   },
   info: {
-    color: 'white',
+    color: '#ffffff',
     fontSize: 14,
     marginTop: 2,
     marginBottom: 2
   },
   date: {
-    color: 'white',
+    color: '#ffffff',
     fontSize: 12
   }
 })

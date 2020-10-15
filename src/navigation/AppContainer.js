@@ -20,11 +20,11 @@ function BottomTabs() {
       initialRouteName='Home'
       tabBarOptions={{
         style: {
-          backgroundColor: '#0972B6'
+          backgroundColor: '#17202A'
       },
         showLabel: false,
-        activeTintColor: '#fff',
-        inactiveTintColor: 'gray'
+        activeTintColor: '#1ea1f1',
+        inactiveTintColor: '#ffffff'
       }}
     >
       <BottomTab.Screen
@@ -72,7 +72,7 @@ export default class AppContainer extends React.Component {
           headerStyle: {
             backgroundColor: '#1e3f83',
           },
-          headerTintColor: '#fff',
+          headerTintColor: '#ffffff',
           headerTitleStyle: {
             fontWeight: 'bold',
           },
@@ -84,9 +84,9 @@ export default class AppContainer extends React.Component {
           options={{
             title: 'Settings',
             headerStyle: {
-              backgroundColor: '#191970',
+              backgroundColor: '#16202b',
             },
-            headerTintColor: '#fff',
+            headerTintColor: '#ffffff',
             }}
           component={Settings}
         />
@@ -105,9 +105,9 @@ export default class AppContainer extends React.Component {
           options={{
             title: 'Login',
             headerStyle: {
-              backgroundColor: '#191970',
+              backgroundColor: '#16202b',
             },
-            headerTintColor: '#fff',
+            headerTintColor: '#ffffff',
             }}
           component={Login}
         />
@@ -121,9 +121,9 @@ export default class AppContainer extends React.Component {
           options={{
             title: 'Search result',
             headerStyle: {
-              backgroundColor: '#191970',
+              backgroundColor: '#16202b',
             },
-            headerTintColor: '#fff',
+            headerTintColor: '#ffffff',
             }}
           component={Result}
         />
