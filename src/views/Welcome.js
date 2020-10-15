@@ -1,6 +1,8 @@
-import React from 'react';
-import { TouchableOpacity, StatusBar, View, Text, StyleSheet, SafeAreaView } from 'react-native';
-import LottieView from 'lottie-react-native';
+import React from 'react'
+import { TouchableOpacity, StatusBar, View, Text, StyleSheet, SafeAreaView } from 'react-native'
+import LottieView from 'lottie-react-native'
+
+import I18n from '../i18n/locales'
 
 export default class Welcome extends React.Component {
   render() {
@@ -28,7 +30,7 @@ export default class Welcome extends React.Component {
             onPress={() => this.props.navigation.navigate('Login')}
             style={styles.button}
           >
-            <Text style={styles.buttonText}>Login</Text>
+            <Text style={styles.buttonText}>{I18n.t('welcome.login')}</Text>
           </TouchableOpacity>
         </View>
       </SafeAreaView>

@@ -6,6 +6,7 @@ import Icon from 'react-native-vector-icons/Ionicons'
 import LottieView from 'lottie-react-native'
 
 import CardImage from '../components/CardImage'
+import I18n from '../i18n/locales'
 
 async function getGalleryTop(category, sort, page) {
   return fetch(`https://api.imgur.com/3/gallery/${category}/${(category === 'user') ? sort : 'time/day'}/${page}?showViral=true&mature=true&album_previews=false`, {
@@ -81,7 +82,7 @@ export default class Home extends React.Component {
 
   showCategoryActionSheet = () => {
     ActionSheet.showActionSheetWithOptions({
-      options: ['Hot', 'Top', 'User', 'Return', 'Cancel'],
+      options: [I18n.t('home.hot'), I18n.t('home.top'), I18n.t('home.user'), I18n.t('home.return'), I18n.t('home.cancel')],
       cancelButtonIndex: 4,
       destructiveButtonIndex: 5,
     },
@@ -103,7 +104,7 @@ export default class Home extends React.Component {
 
   showSortActionSheet = () => {
     ActionSheet.showActionSheetWithOptions({
-      options: ['Viral', 'Top', 'Time', 'Rising', 'Return', 'Cancel'],
+      options: [I18n.t('home.viral'), I18n.t('home.top'), I18n.t('home.time'), I18n.t('home.rising'), I18n.t('home.return'), I18n.t('home.cancel')],
       cancelButtonIndex: 5,
       destructiveButtonIndex: 6
     },
@@ -132,7 +133,7 @@ export default class Home extends React.Component {
 
   showFilterActionSheet = () => {
     ActionSheet.showActionSheetWithOptions({
-      options: ['Category', 'Sort', 'Cancel'],
+      options: [I18n.t('home.category'), I18n.t('home.sort'), I18n.t('home.cancel')],
       cancelButtonIndex: 2,
       destructiveButtonIndex: 3,
     },
@@ -154,7 +155,7 @@ export default class Home extends React.Component {
         />
         <View style={styles.inputContainer}>
           <SearchBar
-            placeholder='Type here...'
+            placeholder={I18n.t('home.search')}
             value={this.state.input}
             searchIcon={{ size: 24 }}
             onChangeText={this.updateSearch}

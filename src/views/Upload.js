@@ -1,9 +1,11 @@
-import React from 'react';
-import { SafeAreaView, Keyboard, StyleSheet, Text, TouchableWithoutFeedback, View, Button, Image, TextInput, Alert } from 'react-native';
-import AsyncStorage from '@react-native-community/async-storage';
-import ImagePicker from 'react-native-image-crop-picker';
-import LoadingView from 'react-native-loading-view';
-import ActionSheet from "react-native-action-sheet";
+import React from 'react'
+import { SafeAreaView, Keyboard, StyleSheet, Text, TouchableWithoutFeedback, View, Button, Image, TextInput, Alert } from 'react-native'
+import AsyncStorage from '@react-native-community/async-storage'
+import ImagePicker from 'react-native-image-crop-picker'
+import LoadingView from 'react-native-loading-view'
+import ActionSheet from "react-native-action-sheet"
+
+import I18n from '../i18n/locales'
 
 export default class Upload extends React.Component {
     constructor() {
@@ -39,21 +41,11 @@ export default class Upload extends React.Component {
       const data = await response.json()
       this.setState({ isLoading: false, photo: null, selectButton: false })
       if (data.success) {
-        Alert.alert('Image successfuly uploaded')
+        Alert.alert(I18n.t('upload.success'))
       } else {
-        Alert.alert('An error occured', data.data.error)
+        Alert.alert(I18n.t('upload.failure'), data.data.error)
       }
     }
-  
-    // handleChoosePhoto = () => {
-    //   const options = {
-    //   };
-    //   ImagePicker.showImagePicker(options, response => {
-    //     if (response.uri) {
-    //       this.setState({ photo: response, uploadButton: false });
-    //     }
-    //   });
-    // };
 
     handleChoosePhoto = () => { 
       ImagePicker.openPicker({
@@ -79,7 +71,7 @@ export default class Upload extends React.Component {
 
     showActionSheet = () => {
       ActionSheet.showActionSheetWithOptions({
-        options: ['Choose photo from library', 'Take photo', 'Cancel'],
+        options: [I18n.t('upload.choosePhoto'), I18n.t('upload.takePhoto'), I18n.t('upload.cancel')],
         cancelButtonIndex: 2,
         destructiveButtonIndex: 3,
       },
@@ -91,7 +83,7 @@ export default class Upload extends React.Component {
         }
       })
     }
-    
+  
     render() {
       const { photo } = this.state
       return (
@@ -102,7 +94,7 @@ export default class Upload extends React.Component {
                 <View style={{ flex: 1, marginRight: 'auto', marginTop: 'auto', paddingTop: 10, paddingLeft: 10, alignItems: 'flex-start' }}>
                   <Button
                     onPress={this.showActionSheet}
-                    title="Select photo"
+                    title={I18n.t('upload.selectPhoto')}
                     color="#841584"
                     disabled={this.state.selectButton}
                   />
@@ -110,7 +102,7 @@ export default class Upload extends React.Component {
                 <View style={{ flex: 1, marginLeft: 'auto', paddingTop: 10, paddingRight: 10, alignItems: 'flex-end' }}>
                   <Button
                     onPress={() => this.uploadImage()}
-                    title="Upload Photo"
+                    title={I18n.t('upload.uploadPhoto')}
                     color="green"
                     disabled={this.state.uploadButton}
                   />
@@ -138,7 +130,7 @@ export default class Upload extends React.Component {
             <View style={{ flexDirection: 'row' }}>
               <View style={{ flex: 1 }}></View>
               <TextInput
-                placeholder={'Title'}
+                placeholder={I18n.t('upload.title')}
                 placeholderTextColor={'grey'}
                 style={[styles.textInput]}
                 onChangeText={text => this.title = text}
@@ -150,7 +142,7 @@ export default class Upload extends React.Component {
             <View style={{ flexDirection: 'row' }}>
               <View style={{ flex: 1 }}></View>
               <TextInput
-                placeholder={'Description'}
+                placeholder={I18n.t('upload.description')}
                 placeholderTextColor={'grey'}
                 style={[styles.textInput]}
                 onChangeText={text => this.description = text}
