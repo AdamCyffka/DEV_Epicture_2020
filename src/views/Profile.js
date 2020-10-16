@@ -80,16 +80,6 @@ export default class Profile extends React.Component {
               <Text style={styles.date}>
                 Created on {this.state.date.getMonth() + 1}/{this.state.date.getFullYear()}
               </Text>
-            <TouchableOpacity
-              onPress={() => this.props.navigation.navigate('Settings')}
-              style={{
-                position: "absolute",
-                right: 0,
-                marginRight: '3%',
-              }}
-            >
-              <Icon name="settings" style={{ fontSize: 35, color: "white" }} />
-            </TouchableOpacity>
             </View>
           </View>
         </ImageBackground>

@@ -10,7 +10,7 @@ export default class Loading extends React.Component {
 
   _bootstrapAsync = async () => {
     const userToken = await AsyncStorage.getItem('accessToken')
-    this.props.navigation.navigate(userToken ? 'Home' : 'Welcome')
+    this.props.navigation.replace(userToken ? 'Home' : 'Welcome')
   }
 
   render() {

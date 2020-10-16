@@ -1,9 +1,11 @@
 import React from 'react'
 import { StatusBar, View, FlatList, StyleSheet, SafeAreaView, TouchableOpacity } from 'react-native'
+import { Header, Left, Right, Button } from 'native-base'
 import { SearchBar } from 'react-native-elements'
 import ActionSheet from 'react-native-action-sheet'
 import Icon from 'react-native-vector-icons/Ionicons'
 import LottieView from 'lottie-react-native'
+import UploadButton from '../components/UploadButton'
 
 import CardImage from '../components/CardImage'
 import I18n from '../i18n/locales'
@@ -151,9 +153,17 @@ export default class Home extends React.Component {
       <SafeAreaView style={styles.container}>
         <StatusBar
           barStyle='light-content'
-          backgroundColor='#000000'
+          backgroundColor='#16202b'
         />
-        <View style={styles.inputContainer}>
+        <View style={styles.containerV}>
+          <TouchableOpacity
+            style={styles.touchableMask}
+            onPress={() => this.props.navigation.openDrawer()}
+            activeOpacity={1.5}
+          />
+            <Icon name='menu-outline' size={35} style={{ color: 'white' }} />
+        </View>
+        {/* <View style={styles.inputContainer}>
           <SearchBar
             placeholder={I18n.t('home.search')}
             value={this.state.input}
@@ -167,9 +177,9 @@ export default class Home extends React.Component {
           <TouchableOpacity onPress={this.showFilterActionSheet}>
             <Icon name='filter' size={38} style={{ color: 'white' }} />
           </TouchableOpacity>
-        </View>
+        </View> */}
         {this.state.items !== null ?
-          <FlatList style={styles.cardContent}
+          <FlatList
             data={this.state.items}
             initialNumToRender={1}
             maxToRenderPerBatch={1}
@@ -200,6 +210,7 @@ export default class Home extends React.Component {
             />
           </View>
         }
+        <UploadButton />
       </SafeAreaView>
     )
   }
@@ -209,6 +220,24 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#16202b'
+  },
+  containerV: {
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "space-between",
+    paddingHorizontal: 10,
+    height: 40,
+    borderBottomColor: "#ccc",
+    borderBottomWidth: StyleSheet.hairlineWidth
+  },
+  touchableMask: {
+    position: "absolute",
+    top: 5,
+    left: 10,
+    width: 30,
+    height: 30,
+    zIndex: 9,
+    padding: 5
   },
   lottieView: {
     flex: 1,
@@ -229,7 +258,4 @@ const styles = StyleSheet.create({
   searchBarInputContainerStyle: {
     backgroundColor: 'white'
   },
-  cardContent: {
-    marginTop: 10
-  }
 })

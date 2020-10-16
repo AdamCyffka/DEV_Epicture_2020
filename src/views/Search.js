@@ -20,7 +20,7 @@ async function searchPost(query) {
     })
 }
 
-export default class Result extends React.Component {
+export default class Search extends React.Component {
   constructor() {
     super()
     this.state = {
@@ -29,31 +29,31 @@ export default class Result extends React.Component {
     }
   }
 
-  componentDidMount() {
-    this.handleSearch(this.props.route.params.search)
-  }
+  // componentDidMount() {
+  //   this.handleSearch(this.props.route.params.search)
+  // }
 
-  handleSearch = () => {
-    this.setState({ isFetching: true })
-    searchPost(this.props.route.params.search).then((data) => {
-      this.setState({ items: data })
-      this.setState({ isFetching: false })
-    }).catch((err) => err)
-  }
+  // handleSearch = () => {
+  //   this.setState({ isFetching: true })
+  //   searchPost(this.props.route.params.search).then((data) => {
+  //     this.setState({ items: data })
+  //     this.setState({ isFetching: false })
+  //   }).catch((err) => err)
+  // }
 
-  handleRefresh = () => {
-    this.setState({
-      isRefreshing: true,
-      items: null
-    }, () => {
-      this.handleSearch(this.props.route.params.search)
-    })
-  }
+  // handleRefresh = () => {
+  //   this.setState({
+  //     isRefreshing: true,
+  //     items: null
+  //   }, () => {
+  //     this.handleSearch(this.props.route.params.search)
+  //   })
+  // }
 
   render() {
     return (
       <SafeAreaView style={styles.container}>
-        {this.state.items !== null ?
+        {/* {this.state.items !== null ?
           <FlatList
             data={this.state.items}
             initialNumToRender={5}
@@ -82,7 +82,7 @@ export default class Result extends React.Component {
               }}
             />
           </View>
-        }
+        } */}
       </SafeAreaView>
     )
   }
