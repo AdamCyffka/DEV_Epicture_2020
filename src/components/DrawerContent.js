@@ -1,5 +1,5 @@
 import React from 'react'
-import { View, StyleSheet, ScrollView, ImageBackground, Image, Alert } from 'react-native'
+import { View, StyleSheet, ScrollView, ImageBackground, Image, Alert, RefreshControl } from 'react-native'
 import { Drawer, Text } from 'react-native-paper';
 import { DrawerItem } from '@react-navigation/drawer'
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons'
@@ -30,24 +30,35 @@ export class DrawerContent extends React.Component {
       reputation: null,
       reputationName: null,
       username: null,
-      date: new Date(),
+      isReady: false
     }
   }
 
   componentDidMount() {
+    this.loadInfo()
+  }
+
+  loadInfo = () => {
     getAccountInfo()
       .then((response) => {
         const data = response.data
         this.setState({
-          loading: false,
           avatar: data.avatar,
           background: data.cover,
           reputation: data.reputation,
           reputationName: data.reputation_name,
           username: data.url,
-          date: new Date(data.created * 1000)
+          isReady: false
         })
-      }).catch(err => err);
+      }).catch(err => err)
+  }
+
+  handleRefresh = () => {
+    this.setState({
+      isReady: true
+    }, () => {
+      this.loadInfo()
+    })
   }
 
   logOut = async () => {
@@ -60,7 +71,14 @@ export class DrawerContent extends React.Component {
   render() {
     return(
       <View style={styles.container}>
-        <ScrollView>
+        <ScrollView
+          refreshControl={
+            <RefreshControl
+              refreshing={this.state.isReady}
+              onRefresh={this.handleRefresh}
+            />
+          }
+        >
           <ImageBackground
             source={{ uri: this.state.background }}
             style={{ width: undefined, padding: 16, paddingTop: 48 }}

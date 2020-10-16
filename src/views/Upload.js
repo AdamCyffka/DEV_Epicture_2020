@@ -4,6 +4,7 @@ import AsyncStorage from '@react-native-community/async-storage'
 import ImagePicker from 'react-native-image-crop-picker'
 import LoadingView from 'react-native-loading-view'
 import ActionSheet from "react-native-action-sheet"
+import { Header } from 'react-native-elements'
 
 import I18n from '../i18n/locales'
 
@@ -88,7 +89,16 @@ export default class Upload extends React.Component {
       const { photo } = this.state
       return (
         <TouchableWithoutFeedback style={{flex: 1}} onPress={Keyboard.dismiss} accessible={false}>
-          <SafeAreaView style={styles.container}>
+          <View style={styles.container}>
+            <Header
+            leftComponent={{ icon: 'arrow-left', color: '#fff', onPress: () => this.props.navigation.goBack(), }}
+            centerComponent={{ text: I18n.t('upload.upload'), style: { color: '#fff' } }}
+            statusBarProps={{ barStyle: 'light-content', backgroundColor: '#16202b' }}
+            containerStyle={{
+              backgroundColor: '#16202b',
+              justifyContent: 'space-around',
+            }}
+          />
             <View style={{ flex: 1 }}>
               <View style={{ flexDirection: 'row' }}>
                 <View style={{ flex: 1, marginRight: 'auto', marginTop: 'auto', paddingTop: 10, paddingLeft: 10, alignItems: 'flex-start' }}>
@@ -151,7 +161,7 @@ export default class Upload extends React.Component {
               <View style={{ flex: 1 }}></View>
             </View>
             <View style={{ flex: 1 }}></View>
-          </SafeAreaView>
+          </View>
         </TouchableWithoutFeedback>
       )
     }

@@ -3,6 +3,7 @@ export default {
     login: 'Login',
   },
   home: {
+    home: 'Home',
     search: 'Type here...',
     cancel: 'Cancel',
     category: 'Category',
@@ -16,6 +17,7 @@ export default {
     hot: 'Hot',
   },
   upload: {
+    upload: 'Upload',
     selectPhoto: 'Select photo',
     uploadPhoto: 'Upload photo',
     title: 'Title',

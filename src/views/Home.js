@@ -1,11 +1,8 @@
 import React from 'react'
 import { StatusBar, View, FlatList, StyleSheet, SafeAreaView, TouchableOpacity } from 'react-native'
-import { Header, Left, Right, Button } from 'native-base'
-import { SearchBar } from 'react-native-elements'
-import ActionSheet from 'react-native-action-sheet'
-import Icon from 'react-native-vector-icons/Ionicons'
 import LottieView from 'lottie-react-native'
 import UploadButton from '../components/UploadButton'
+import { Header } from 'react-native-elements'
 
 import CardImage from '../components/CardImage'
 import I18n from '../i18n/locales'
@@ -82,87 +79,26 @@ export default class Home extends React.Component {
     })
   }
 
-  showCategoryActionSheet = () => {
-    ActionSheet.showActionSheetWithOptions({
-      options: [I18n.t('home.hot'), I18n.t('home.top'), I18n.t('home.user'), I18n.t('home.return'), I18n.t('home.cancel')],
-      cancelButtonIndex: 4,
-      destructiveButtonIndex: 5,
-    },
-    (buttonIndex) => {
-      if (buttonIndex === 0) {
-        this.setState({ category: 'hot' })
-        this.handleRefresh()
-      } else if (buttonIndex === 1) {
-        this.setState({ category: 'top' })
-        this.handleRefresh()
-      } else if (buttonIndex === 2) {
-        this.setState({ category: 'user' })
-        this.handleRefresh()
-      } else if (buttonIndex === 3) {
-        this.showFilterActionSheet()
-      }
-    })
-  }
-
-  showSortActionSheet = () => {
-    ActionSheet.showActionSheetWithOptions({
-      options: [I18n.t('home.viral'), I18n.t('home.top'), I18n.t('home.time'), I18n.t('home.rising'), I18n.t('home.return'), I18n.t('home.cancel')],
-      cancelButtonIndex: 5,
-      destructiveButtonIndex: 6
-    },
-    (buttonIndex) => {
-      if (buttonIndex === 0) {
-        this.setState({ category: 'user' })
-        this.setState({ sort: 'viral' })
-        this.handleRefresh()
-      } else if (buttonIndex === 1) {
-        this.setState({ category: 'user' })
-        this.setState({ sort: 'top' })
-        this.handleRefresh()
-      } else if (buttonIndex === 2) {
-        this.setState({ category: 'user' })
-        this.setState({ sort: 'time' })
-        this.handleRefresh()
-      } else if (buttonIndex === 3) {
-        this.setState({ category: 'user' })
-        this.setState({ sort: 'rising' })
-        this.handleRefresh()
-      } else if (buttonIndex === 4) {
-        this.showFilterActionSheet()
-      }
-    })
-  }
-
-  showFilterActionSheet = () => {
-    ActionSheet.showActionSheetWithOptions({
-      options: [I18n.t('home.category'), I18n.t('home.sort'), I18n.t('home.cancel')],
-      cancelButtonIndex: 2,
-      destructiveButtonIndex: 3,
-    },
-    (buttonIndex) => {
-      if (buttonIndex === 0) {
-        this.showCategoryActionSheet()
-      } else if (buttonIndex === 1) {
-        this.showSortActionSheet()
-      }
-    })
-  }
-
   render() {
     return (
-      <SafeAreaView style={styles.container}>
-        <StatusBar
-          barStyle='light-content'
-          backgroundColor='#16202b'
+      <View style={styles.container}>
+        <Header
+          leftComponent={{ icon: 'menu', color: '#fff', onPress: () => this.props.navigation.openDrawer(), }}
+          centerComponent={{ text: I18n.t('home.home'), style: { color: '#fff' } }}
+          statusBarProps={{ barStyle: 'light-content', backgroundColor: '#16202b' }}
+          containerStyle={{
+            backgroundColor: '#16202b',
+            justifyContent: 'space-around',
+          }}
         />
-        <View style={styles.containerV}>
+        {/* <View style={styles.containerV}>
           <TouchableOpacity
             style={styles.touchableMask}
             onPress={() => this.props.navigation.openDrawer()}
             activeOpacity={1.5}
           />
             <Icon name='menu-outline' size={35} style={{ color: 'white' }} />
-        </View>
+        </View> */}
         {/* <View style={styles.inputContainer}>
           <SearchBar
             placeholder={I18n.t('home.search')}
@@ -211,7 +147,7 @@ export default class Home extends React.Component {
           </View>
         }
         <UploadButton />
-      </SafeAreaView>
+      </View>
     )
   }
 }
