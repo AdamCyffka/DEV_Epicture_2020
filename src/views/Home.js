@@ -1,5 +1,5 @@
 import React from 'react'
-import { View, FlatList, StyleSheet } from 'react-native'
+import { View, FlatList, StyleSheet, RefreshControl } from 'react-native'
 import LottieView from 'lottie-react-native'
 import UploadButton from '../components/UploadButton'
 import { Header } from 'react-native-elements'
@@ -161,8 +161,6 @@ export default class Home extends React.Component {
             initialNumToRender={1}
             maxToRenderPerBatch={1}
             windowSize={15}
-            refreshing={this.state.isRefreshing}
-            onRefresh={this.handleRefresh}
             onEndReached={this.handleLoadMore}
             onEndThreshold={0}
             keyExtractor={(item, index) => index.toString()}
@@ -174,6 +172,15 @@ export default class Home extends React.Component {
                 item={item}
               />
             }}
+            refreshControl={
+              <RefreshControl
+                tintColor='red'
+                titleColor="red"
+                title="Pull to refresh"
+                refreshing={this.state.isRefreshing}
+                onRefresh={this.handleRefresh}
+              />
+            }
           />
         :
           <View style={styles.lottieView}>

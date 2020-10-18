@@ -9,7 +9,7 @@ export default class RootNavigator extends React.Component {
   render () {
     return (
       <Drawer.Navigator drawerContent={props => <DrawerContent {...props} />}>
-        <Drawer.Screen name="Home" component={StackNavigator} />
+        <Drawer.Screen name="Stack" component={StackNavigator} />
       </Drawer.Navigator>
     )
   }

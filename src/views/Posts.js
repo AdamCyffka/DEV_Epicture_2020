@@ -1,5 +1,5 @@
 import React from 'react'
-import { SafeAreaView, StyleSheet, FlatList, View } from 'react-native'
+import { SafeAreaView, StyleSheet, FlatList, View, RefreshControl } from 'react-native'
 import AsyncStorage from '@react-native-community/async-storage'
 import LottieView from 'lottie-react-native'
 import CardImage from '../components/CardImage'
@@ -58,8 +58,6 @@ export default class Posts extends React.Component {
             initialNumToRender={5}
             maxToRenderPerBatch={5}
             windowSize={15}
-            refreshing={this.state.isReady}
-            onRefresh={this.handleRefresh}
             keyExtractor={(item, index) => index.toString()}
             renderItem={({ item }) => {
               return <CardImage
@@ -67,6 +65,15 @@ export default class Posts extends React.Component {
                 item={item}
               />
             }}
+            refreshControl={
+              <RefreshControl
+                tintColor='red'
+                titleColor="red"
+                title="Pull to refresh"
+                refreshing={this.state.isReady}
+                onRefresh={this.handleRefresh}
+              />
+            }
           />
         :
           <View style={styles.lottieView}>

@@ -41,6 +41,7 @@ export default {
     profile: 'Profil',
     posts: 'Postes',
     favorites: 'Favoris',
-    comments: 'Commentaires'
+    comments: 'Commentaires',
+    informations: 'Informations'
   }
 }

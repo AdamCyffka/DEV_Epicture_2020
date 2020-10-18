@@ -1,5 +1,5 @@
 import React from 'react'
-import { StyleSheet, SafeAreaView, FlatList, View } from 'react-native'
+import { StyleSheet, SafeAreaView, FlatList, View, RefreshControl } from 'react-native'
 import LottieView from 'lottie-react-native'
 import AsyncStorage from '@react-native-community/async-storage'
 import Api from '../config/Api'
@@ -58,14 +58,21 @@ export default class Comments extends React.Component {
             initialNumToRender={5}
             maxToRenderPerBatch={5}
             windowSize={15}
-            refreshing={this.state.isReady}
-            onRefresh={this.handleRefresh}
             keyExtractor={(item, index) => index.toString()}
             renderItem={({ item }) => {
               return <Comment
                 item={item} 
               />
             }}
+            refreshControl={
+              <RefreshControl
+                tintColor='red'
+                titleColor="red"
+                title="Pull to refresh"
+                refreshing={this.state.isReady}
+                onRefresh={this.handleRefresh}
+              />
+            }
           />
         :
           <View style={styles.lottieView}>

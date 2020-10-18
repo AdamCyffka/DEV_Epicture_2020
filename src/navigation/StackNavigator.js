@@ -1,12 +1,12 @@
 import React from 'react'
 import { createStackNavigator } from '@react-navigation/stack'
-import { BottomNavigator } from './BottomNavigator'
 import Loading from '../views/Loading'
 import Search from '../views/Search'
 import Welcome from '../views/Welcome'
 import Login from '../views/Login'
 import Upload from '../views/Upload'
 import Profile from '../views/Profile'
+import Home from '../views/Home'
 
 const Stack = createStackNavigator()
 
@@ -45,7 +45,7 @@ export class StackNavigator extends React.Component {
           <Stack.Screen
             name='Home'
             options={{headerShown: false}}
-            component={BottomNavigator}
+            component={Home}
           />
           <Stack.Screen
             name='Profile'
