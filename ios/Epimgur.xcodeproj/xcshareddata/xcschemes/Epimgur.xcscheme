@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-               BuildableName = "epicture.app"
-               BlueprintName = "epicture"
-               ReferencedContainer = "container:epicture.xcodeproj">
+               BuildableName = "Epimgur.app"
+               BlueprintName = "Epimgur"
+               ReferencedContainer = "container:Epimgur.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,9 +33,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "00E356ED1AD99517003FC87E"
-               BuildableName = "epictureTests.xctest"
-               BlueprintName = "epictureTests"
-               ReferencedContainer = "container:epicture.xcodeproj">
+               BuildableName = "EpimgurTests.xctest"
+               BlueprintName = "EpimgurTests"
+               ReferencedContainer = "container:Epimgur.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -55,9 +55,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-            BuildableName = "epicture.app"
-            BlueprintName = "epicture"
-            ReferencedContainer = "container:epicture.xcodeproj">
+            BuildableName = "Epimgur.app"
+            BlueprintName = "Epimgur"
+            ReferencedContainer = "container:Epimgur.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
@@ -72,9 +72,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-            BuildableName = "epicture.app"
-            BlueprintName = "epicture"
-            ReferencedContainer = "container:epicture.xcodeproj">
+            BuildableName = "Epimgur.app"
+            BlueprintName = "Epimgur"
+            ReferencedContainer = "container:Epimgur.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

@@ -7,11 +7,11 @@
 #define TIMEOUT_SECONDS 600
 #define TEXT_TO_LOOK_FOR @"Welcome to React"
 
-@interface epictureTests : XCTestCase
+@interface EpimgurTests : XCTestCase
 
 @end
 
-@implementation epictureTests
+@implementation EpimgurTests
 
 - (BOOL)findSubviewInView:(UIView *)view matching:(BOOL(^)(UIView *view))test
 {

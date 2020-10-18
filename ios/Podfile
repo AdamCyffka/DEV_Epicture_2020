@@ -4,12 +4,12 @@ require_relative '../node_modules/@react-native-community/cli-platform-ios/nativ
 
 platform :ios, '10.0'
 
-target 'epicture' do
+target 'Epimgur' do
   config = use_native_modules!
 
   use_react_native!(:path => config["reactNativePath"])
 
-  target 'epictureTests' do
+  target 'EpimgurTests' do
     inherit! :complete
     # Pods for testing
   end
@@ -24,10 +24,10 @@ target 'epicture' do
   end
 end
 
-target 'epicture-tvOS' do
-  # Pods for epicture-tvOS
+target 'Epimgur-tvOS' do
+  # Pods for Epimgur-tvOS
 
-  target 'epicture-tvOSTests' do
+  target 'Epimgur-tvOSTests' do
     inherit! :search_paths
     # Pods for testing
   end

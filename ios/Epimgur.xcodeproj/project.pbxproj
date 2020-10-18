@@ -7,19 +7,19 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		00E356F31AD99517003FC87E /* epictureTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* epictureTests.m */; };
+		00E356F31AD99517003FC87E /* EpimgurTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* EpimgurTests.m */; };
 		13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.m */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
-		26FBF3894C6CFF3F43C37107 /* libPods-epicture-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BA87BAE873FC4B591D8DC3BE /* libPods-epicture-tvOS.a */; };
+		26FBF3894C6CFF3F43C37107 /* libPods-Epimgur-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BA87BAE873FC4B591D8DC3BE /* libPods-Epimgur-tvOS.a */; };
 		2D02E4BC1E0B4A80006451C7 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.m */; };
 		2D02E4BD1E0B4A84006451C7 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		2D02E4BF1E0B4AB3006451C7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
-		2DCD954D1E0B4F2C00145EB5 /* epictureTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* epictureTests.m */; };
-		3D451A3DF13F0E8883023432 /* libPods-epicture-epictureTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F255379E3E4C39ED58BBB1E3 /* libPods-epicture-epictureTests.a */; };
+		2DCD954D1E0B4F2C00145EB5 /* EpimgurTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* EpimgurTests.m */; };
+		3D451A3DF13F0E8883023432 /* libPods-Epimgur-EpimgurTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F255379E3E4C39ED58BBB1E3 /* libPods-Epimgur-EpimgurTests.a */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
-		B37DC0863AA9851C1FE22E94 /* libPods-epicture.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D448E8BE09CB00CBD1A08CFA /* libPods-epicture.a */; };
-		DC0C4B48E16229F707E2790E /* libPods-epicture-tvOSTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C187998A8E1B88E0077185AC /* libPods-epicture-tvOSTests.a */; };
+		B37DC0863AA9851C1FE22E94 /* libPods-Epimgur.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D448E8BE09CB00CBD1A08CFA /* libPods-Epimgur.a */; };
+		DC0C4B48E16229F707E2790E /* libPods-Epimgur-tvOSTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C187998A8E1B88E0077185AC /* libPods-Epimgur-tvOSTests.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -28,45 +28,45 @@
 			containerPortal = 83CBB9F71A601CBA00E9B192 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 13B07F861A680F5B00A75B9A;
-			remoteInfo = epicture;
+			remoteInfo = Epimgur;
 		};
 		2D02E4911E0B4A5D006451C7 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 83CBB9F71A601CBA00E9B192 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 2D02E47A1E0B4A5D006451C7;
-			remoteInfo = "epicture-tvOS";
+			remoteInfo = "Epimgur-tvOS";
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		008F07F21AC5B25A0029DE68 /* main.jsbundle */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = main.jsbundle; sourceTree = "<group>"; };
-		00E356EE1AD99517003FC87E /* epictureTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = epictureTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		00E356EE1AD99517003FC87E /* EpimgurTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EpimgurTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		00E356F11AD99517003FC87E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		00E356F21AD99517003FC87E /* epictureTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = epictureTests.m; sourceTree = "<group>"; };
-		0675BDCF3497BD40A186BA6C /* Pods-epicture.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-epicture.release.xcconfig"; path = "Target Support Files/Pods-epicture/Pods-epicture.release.xcconfig"; sourceTree = "<group>"; };
-		13B07F961A680F5B00A75B9A /* epicture.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = epicture.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		13B07FAF1A68108700A75B9A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = epicture/AppDelegate.h; sourceTree = "<group>"; };
-		13B07FB01A68108700A75B9A /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = epicture/AppDelegate.m; sourceTree = "<group>"; };
-		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = epicture/Images.xcassets; sourceTree = "<group>"; };
-		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = epicture/Info.plist; sourceTree = "<group>"; };
-		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = epicture/main.m; sourceTree = "<group>"; };
-		2D02E47B1E0B4A5D006451C7 /* epicture-tvOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "epicture-tvOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		2D02E4901E0B4A5D006451C7 /* epicture-tvOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "epicture-tvOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		3AF831E5732C7423E981B6A9 /* Pods-epicture-epictureTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-epicture-epictureTests.debug.xcconfig"; path = "Target Support Files/Pods-epicture-epictureTests/Pods-epicture-epictureTests.debug.xcconfig"; sourceTree = "<group>"; };
-		489CC0E9D5F73737CF2B3F20 /* Pods-epicture-tvOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-epicture-tvOS.release.xcconfig"; path = "Target Support Files/Pods-epicture-tvOS/Pods-epicture-tvOS.release.xcconfig"; sourceTree = "<group>"; };
-		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = epicture/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		89978C1ADB8B17C969C0D877 /* Pods-epicture-tvOSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-epicture-tvOSTests.debug.xcconfig"; path = "Target Support Files/Pods-epicture-tvOSTests/Pods-epicture-tvOSTests.debug.xcconfig"; sourceTree = "<group>"; };
-		96E5FBC29B2F5B9D2E9125B4 /* Pods-epicture.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-epicture.debug.xcconfig"; path = "Target Support Files/Pods-epicture/Pods-epicture.debug.xcconfig"; sourceTree = "<group>"; };
-		B5265EDF817CD8980B783179 /* Pods-epicture-tvOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-epicture-tvOSTests.release.xcconfig"; path = "Target Support Files/Pods-epicture-tvOSTests/Pods-epicture-tvOSTests.release.xcconfig"; sourceTree = "<group>"; };
-		B8F58260F416551FEF8EE5C0 /* Pods-epicture-tvOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-epicture-tvOS.debug.xcconfig"; path = "Target Support Files/Pods-epicture-tvOS/Pods-epicture-tvOS.debug.xcconfig"; sourceTree = "<group>"; };
-		BA87BAE873FC4B591D8DC3BE /* libPods-epicture-tvOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-epicture-tvOS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		C187998A8E1B88E0077185AC /* libPods-epicture-tvOSTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-epicture-tvOSTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		CE74DDA8EE77090B7837F3F7 /* Pods-epicture-epictureTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-epicture-epictureTests.release.xcconfig"; path = "Target Support Files/Pods-epicture-epictureTests/Pods-epicture-epictureTests.release.xcconfig"; sourceTree = "<group>"; };
-		D448E8BE09CB00CBD1A08CFA /* libPods-epicture.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-epicture.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		00E356F21AD99517003FC87E /* EpimgurTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EpimgurTests.m; sourceTree = "<group>"; };
+		0675BDCF3497BD40A186BA6C /* Pods-Epimgur.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Epimgur.release.xcconfig"; path = "Target Support Files/Pods-Epimgur/Pods-Epimgur.release.xcconfig"; sourceTree = "<group>"; };
+		13B07F961A680F5B00A75B9A /* Epimgur.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Epimgur.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		13B07FAF1A68108700A75B9A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = Epimgur/AppDelegate.h; sourceTree = "<group>"; };
+		13B07FB01A68108700A75B9A /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = Epimgur/AppDelegate.m; sourceTree = "<group>"; };
+		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = Epimgur/Images.xcassets; sourceTree = "<group>"; };
+		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = Epimgur/Info.plist; sourceTree = "<group>"; };
+		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = Epimgur/main.m; sourceTree = "<group>"; };
+		2D02E47B1E0B4A5D006451C7 /* Epimgur-tvOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Epimgur-tvOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		2D02E4901E0B4A5D006451C7 /* Epimgur-tvOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Epimgur-tvOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		3AF831E5732C7423E981B6A9 /* Pods-Epimgur-EpimgurTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Epimgur-EpimgurTests.debug.xcconfig"; path = "Target Support Files/Pods-Epimgur-EpimgurTests/Pods-Epimgur-EpimgurTests.debug.xcconfig"; sourceTree = "<group>"; };
+		489CC0E9D5F73737CF2B3F20 /* Pods-Epimgur-tvOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Epimgur-tvOS.release.xcconfig"; path = "Target Support Files/Pods-Epimgur-tvOS/Pods-Epimgur-tvOS.release.xcconfig"; sourceTree = "<group>"; };
+		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = Epimgur/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		89978C1ADB8B17C969C0D877 /* Pods-Epimgur-tvOSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Epimgur-tvOSTests.debug.xcconfig"; path = "Target Support Files/Pods-Epimgur-tvOSTests/Pods-Epimgur-tvOSTests.debug.xcconfig"; sourceTree = "<group>"; };
+		96E5FBC29B2F5B9D2E9125B4 /* Pods-Epimgur.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Epimgur.debug.xcconfig"; path = "Target Support Files/Pods-Epimgur/Pods-Epimgur.debug.xcconfig"; sourceTree = "<group>"; };
+		B5265EDF817CD8980B783179 /* Pods-Epimgur-tvOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Epimgur-tvOSTests.release.xcconfig"; path = "Target Support Files/Pods-Epimgur-tvOSTests/Pods-Epimgur-tvOSTests.release.xcconfig"; sourceTree = "<group>"; };
+		B8F58260F416551FEF8EE5C0 /* Pods-Epimgur-tvOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Epimgur-tvOS.debug.xcconfig"; path = "Target Support Files/Pods-Epimgur-tvOS/Pods-Epimgur-tvOS.debug.xcconfig"; sourceTree = "<group>"; };
+		BA87BAE873FC4B591D8DC3BE /* libPods-Epimgur-tvOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Epimgur-tvOS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C187998A8E1B88E0077185AC /* libPods-Epimgur-tvOSTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Epimgur-tvOSTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		CE74DDA8EE77090B7837F3F7 /* Pods-Epimgur-EpimgurTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Epimgur-EpimgurTests.release.xcconfig"; path = "Target Support Files/Pods-Epimgur-EpimgurTests/Pods-Epimgur-EpimgurTests.release.xcconfig"; sourceTree = "<group>"; };
+		D448E8BE09CB00CBD1A08CFA /* libPods-Epimgur.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Epimgur.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 		ED2971642150620600B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = Platforms/AppleTVOS.platform/Developer/SDKs/AppleTVOS12.0.sdk/System/Library/Frameworks/JavaScriptCore.framework; sourceTree = DEVELOPER_DIR; };
-		F255379E3E4C39ED58BBB1E3 /* libPods-epicture-epictureTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-epicture-epictureTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		F255379E3E4C39ED58BBB1E3 /* libPods-Epimgur-EpimgurTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Epimgur-EpimgurTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,7 +74,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3D451A3DF13F0E8883023432 /* libPods-epicture-epictureTests.a in Frameworks */,
+				3D451A3DF13F0E8883023432 /* libPods-Epimgur-EpimgurTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -82,7 +82,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B37DC0863AA9851C1FE22E94 /* libPods-epicture.a in Frameworks */,
+				B37DC0863AA9851C1FE22E94 /* libPods-Epimgur.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -90,7 +90,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				26FBF3894C6CFF3F43C37107 /* libPods-epicture-tvOS.a in Frameworks */,
+				26FBF3894C6CFF3F43C37107 /* libPods-Epimgur-tvOS.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -98,20 +98,20 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DC0C4B48E16229F707E2790E /* libPods-epicture-tvOSTests.a in Frameworks */,
+				DC0C4B48E16229F707E2790E /* libPods-Epimgur-tvOSTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		00E356EF1AD99517003FC87E /* epictureTests */ = {
+		00E356EF1AD99517003FC87E /* EpimgurTests */ = {
 			isa = PBXGroup;
 			children = (
-				00E356F21AD99517003FC87E /* epictureTests.m */,
+				00E356F21AD99517003FC87E /* EpimgurTests.m */,
 				00E356F01AD99517003FC87E /* Supporting Files */,
 			);
-			path = epictureTests;
+			path = EpimgurTests;
 			sourceTree = "<group>";
 		};
 		00E356F01AD99517003FC87E /* Supporting Files */ = {
@@ -122,7 +122,7 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		13B07FAE1A68108700A75B9A /* epicture */ = {
+		13B07FAE1A68108700A75B9A /* Epimgur */ = {
 			isa = PBXGroup;
 			children = (
 				008F07F21AC5B25A0029DE68 /* main.jsbundle */,
@@ -133,7 +133,7 @@
 				81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */,
 				13B07FB71A68108700A75B9A /* main.m */,
 			);
-			name = epicture;
+			name = Epimgur;
 			sourceTree = "<group>";
 		};
 		2D16E6871FA4F8E400B85C8A /* Frameworks */ = {
@@ -141,10 +141,10 @@
 			children = (
 				ED297162215061F000B7C4FE /* JavaScriptCore.framework */,
 				ED2971642150620600B7C4FE /* JavaScriptCore.framework */,
-				D448E8BE09CB00CBD1A08CFA /* libPods-epicture.a */,
-				F255379E3E4C39ED58BBB1E3 /* libPods-epicture-epictureTests.a */,
-				BA87BAE873FC4B591D8DC3BE /* libPods-epicture-tvOS.a */,
-				C187998A8E1B88E0077185AC /* libPods-epicture-tvOSTests.a */,
+				D448E8BE09CB00CBD1A08CFA /* libPods-Epimgur.a */,
+				F255379E3E4C39ED58BBB1E3 /* libPods-Epimgur-EpimgurTests.a */,
+				BA87BAE873FC4B591D8DC3BE /* libPods-Epimgur-tvOS.a */,
+				C187998A8E1B88E0077185AC /* libPods-Epimgur-tvOSTests.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -159,9 +159,9 @@
 		83CBB9F61A601CBA00E9B192 = {
 			isa = PBXGroup;
 			children = (
-				13B07FAE1A68108700A75B9A /* epicture */,
+				13B07FAE1A68108700A75B9A /* Epimgur */,
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
-				00E356EF1AD99517003FC87E /* epictureTests */,
+				00E356EF1AD99517003FC87E /* EpimgurTests */,
 				83CBBA001A601CBA00E9B192 /* Products */,
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
 				DF22AFF1F15423A4F8DC63B3 /* Pods */,
@@ -174,10 +174,10 @@
 		83CBBA001A601CBA00E9B192 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				13B07F961A680F5B00A75B9A /* epicture.app */,
-				00E356EE1AD99517003FC87E /* epictureTests.xctest */,
-				2D02E47B1E0B4A5D006451C7 /* epicture-tvOS.app */,
-				2D02E4901E0B4A5D006451C7 /* epicture-tvOSTests.xctest */,
+				13B07F961A680F5B00A75B9A /* Epimgur.app */,
+				00E356EE1AD99517003FC87E /* EpimgurTests.xctest */,
+				2D02E47B1E0B4A5D006451C7 /* Epimgur-tvOS.app */,
+				2D02E4901E0B4A5D006451C7 /* Epimgur-tvOSTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -185,14 +185,14 @@
 		DF22AFF1F15423A4F8DC63B3 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				96E5FBC29B2F5B9D2E9125B4 /* Pods-epicture.debug.xcconfig */,
-				0675BDCF3497BD40A186BA6C /* Pods-epicture.release.xcconfig */,
-				3AF831E5732C7423E981B6A9 /* Pods-epicture-epictureTests.debug.xcconfig */,
-				CE74DDA8EE77090B7837F3F7 /* Pods-epicture-epictureTests.release.xcconfig */,
-				B8F58260F416551FEF8EE5C0 /* Pods-epicture-tvOS.debug.xcconfig */,
-				489CC0E9D5F73737CF2B3F20 /* Pods-epicture-tvOS.release.xcconfig */,
-				89978C1ADB8B17C969C0D877 /* Pods-epicture-tvOSTests.debug.xcconfig */,
-				B5265EDF817CD8980B783179 /* Pods-epicture-tvOSTests.release.xcconfig */,
+				96E5FBC29B2F5B9D2E9125B4 /* Pods-Epimgur.debug.xcconfig */,
+				0675BDCF3497BD40A186BA6C /* Pods-Epimgur.release.xcconfig */,
+				3AF831E5732C7423E981B6A9 /* Pods-Epimgur-EpimgurTests.debug.xcconfig */,
+				CE74DDA8EE77090B7837F3F7 /* Pods-Epimgur-EpimgurTests.release.xcconfig */,
+				B8F58260F416551FEF8EE5C0 /* Pods-Epimgur-tvOS.debug.xcconfig */,
+				489CC0E9D5F73737CF2B3F20 /* Pods-Epimgur-tvOS.release.xcconfig */,
+				89978C1ADB8B17C969C0D877 /* Pods-Epimgur-tvOSTests.debug.xcconfig */,
+				B5265EDF817CD8980B783179 /* Pods-Epimgur-tvOSTests.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -200,9 +200,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		00E356ED1AD99517003FC87E /* epictureTests */ = {
+		00E356ED1AD99517003FC87E /* EpimgurTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 00E357021AD99517003FC87E /* Build configuration list for PBXNativeTarget "epictureTests" */;
+			buildConfigurationList = 00E357021AD99517003FC87E /* Build configuration list for PBXNativeTarget "EpimgurTests" */;
 			buildPhases = (
 				F56E44F8CFFCBEE366B71A3B /* [CP] Check Pods Manifest.lock */,
 				00E356EA1AD99517003FC87E /* Sources */,
@@ -215,14 +215,14 @@
 			dependencies = (
 				00E356F51AD99517003FC87E /* PBXTargetDependency */,
 			);
-			name = epictureTests;
-			productName = epictureTests;
-			productReference = 00E356EE1AD99517003FC87E /* epictureTests.xctest */;
+			name = EpimgurTests;
+			productName = EpimgurTests;
+			productReference = 00E356EE1AD99517003FC87E /* EpimgurTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		13B07F861A680F5B00A75B9A /* epicture */ = {
+		13B07F861A680F5B00A75B9A /* Epimgur */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "epicture" */;
+			buildConfigurationList = 13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "Epimgur" */;
 			buildPhases = (
 				1556F5BCD6F9664D3C948A31 /* [CP] Check Pods Manifest.lock */,
 				FD10A7F022414F080027D42C /* Start Packager */,
@@ -236,14 +236,14 @@
 			);
 			dependencies = (
 			);
-			name = epicture;
-			productName = epicture;
-			productReference = 13B07F961A680F5B00A75B9A /* epicture.app */;
+			name = Epimgur;
+			productName = Epimgur;
+			productReference = 13B07F961A680F5B00A75B9A /* Epimgur.app */;
 			productType = "com.apple.product-type.application";
 		};
-		2D02E47A1E0B4A5D006451C7 /* epicture-tvOS */ = {
+		2D02E47A1E0B4A5D006451C7 /* Epimgur-tvOS */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 2D02E4BA1E0B4A5E006451C7 /* Build configuration list for PBXNativeTarget "epicture-tvOS" */;
+			buildConfigurationList = 2D02E4BA1E0B4A5E006451C7 /* Build configuration list for PBXNativeTarget "Epimgur-tvOS" */;
 			buildPhases = (
 				689D002C8A4382F069A71B77 /* [CP] Check Pods Manifest.lock */,
 				FD10A7F122414F3F0027D42C /* Start Packager */,
@@ -256,14 +256,14 @@
 			);
 			dependencies = (
 			);
-			name = "epicture-tvOS";
-			productName = "epicture-tvOS";
-			productReference = 2D02E47B1E0B4A5D006451C7 /* epicture-tvOS.app */;
+			name = "Epimgur-tvOS";
+			productName = "Epimgur-tvOS";
+			productReference = 2D02E47B1E0B4A5D006451C7 /* Epimgur-tvOS.app */;
 			productType = "com.apple.product-type.application";
 		};
-		2D02E48F1E0B4A5D006451C7 /* epicture-tvOSTests */ = {
+		2D02E48F1E0B4A5D006451C7 /* Epimgur-tvOSTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 2D02E4BB1E0B4A5E006451C7 /* Build configuration list for PBXNativeTarget "epicture-tvOSTests" */;
+			buildConfigurationList = 2D02E4BB1E0B4A5E006451C7 /* Build configuration list for PBXNativeTarget "Epimgur-tvOSTests" */;
 			buildPhases = (
 				58F3210BAA9B7BDC2BDD5DD2 /* [CP] Check Pods Manifest.lock */,
 				2D02E48C1E0B4A5D006451C7 /* Sources */,
@@ -275,9 +275,9 @@
 			dependencies = (
 				2D02E4921E0B4A5D006451C7 /* PBXTargetDependency */,
 			);
-			name = "epicture-tvOSTests";
-			productName = "epicture-tvOSTests";
-			productReference = 2D02E4901E0B4A5D006451C7 /* epicture-tvOSTests.xctest */;
+			name = "Epimgur-tvOSTests";
+			productName = "Epimgur-tvOSTests";
+			productReference = 2D02E4901E0B4A5D006451C7 /* Epimgur-tvOSTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -307,7 +307,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 83CBB9FA1A601CBA00E9B192 /* Build configuration list for PBXProject "epicture" */;
+			buildConfigurationList = 83CBB9FA1A601CBA00E9B192 /* Build configuration list for PBXProject "Epimgur" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -320,10 +320,10 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				13B07F861A680F5B00A75B9A /* epicture */,
-				00E356ED1AD99517003FC87E /* epictureTests */,
-				2D02E47A1E0B4A5D006451C7 /* epicture-tvOS */,
-				2D02E48F1E0B4A5D006451C7 /* epicture-tvOSTests */,
+				13B07F861A680F5B00A75B9A /* Epimgur */,
+				00E356ED1AD99517003FC87E /* EpimgurTests */,
+				2D02E47A1E0B4A5D006451C7 /* Epimgur-tvOS */,
+				2D02E48F1E0B4A5D006451C7 /* Epimgur-tvOSTests */,
 			);
 		};
 /* End PBXProject section */
@@ -392,7 +392,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-epicture-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-Epimgur-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -428,7 +428,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-epicture-tvOSTests-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-Epimgur-tvOSTests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -450,7 +450,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-epicture-tvOS-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-Epimgur-tvOS-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -463,7 +463,7 @@
 			files = (
 			);
 			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-epicture-epictureTests/Pods-epicture-epictureTests-resources.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-Epimgur-EpimgurTests/Pods-Epimgur-EpimgurTests-resources.sh",
 				"${PODS_CONFIGURATION_BUILD_DIR}/RNImageCropPicker/QBImagePicker.bundle",
 				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/AntDesign.ttf",
 				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/Entypo.ttf",
@@ -508,7 +508,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-epicture-epictureTests/Pods-epicture-epictureTests-resources.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Epimgur-EpimgurTests/Pods-Epimgur-EpimgurTests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		E10B93E7987854D8B282B32F /* [CP] Copy Pods Resources */ = {
@@ -517,7 +517,7 @@
 			files = (
 			);
 			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-epicture/Pods-epicture-resources.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-Epimgur/Pods-Epimgur-resources.sh",
 				"${PODS_CONFIGURATION_BUILD_DIR}/RNImageCropPicker/QBImagePicker.bundle",
 				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/AntDesign.ttf",
 				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/Entypo.ttf",
@@ -562,7 +562,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-epicture/Pods-epicture-resources.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Epimgur/Pods-Epimgur-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		F56E44F8CFFCBEE366B71A3B /* [CP] Check Pods Manifest.lock */ = {
@@ -580,7 +580,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-epicture-epictureTests-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-Epimgur-EpimgurTests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -632,7 +632,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				00E356F31AD99517003FC87E /* epictureTests.m in Sources */,
+				00E356F31AD99517003FC87E /* EpimgurTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -658,7 +658,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2DCD954D1E0B4F2C00145EB5 /* epictureTests.m in Sources */,
+				2DCD954D1E0B4F2C00145EB5 /* EpimgurTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -667,12 +667,12 @@
 /* Begin PBXTargetDependency section */
 		00E356F51AD99517003FC87E /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 13B07F861A680F5B00A75B9A /* epicture */;
+			target = 13B07F861A680F5B00A75B9A /* Epimgur */;
 			targetProxy = 00E356F41AD99517003FC87E /* PBXContainerItemProxy */;
 		};
 		2D02E4921E0B4A5D006451C7 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 2D02E47A1E0B4A5D006451C7 /* epicture-tvOS */;
+			target = 2D02E47A1E0B4A5D006451C7 /* Epimgur-tvOS */;
 			targetProxy = 2D02E4911E0B4A5D006451C7 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -680,14 +680,14 @@
 /* Begin XCBuildConfiguration section */
 		00E356F61AD99517003FC87E /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 3AF831E5732C7423E981B6A9 /* Pods-epicture-epictureTests.debug.xcconfig */;
+			baseConfigurationReference = 3AF831E5732C7423E981B6A9 /* Pods-Epimgur-EpimgurTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
 				);
-				INFOPLIST_FILE = epictureTests/Info.plist;
+				INFOPLIST_FILE = EpimgurTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				OTHER_LDFLAGS = (
@@ -697,17 +697,17 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/epicture.app/epicture";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Epimgur.app/Epimgur";
 			};
 			name = Debug;
 		};
 		00E356F71AD99517003FC87E /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = CE74DDA8EE77090B7837F3F7 /* Pods-epicture-epictureTests.release.xcconfig */;
+			baseConfigurationReference = CE74DDA8EE77090B7837F3F7 /* Pods-Epimgur-EpimgurTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				COPY_PHASE_STRIP = NO;
-				INFOPLIST_FILE = epictureTests/Info.plist;
+				INFOPLIST_FILE = EpimgurTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				OTHER_LDFLAGS = (
@@ -717,20 +717,20 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/epicture.app/epicture";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Epimgur.app/Epimgur";
 			};
 			name = Release;
 		};
 		13B07F941A680F5B00A75B9A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 96E5FBC29B2F5B9D2E9125B4 /* Pods-epicture.debug.xcconfig */;
+			baseConfigurationReference = 96E5FBC29B2F5B9D2E9125B4 /* Pods-Epimgur.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = ZUF4693K3T;
 				ENABLE_BITCODE = NO;
-				INFOPLIST_FILE = epicture/Info.plist;
+				INFOPLIST_FILE = Epimgur/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (
 					"$(inherited)",
@@ -738,7 +738,7 @@
 					"-lc++",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
-				PRODUCT_NAME = epicture;
+				PRODUCT_NAME = Epimgur;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -747,13 +747,13 @@
 		};
 		13B07F951A680F5B00A75B9A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 0675BDCF3497BD40A186BA6C /* Pods-epicture.release.xcconfig */;
+			baseConfigurationReference = 0675BDCF3497BD40A186BA6C /* Pods-Epimgur.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = ZUF4693K3T;
-				INFOPLIST_FILE = epicture/Info.plist;
+				INFOPLIST_FILE = Epimgur/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (
 					"$(inherited)",
@@ -761,7 +761,7 @@
 					"-lc++",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
-				PRODUCT_NAME = epicture;
+				PRODUCT_NAME = Epimgur;
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
@@ -769,7 +769,7 @@
 		};
 		2D02E4971E0B4A5E006451C7 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = B8F58260F416551FEF8EE5C0 /* Pods-epicture-tvOS.debug.xcconfig */;
+			baseConfigurationReference = B8F58260F416551FEF8EE5C0 /* Pods-Epimgur-tvOS.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -780,14 +780,14 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_TESTABILITY = YES;
 				GCC_NO_COMMON_BLOCKS = YES;
-				INFOPLIST_FILE = "epicture-tvOS/Info.plist";
+				INFOPLIST_FILE = "Epimgur-tvOS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.epicture-tvOS";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.Epimgur-tvOS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = appletvos;
 				TARGETED_DEVICE_FAMILY = 3;
@@ -797,7 +797,7 @@
 		};
 		2D02E4981E0B4A5E006451C7 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 489CC0E9D5F73737CF2B3F20 /* Pods-epicture-tvOS.release.xcconfig */;
+			baseConfigurationReference = 489CC0E9D5F73737CF2B3F20 /* Pods-Epimgur-tvOS.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -808,14 +808,14 @@
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				GCC_NO_COMMON_BLOCKS = YES;
-				INFOPLIST_FILE = "epicture-tvOS/Info.plist";
+				INFOPLIST_FILE = "Epimgur-tvOS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.epicture-tvOS";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.Epimgur-tvOS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = appletvos;
 				TARGETED_DEVICE_FAMILY = 3;
@@ -825,7 +825,7 @@
 		};
 		2D02E4991E0B4A5E006451C7 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 89978C1ADB8B17C969C0D877 /* Pods-epicture-tvOSTests.debug.xcconfig */;
+			baseConfigurationReference = 89978C1ADB8B17C969C0D877 /* Pods-Epimgur-tvOSTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_ANALYZER_NONNULL = YES;
@@ -835,24 +835,24 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_TESTABILITY = YES;
 				GCC_NO_COMMON_BLOCKS = YES;
-				INFOPLIST_FILE = "epicture-tvOSTests/Info.plist";
+				INFOPLIST_FILE = "Epimgur-tvOSTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.epicture-tvOSTests";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.Epimgur-tvOSTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = appletvos;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/epicture-tvOS.app/epicture-tvOS";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Epimgur-tvOS.app/Epimgur-tvOS";
 				TVOS_DEPLOYMENT_TARGET = 10.1;
 			};
 			name = Debug;
 		};
 		2D02E49A1E0B4A5E006451C7 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = B5265EDF817CD8980B783179 /* Pods-epicture-tvOSTests.release.xcconfig */;
+			baseConfigurationReference = B5265EDF817CD8980B783179 /* Pods-Epimgur-tvOSTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_ANALYZER_NONNULL = YES;
@@ -862,17 +862,17 @@
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				GCC_NO_COMMON_BLOCKS = YES;
-				INFOPLIST_FILE = "epicture-tvOSTests/Info.plist";
+				INFOPLIST_FILE = "Epimgur-tvOSTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.epicture-tvOSTests";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.Epimgur-tvOSTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = appletvos;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/epicture-tvOS.app/epicture-tvOS";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Epimgur-tvOS.app/Epimgur-tvOS";
 				TVOS_DEPLOYMENT_TARGET = 10.1;
 			};
 			name = Release;
@@ -993,7 +993,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		00E357021AD99517003FC87E /* Build configuration list for PBXNativeTarget "epictureTests" */ = {
+		00E357021AD99517003FC87E /* Build configuration list for PBXNativeTarget "EpimgurTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				00E356F61AD99517003FC87E /* Debug */,
@@ -1002,7 +1002,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "epicture" */ = {
+		13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "Epimgur" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				13B07F941A680F5B00A75B9A /* Debug */,
@@ -1011,7 +1011,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		2D02E4BA1E0B4A5E006451C7 /* Build configuration list for PBXNativeTarget "epicture-tvOS" */ = {
+		2D02E4BA1E0B4A5E006451C7 /* Build configuration list for PBXNativeTarget "Epimgur-tvOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				2D02E4971E0B4A5E006451C7 /* Debug */,
@@ -1020,7 +1020,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		2D02E4BB1E0B4A5E006451C7 /* Build configuration list for PBXNativeTarget "epicture-tvOSTests" */ = {
+		2D02E4BB1E0B4A5E006451C7 /* Build configuration list for PBXNativeTarget "Epimgur-tvOSTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				2D02E4991E0B4A5E006451C7 /* Debug */,
@@ -1029,7 +1029,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		83CBB9FA1A601CBA00E9B192 /* Build configuration list for PBXProject "epicture" */ = {
+		83CBB9FA1A601CBA00E9B192 /* Build configuration list for PBXProject "Epimgur" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				83CBBA201A601CBA00E9B192 /* Debug */,

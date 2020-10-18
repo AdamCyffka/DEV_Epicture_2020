@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "2D02E47A1E0B4A5D006451C7"
-               BuildableName = "epicture-tvOS.app"
-               BlueprintName = "epicture-tvOS"
-               ReferencedContainer = "container:epicture.xcodeproj">
+               BuildableName = "Epimgur-tvOS.app"
+               BlueprintName = "Epimgur-tvOS"
+               ReferencedContainer = "container:Epimgur.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,9 +33,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "2D02E48F1E0B4A5D006451C7"
-               BuildableName = "epicture-tvOSTests.xctest"
-               BlueprintName = "epicture-tvOSTests"
-               ReferencedContainer = "container:epicture.xcodeproj">
+               BuildableName = "Epimgur-tvOSTests.xctest"
+               BlueprintName = "Epimgur-tvOSTests"
+               ReferencedContainer = "container:Epimgur.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -55,9 +55,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "2D02E47A1E0B4A5D006451C7"
-            BuildableName = "epicture-tvOS.app"
-            BlueprintName = "epicture-tvOS"
-            ReferencedContainer = "container:epicture.xcodeproj">
+            BuildableName = "Epimgur-tvOS.app"
+            BlueprintName = "Epimgur-tvOS"
+            ReferencedContainer = "container:Epimgur.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
@@ -72,9 +72,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "2D02E47A1E0B4A5D006451C7"
-            BuildableName = "epicture-tvOS.app"
-            BlueprintName = "epicture-tvOS"
-            ReferencedContainer = "container:epicture.xcodeproj">
+            BuildableName = "Epimgur-tvOS.app"
+            BlueprintName = "Epimgur-tvOS"
+            ReferencedContainer = "container:Epimgur.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
