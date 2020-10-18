@@ -2,13 +2,13 @@ import React from 'react'
 import { StyleSheet, SafeAreaView, FlatList, View } from 'react-native'
 import LottieView from 'lottie-react-native'
 import AsyncStorage from '@react-native-community/async-storage'
-
+import Api from '../config/Api'
 import Comment from '../components/CardComment'
 
 async function getUserComments() {
   const token = await AsyncStorage.getItem('accessToken')
   const username = await AsyncStorage.getItem('userName')
-  return fetch(`https://api.imgur.com/3/account/${username}/comments`, {
+  return fetch(`${Api.URI}/account/${username}/comments`, {
     method: 'GET',
     headers: {
       'Authorization': 'Bearer ' + token

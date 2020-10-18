@@ -1,7 +1,7 @@
 import React from 'react'
-import Api from '../config/Api'
 import WebView from 'react-native-webview'
 import AsyncStorage from '@react-native-community/async-storage'
+import Api from '../config/Api'
 
 export default class Login extends React.Component {
   _onNavigationStateChange = async ( webViewState ) => {
@@ -25,7 +25,7 @@ export default class Login extends React.Component {
         automaticallyAdjustContentInsets={ false }
         onNavigationStateChange={ this._onNavigationStateChange.bind( this ) }
         source={{
-          uri: 'https://api.imgur.com/oauth2/authorize?client_id=' + Api.clientID + '&response_type=token',
+          uri: `https://api.imgur.com/oauth2/authorize?client_id=${Api.clientID}&response_type=token`,
         }}
       />
     );
