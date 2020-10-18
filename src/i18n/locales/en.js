@@ -31,10 +31,16 @@ export default {
   },
   drawer: {
     home: 'Home',
-    profile: 'Profie',
+    profile: 'Profile',
     search: 'Search',
     upload: 'Upload',
     signOut: 'Sign out',
     disconnect: 'You have been disconnected'
+  },
+  profile: {
+    profile: 'Profile',
+    posts: 'Posts',
+    favorites: 'Favorites',
+    comments: 'Comments'
   }
 }

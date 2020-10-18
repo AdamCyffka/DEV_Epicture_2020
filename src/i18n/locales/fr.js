@@ -36,5 +36,11 @@ export default {
     upload: 'Ajouter une photo',
     signOut: 'Se déconnecter',
     disconnect: 'Vous avez été déconnecté'
+  },
+  profile: {
+    profile: 'Profil',
+    posts: 'Postes',
+    favorites: 'Favoris',
+    comments: 'Commentaires'
   }
 }

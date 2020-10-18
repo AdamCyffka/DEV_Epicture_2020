@@ -3,6 +3,7 @@ import { createMaterialTopTabNavigator } from '@react-navigation/material-top-ta
 import Posts from '../views/Posts'
 import Favorites from '../views/Favorites'
 import Comments from '../views/Comments'
+import I18n from '../i18n/locales'
 
 const Tab = createMaterialTopTabNavigator()
 
@@ -17,9 +18,9 @@ export default function TopTabs() {
         }
       }}
     >
-      <Tab.Screen name="Posts" component={Posts} />
-      <Tab.Screen name="Favorites" component={Favorites} />
-      <Tab.Screen name="Comments" component={Comments} />
+      <Tab.Screen name={I18n.t('profile.posts')} component={Posts} />
+      <Tab.Screen name={I18n.t('profile.favorites')} component={Favorites} />
+      <Tab.Screen name={I18n.t('profile.comments')} component={Comments} />
     </Tab.Navigator>
   )
 }
