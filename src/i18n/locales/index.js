@@ -12,7 +12,7 @@ if (Array.isArray(locales)) {
 I18n.translations = {
   default: en,
   'en-US': en,
-  'fr-FR': fr,
+  'fr-US': fr,
 }
 
 I18n.fallbacks = true

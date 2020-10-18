@@ -5,7 +5,6 @@ import ImagePicker from 'react-native-image-crop-picker'
 import LoadingView from 'react-native-loading-view'
 import ActionSheet from "react-native-action-sheet"
 import { Header } from 'react-native-elements'
-
 import I18n from '../i18n/locales'
 
 export default class Upload extends React.Component {
@@ -91,12 +90,12 @@ export default class Upload extends React.Component {
         <TouchableWithoutFeedback style={{flex: 1}} onPress={Keyboard.dismiss} accessible={false}>
           <View style={styles.container}>
             <Header
-            leftComponent={{ icon: 'arrow-left', color: '#fff', onPress: () => this.props.navigation.goBack(), }}
+            leftComponent={{ icon: 'arrow-left', color: '#fff', onPress: () => this.props.navigation.goBack() }}
             centerComponent={{ text: I18n.t('upload.upload'), style: { color: '#fff' } }}
             statusBarProps={{ barStyle: 'light-content', backgroundColor: '#16202b' }}
             containerStyle={{
               backgroundColor: '#16202b',
-              justifyContent: 'space-around',
+              justifyContent: 'space-around'
             }}
           />
             <View style={{ flex: 1 }}>
@@ -136,7 +135,7 @@ export default class Upload extends React.Component {
               </LoadingView>
             </View>
             <View style={{ flex: 1 }}></View>
-            <Text style={[styles.textTitle]}>Title</Text>
+            <Text style={[styles.textTitle]}>{I18n.t('upload.title')}</Text>
             <View style={{ flexDirection: 'row' }}>
               <View style={{ flex: 1 }}></View>
               <TextInput
@@ -148,7 +147,7 @@ export default class Upload extends React.Component {
               </TextInput>
               <View style={{ flex: 1 }}></View>
             </View>
-            <Text style={[styles.textTitle]}>Description</Text>
+            <Text style={[styles.textTitle]}>{I18n.t('upload.description')}</Text>
             <View style={{ flexDirection: 'row' }}>
               <View style={{ flex: 1 }}></View>
               <TextInput

@@ -1,9 +1,10 @@
 import React from 'react'
 import { View, StyleSheet, ScrollView, ImageBackground, Image, Alert, RefreshControl } from 'react-native'
-import { Drawer, Text } from 'react-native-paper';
+import { Drawer, Text } from 'react-native-paper'
 import { DrawerItem } from '@react-navigation/drawer'
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons'
 import AsyncStorage from '@react-native-community/async-storage'
+import I18n from '../i18n/locales'
 
 async function getAccountInfo() {
   const token = await AsyncStorage.getItem('accessToken')
@@ -64,7 +65,7 @@ export class DrawerContent extends React.Component {
   logOut = async () => {
     await AsyncStorage.removeItem('accessToken')
     await AsyncStorage.removeItem('userName')
-    Alert.alert('You have been disconnected')
+    Alert.alert(I18n.t('drawer.disconnect'))
     this.props.navigation.navigate('Welcome')
   }
 
@@ -102,7 +103,7 @@ export class DrawerContent extends React.Component {
                   size={size}
                 />
               )}
-              label="Home"
+              label={I18n.t('drawer.home')}
               activeTintColor='#ffffff'
               inactiveTintColor='#ffffff'
               onPress={() => this.props.navigation.navigate('Home')}
@@ -115,7 +116,7 @@ export class DrawerContent extends React.Component {
                   size={size}
                 />
               )}
-              label="Profile"
+              label={I18n.t('drawer.profile')}
               activeTintColor='#ffffff'
               inactiveTintColor='#ffffff'
               onPress={() => this.props.navigation.navigate('Profile')}
@@ -127,7 +128,7 @@ export class DrawerContent extends React.Component {
                   color={'white'}
                   size={size} />
               )}
-              label="Search"
+              label={I18n.t('drawer.search')}
               activeTintColor='#ffffff'
               inactiveTintColor='#ffffff'
               onPress={() => this.props.navigation.navigate('Search')}
@@ -140,7 +141,7 @@ export class DrawerContent extends React.Component {
                   size={size}
                 />
               )}
-              label="Upload"
+              label={I18n.t('drawer.upload')}
               activeTintColor='#ffffff'
               inactiveTintColor='#ffffff'
               onPress={() => this.props.navigation.navigate('Upload')}
@@ -156,7 +157,7 @@ export class DrawerContent extends React.Component {
               size={size}
               />
             )}
-            label="Sign Out"
+            label={I18n.t('drawer.signOut')}
             activeTintColor='#ffffff'
             inactiveTintColor='#ffffff'
             onPress={this.logOut}

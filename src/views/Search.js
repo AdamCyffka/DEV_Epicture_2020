@@ -31,7 +31,7 @@ export default class Search extends React.Component {
     searchImg(this.state.query)
       .then(response => {
         this.setState({
-          data: response.data,
+          data: response.data
         })
       })
   }
@@ -46,7 +46,7 @@ export default class Search extends React.Component {
               <TextInput
                 clearButtonMode='while-editing'
                 onChangeText={(query) => this.setState({ query })}
-                placeholder={'Search'}
+                placeholder={I18n.t('welcome.search')}
                 returnKeyType="search"
                 onSubmitEditing={() => this.searchImg()}
                 style={styles.textInputStyleClass}

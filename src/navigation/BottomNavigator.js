@@ -1,9 +1,8 @@
-import React from 'react';
-import { useTheme, Portal, FAB } from 'react-native-paper';
-import { useIsFocused, RouteProp } from '@react-navigation/native';
+import React from 'react'
+import { useTheme, Portal, FAB } from 'react-native-paper'
+import { useIsFocused, RouteProp } from '@react-navigation/native'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 import Icon from 'react-native-vector-icons/Ionicons'
-
 import Home from '../views/Home'
 import Search from '../views/Search'
 

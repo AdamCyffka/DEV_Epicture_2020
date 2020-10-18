@@ -2,7 +2,6 @@ import React from 'react'
 import { SafeAreaView, StyleSheet, FlatList, View } from 'react-native'
 import AsyncStorage from '@react-native-community/async-storage'
 import LottieView from 'lottie-react-native'
-import Api from '../config/Api'
 import CardImage from '../components/CardImage'
 
 async function getUserFavorites() {

@@ -1,10 +1,11 @@
 export default {
   welcome: {
     login: 'Login',
+    loginn: 'Connexion',
+    search: 'Search...'
   },
   home: {
     home: 'Home',
-    search: 'Type here...',
     cancel: 'Cancel',
     category: 'Category',
     sort: 'Sort',
@@ -27,5 +28,13 @@ export default {
     choosePhoto: 'Choose photo from library',
     success: 'Image successfuly uploaded',
     failure: 'An error occured',
+  },
+  drawer: {
+    home: 'Home',
+    profile: 'Profie',
+    search: 'Search',
+    upload: 'Upload',
+    signOut: 'Sign out',
+    disconnect: 'You have been disconnected'
   }
 }

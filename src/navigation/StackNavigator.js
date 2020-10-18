@@ -1,9 +1,6 @@
 import React from 'react'
-import { createStackNavigator, HeaderBackButton } from '@react-navigation/stack'
-import { TouchableOpacity } from 'react-native'
-import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons'
-
-import { BottomNavigator } from './BottomNavigator';
+import { createStackNavigator } from '@react-navigation/stack'
+import { BottomNavigator } from './BottomNavigator'
 import Loading from '../views/Loading'
 import Search from '../views/Search'
 import Welcome from '../views/Welcome'
@@ -11,7 +8,7 @@ import Login from '../views/Login'
 import Upload from '../views/Upload'
 import Profile from '../views/Profile'
 
-const Stack = createStackNavigator();
+const Stack = createStackNavigator()
 
 export class StackNavigator extends React.Component {
   render() {
@@ -25,7 +22,7 @@ export class StackNavigator extends React.Component {
             },
             headerTintColor: '#ffffff',
             headerTitleStyle: {
-              fontWeight: 'bold',
+              fontWeight: 'bold'
             },
             headerTitleAlign: 'center'
           }}
@@ -42,20 +39,12 @@ export class StackNavigator extends React.Component {
           />
           <Stack.Screen
             name='Login'
-            options={{
-              title: 'Login',
-              headerStyle: {
-                backgroundColor: '#16202b',
-              },
-              headerTintColor: '#ffffff',
-              }}
+            options={{headerShown: false}}
             component={Login}
           />
           <Stack.Screen
             name='Home'
-            options={{
-              headerShown: false
-            }}
+            options={{headerShown: false}}
             component={BottomNavigator}
           />
           <Stack.Screen
@@ -70,13 +59,7 @@ export class StackNavigator extends React.Component {
           />
           <Stack.Screen
             name='Search'
-            options={{
-              title: 'Search result',
-              headerStyle: {
-                backgroundColor: '#16202b',
-              },
-              headerTintColor: '#ffffff',
-              }}
+            options={{headerShown: false}}
             component={Search}
           />
         </Stack.Navigator>

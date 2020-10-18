@@ -1,8 +1,7 @@
-import React from 'react';
-import { SafeAreaView, StyleSheet, FlatList, View } from 'react-native';
-import AsyncStorage from '@react-native-community/async-storage';
-import LottieView from 'lottie-react-native';
-
+import React from 'react'
+import { SafeAreaView, StyleSheet, FlatList, View } from 'react-native'
+import AsyncStorage from '@react-native-community/async-storage'
+import LottieView from 'lottie-react-native'
 import CardImage from '../components/CardImage'
 
 async function getUserPosts() {
@@ -27,9 +26,9 @@ async function getUserPosts() {
 
 export default class Posts extends React.Component {
   state = {
-    isReady: false,
+    isReady: false
   };
-  items = null;
+  items = null
 
   componentDidMount() {
     this.loadPost()
@@ -37,8 +36,8 @@ export default class Posts extends React.Component {
 
   loadPost = () => {
     getUserPosts().then((data) => {
-      this.items = data;
-      this.setState({ isReady: false });
+      this.items = data
+      this.setState({ isReady: false })
     }).catch((err) => err)
   }
 
@@ -46,9 +45,9 @@ export default class Posts extends React.Component {
     this.setState({
       isReady: true
     }, () => {
-      this.loadPost();
-    });
-  };
+      this.loadPost()
+    })
+  }
 
   render() {
     return (
@@ -76,7 +75,7 @@ export default class Posts extends React.Component {
               autoPlay
               loop
               style={{
-                height: 350,
+                height: 350
               }}
             />
           </View>
@@ -89,11 +88,11 @@ export default class Posts extends React.Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#16202b',
+    backgroundColor: '#16202b'
   },
   lottieView: {
     flex: 1,
     justifyContent: 'center',
-    alignItems: 'center',
-  },
-});
+    alignItems: 'center'
+  }
+})
