@@ -47,7 +47,7 @@ To build the project for Android, use the Graddle Wrapper tool in the `android/`
 ```bash
 cd android
 ```
-Then, define Android Home environment variable (replace ~/Library/Android bu your Android folder location)
+Then, define Android Home environment variable (replace ~/Library/Android by your Android folder location)
 ```bash
 export ANDROID_HOME=~/Library/Android
 ./gradlew build
@@ -74,3 +74,26 @@ open epicture.xcworkspace
 This application is tested using [Jest](https://jestjs.io). To run all the test suites, use `yarn test`.
 
 Tests suites are located in the `__tests__` directory for screens, and `components/__tests__` for components.
+
+
+
+
+5 -To run the app
+1. on android device
+open android studio
+configure a AVD manager (top right of tools bar)
+run the android device
+back to react-native code (on visual studio code for exemple)
+open terminal
+
+npm run android
+
+2. on mobile phone
+install Expo on mobile
+run it
+back to react-native code (on visual studio code for exemple)
+open terminal
+
+npm start (or expo start)
+
+scan the qr code with Expo app on mobile phone

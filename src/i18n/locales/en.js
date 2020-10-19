@@ -39,10 +39,10 @@ export default {
   },
   profile: {
     profile: 'Profile',
-    posts: 'Posts',
-    favorites: 'Favorites',
-    comments: 'Comments',
-    informations: 'Informations'
+    posts: 'POST',
+    favorites: 'FAV',
+    comments: 'COMM',
+    informations: 'INFO'
   },
   informations: {
     username: 'Username',
