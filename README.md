@@ -46,6 +46,9 @@ To build the project for Android, use the Graddle Wrapper tool in the `android/`
 
 ```bash
 cd android
+```
+Then, define Android Home environment variable (replace ~/Library/Android bu your Android folder location)
+```bash
 export ANDROID_HOME=~/Library/Android
 ./gradlew build
 ```
