@@ -3,7 +3,7 @@ import { Text, Button, Thumbnail, Card, CardItem, Left, Body, Icon, Right } from
 import { StyleSheet, Image, View } from 'react-native'
 import AsyncStorage from '@react-native-community/async-storage'
 import Share from 'react-native-share'
-import VideoPlayer from 'react-native-video-player';
+import VideoPlayer from 'react-native-video-player'
 
 async function favImage(imageHash) {
   const token = await AsyncStorage.getItem('accessToken')

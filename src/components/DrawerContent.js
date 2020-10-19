@@ -75,6 +75,9 @@ export class DrawerContent extends React.Component {
         <ScrollView
           refreshControl={
             <RefreshControl
+              tintColor='red'
+              titleColor="red"
+              title="Pull to refresh"
               refreshing={this.state.isReady}
               onRefresh={this.handleRefresh}
             />
