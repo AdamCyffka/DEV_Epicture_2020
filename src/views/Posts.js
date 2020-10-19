@@ -1,5 +1,5 @@
 import React from 'react'
-import { SafeAreaView, StyleSheet, FlatList, View, RefreshControl } from 'react-native'
+import { StyleSheet, FlatList, View, RefreshControl } from 'react-native'
 import AsyncStorage from '@react-native-community/async-storage'
 import LottieView from 'lottie-react-native'
 import CardImage from '../components/CardImage'
@@ -51,7 +51,7 @@ export default class Posts extends React.Component {
 
   render() {
     return (
-      <SafeAreaView style={styles.container}>
+      <View style={styles.container}>
         {this.items !== null ?
           <FlatList
             data={this.items}
@@ -87,8 +87,8 @@ export default class Posts extends React.Component {
             />
           </View>
         }
-      </SafeAreaView>
-    );
+      </View>
+    )
   }
 }
 

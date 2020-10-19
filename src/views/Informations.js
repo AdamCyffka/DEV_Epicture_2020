@@ -1,6 +1,7 @@
 import React from 'react'
-import { Image, SafeAreaView, Text, View, StyleSheet, ScrollView, RefreshControl } from 'react-native'
+import { Text, View, StyleSheet, ScrollView, RefreshControl } from 'react-native'
 import AsyncStorage from '@react-native-community/async-storage'
+import I18n from '../i18n/locales'
 
 async function getAccountInfo() {
   const token = await AsyncStorage.getItem('accessToken')
@@ -79,7 +80,7 @@ export default class informations extends React.Component {
       nb_comment: 0,
       nb_pic: 0,
       nb_album: 0,
-      loading: false,
+      loading: false
     }
   }
 
@@ -148,7 +149,7 @@ export default class informations extends React.Component {
 
   render () {
     return (
-      <SafeAreaView style={styles.container}>
+      <View style={styles.container}>
         <ScrollView
           refreshControl={
             <RefreshControl
@@ -160,40 +161,40 @@ export default class informations extends React.Component {
             />
           }
         >
-          <Text style={styles.profileDescheaderData}>Nom d'utilisateur</Text>
+          <Text style={styles.profileDescheaderData}>{I18n.t('informations.username')}</Text>
           <Text style={styles.profileData}>{this.state.username}</Text>
           <View style={styles.profileDescSeparator}>
           </View>
-          <Text style={styles.profileDescheaderData}>Images publiées</Text>
+          <Text style={styles.profileDescheaderData}>{I18n.t('informations.images')}</Text>
           <Text style={styles.profileData}>{this.state.nb_pic}</Text>
           <View style={styles.profileDescSeparator}>
           </View>
-          <Text style={styles.profileDescheaderData}>Albums publiés</Text>
+          <Text style={styles.profileDescheaderData}>{I18n.t('informations.albums')}</Text>
           <Text style={styles.profileData}>{this.state.nb_album}</Text>
           <View style={styles.profileDescSeparator}>
           </View>
-          <Text style={styles.profileDescheaderData}>Commentaires publiés</Text>
+          <Text style={styles.profileDescheaderData}>{I18n.t('informations.comments')}</Text>
           <Text style={styles.profileData}>{this.state.nb_comment - 1}</Text>
           <View style={styles.profileDescSeparator}>
           </View>
-          <Text style={styles.profileDescheaderData}>Joined</Text>
+          <Text style={styles.profileDescheaderData}>{I18n.t('informations.joined')}</Text>
           <Text style={styles.profileData}>{this.state.date.getMonth() + 1}/{this.state.date.getFullYear()}</Text>
           <View style={styles.profileDescSeparator}>
           </View>
-          <Text style={styles.profileDescheaderData}>About</Text>
+          <Text style={styles.profileDescheaderData}>{I18n.t('informations.about')}</Text>
           <Text style={styles.profileData}>{this.state.bio}</Text>
           <View style={styles.profileDescSeparator}>
           </View>
-          <Text style={styles.profileDescheaderData}>Internet points</Text>
+          <Text style={styles.profileDescheaderData}>{I18n.t('informations.internet')}</Text>
           <Text style={styles.profileData}>{this.state.reputation}</Text>
           <View style={styles.profileDescSeparator}>
           </View>
-          <Text style={styles.profileDescheaderData}>Notoriety</Text>
+          <Text style={styles.profileDescheaderData}>{I18n.t('informations.notoriety')}</Text>
           <Text style={styles.profileData}>{this.state.reputationName}</Text>
           <View style={styles.profileDescSeparator}>
           </View>
         </ScrollView>
-      </SafeAreaView>
+      </View>
     )
   }
 }

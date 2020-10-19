@@ -39,9 +39,19 @@ export default {
   },
   profile: {
     profile: 'Profil',
-    posts: 'Postes',
-    favorites: 'Favoris',
-    comments: 'Commentaires',
-    informations: 'Informations'
+    posts: 'POST',
+    favorites: 'FAV',
+    comments: 'COmM',
+    informations: 'INFO'
+  },
+  informations: {
+    username: 'Pseudonyme',
+    images: 'Images publiés',
+    albums: 'Albums publiés',
+    comments: 'Commentaires publiés',
+    joined: 'Rejoint',
+    about: 'A propos',
+    internet: 'Points Internet',
+    notoriety: 'Notoriété'
   }
 }

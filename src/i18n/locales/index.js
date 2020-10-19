@@ -13,6 +13,7 @@ I18n.translations = {
   default: en,
   'en-US': en,
   'fr-US': fr,
+  'fr-FR': fr,
 }
 
 I18n.fallbacks = true

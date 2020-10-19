@@ -43,5 +43,15 @@ export default {
     favorites: 'Favorites',
     comments: 'Comments',
     informations: 'Informations'
+  },
+  informations: {
+    username: 'Username',
+    images: 'Published images',
+    albums: 'Published albums',
+    comments: 'Published comments',
+    joined: 'Joined',
+    about: 'About',
+    internet: 'Internet points',
+    notoriety: 'Notoriety'
   }
 }
