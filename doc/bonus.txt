@@ -1,0 +1,11 @@
+* When you start the app, it's checking if you are already connected, in order to avoid reconnection.
+
+* In every card image, you can up vote and down vote. You can also share a post. You can see gif and videos.
+
+* In the upload screen, you can add a title and a description to your post. You can also choose a photo from your library and take one from your camera. Then, you can resize it.
+
+* On the drawer screen, you can see your profile and background image, your username, your internet points and your notoriety. In this menu, you can also log out of your account.
+
+* In the profile screen, in Informations tab, you can see all information of your account.  Comment tab is a bonus too, you can see all of your comments and delete them by sliding to the left.
+
+* The whole application is translated into English and French. Ability to add multiple languages ​​easily.
