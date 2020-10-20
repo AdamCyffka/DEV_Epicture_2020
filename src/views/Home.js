@@ -1,5 +1,5 @@
 import React from 'react'
-import { View, FlatList, StyleSheet, RefreshControl } from 'react-native'
+import { View, FlatList, StyleSheet, RefreshControl, Text } from 'react-native'
 import LottieView from 'lottie-react-native'
 import UploadButton from '../components/UploadButton'
 import { Header } from 'react-native-elements'
@@ -155,6 +155,9 @@ export default class Home extends React.Component {
             justifyContent: 'space-around'
           }}
         />
+        <View style={styles.activeFilter}>
+          <Text style={{color: '#fff'}}> {I18n.t('home.category')}: {this.state.category}          {I18n.t('home.sort')}: {this.state.sort}</Text>
+        </View>
         {this.state.items !== null ?
           <FlatList
             data={this.state.items}
@@ -204,6 +207,11 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#16202b'
+  },
+  activeFilter: {
+    paddingTop: '2%',
+    paddingBottom: '2%',
+    alignItems: 'center'
   },
   lottieView: {
     flex: 1,
