@@ -81,9 +81,31 @@ npm react-native run-android
 
 #### With a mobile phone
 
+```bash
 open Android Studio
 make sure that your phone is correctly selected in available devices
-back to react-native code (on visual studio code for exemple)
-open terminal
+go to our project folder root
+open terminal inside
 npm install
 npm react-native run-android
+```
+
+
+### Run on iOS
+
+#### With on the iOS emulator
+
+```bash
+go to our project folder root
+open terminal inside
+npm install
+npm react-native run-ios
+```
+#### With a Iphone
+
+```bash
+go to our project folder root
+open terminal inside
+npm install
+npm react-native run-ios
+```
