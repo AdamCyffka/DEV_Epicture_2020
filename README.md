@@ -10,8 +10,6 @@ A cross platform mobile client to browse the Imgur platform, designed to be simp
 - [Getting started](#getting-started)
     - [Local build (Android)](#local-build-android)
     - [Local build (iOS)](#local-build-ios)
-- [Development](#development)
-    - [Running tests](#running-tests)
 
 ## Introduction
 
@@ -69,31 +67,23 @@ pod install
 open epicture.xcworkspace
 ```
 
-### Running tests
+### Run on Android
 
-This application is tested using [Jest](https://jestjs.io). To run all the test suites, use `yarn test`.
+#### With on the Android emulator
 
-Tests suites are located in the `__tests__` directory for screens, and `components/__tests__` for components.
-
-
-
-
-5 -To run the app
-1. on android device
-open android studio
+open Android Studio
 configure a AVD manager (top right of tools bar)
 run the android device
 back to react-native code (on visual studio code for exemple)
 open terminal
+npm install
+npm react-native run-android
 
-npm run android
+#### With a mobile phone
 
-2. on mobile phone
-install Expo on mobile
-run it
+open Android Studio
+make sure that your phone is correctly selected in available devices
 back to react-native code (on visual studio code for exemple)
 open terminal
-
-npm start (or expo start)
-
-scan the qr code with Expo app on mobile phone
+npm install
+npm react-native run-android
