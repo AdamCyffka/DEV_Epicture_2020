@@ -2,17 +2,6 @@
 
 A cross platform mobile client to browse the Imgur platform, designed to be simple as Instagram.
 
-## Contents
-- [Introduction](#introduction)
-    - [Contributors](#contributors)
-    - [Disclaimer](#disclaimer)
-- [Features](#features)
-- [Getting started](#getting-started)
-    - [Local build (Android)](#local-build-android)
-    - [Local build (iOS)](#local-build-ios)
-    - [Run on Android](#run-android)
-    - [With on the Android emulator](#android-emulator)
-
 ## Introduction
 
 This application is not (yet) an official Imgur client for mobile users.
