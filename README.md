@@ -10,6 +10,8 @@ A cross platform mobile client to browse the Imgur platform, designed to be simp
 - [Getting started](#getting-started)
     - [Local build (Android)](#local-build-android)
     - [Local build (iOS)](#local-build-ios)
+    - [Run on Android](#run-android)
+        - [With on the Android emulator](#android-emulator)
 
 ## Introduction
 
@@ -76,8 +78,8 @@ configure a AVD manager (top right of tools bar)<br/>
 run the android device<br/>
 go to our project folder root<br/>
 open terminal<br/>
-`npm install`
-`npm react-native run-android`
+`npm install`<br/>
+`npm react-native run-android`<br/>
 
 #### With a mobile phone
 
@@ -85,8 +87,8 @@ open Android Studio<br/>
 make sure that your phone is correctly selected in available devices<br/>
 go to our project folder root<br/>
 open terminal inside<br/>
-`npm install`
-`npm react-native run-android`
+`npm install`<br/>
+`npm react-native run-android`<br/>
 
 ### Run on iOS
 
@@ -94,12 +96,12 @@ open terminal inside<br/>
 
 go to our project folder root<br/>
 open terminal inside<br/>
-`npm install`
-`npm react-native run-ios`
+`npm install`<br/>
+`npm react-native run-ios`<br/>
 
 #### With a Iphone
 
 go to our project folder root<br/>
 open terminal inside<br/>
-`npm install`
-`npm react-native run-ios`
+`npm install`<br/>
+`npm react-native run-ios`<br/>
