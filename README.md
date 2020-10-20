@@ -73,39 +73,33 @@ open epicture.xcworkspace
 
 open Android Studio<br/>
 configure a AVD manager (top right of tools bar)<br/>
-run the android device
-back to react-native code (on visual studio code for exemple)
-open terminal
-npm install
-npm react-native run-android
+run the android device<br/>
+go to our project folder root<br/>
+open terminal<br/>
+`npm install`
+`npm react-native run-android`
 
 #### With a mobile phone
 
-```bash
-open Android Studio
-make sure that your phone is correctly selected in available devices
-go to our project folder root
-open terminal inside
-npm install
-npm react-native run-android
-```
-
+open Android Studio<br/>
+make sure that your phone is correctly selected in available devices<br/>
+go to our project folder root<br/>
+open terminal inside<br/>
+`npm install`
+`npm react-native run-android`
 
 ### Run on iOS
 
 #### With on the iOS emulator
 
-```bash
-go to our project folder root
-open terminal inside
-npm install
-npm react-native run-ios
-```
+go to our project folder root<br/>
+open terminal inside<br/>
+`npm install`
+`npm react-native run-ios`
+
 #### With a Iphone
 
-```bash
-go to our project folder root
-open terminal inside
-npm install
-npm react-native run-ios
-```
+go to our project folder root<br/>
+open terminal inside<br/>
+`npm install`
+`npm react-native run-ios`
