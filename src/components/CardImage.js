@@ -23,6 +23,24 @@ async function favImage(imageHash) {
   })
 }
 
+async function cleanVoteImage(imageHash) {
+  const token = await AsyncStorage.getItem('accessToken')
+  return fetch(`https://api.imgur.com/3/gallery/${imageHash}/vote/veto`, {
+    method: 'POST',
+    headers: {
+      'Authorization': 'Bearer ' + token
+    }
+  })
+  .then((response) => {
+    return response.json()
+  })
+  .then((result) => {
+    if (result.success)
+      return Promise.resolve()
+    return Promise.reject(result.data)
+  })
+}
+
 async function downVoteImage(imageHash) {
   const token = await AsyncStorage.getItem('accessToken')
   return fetch(`https://api.imgur.com/3/gallery/${imageHash}/vote/down`, {
@@ -91,36 +109,34 @@ export default class CardImage extends React.Component {
   }
 
   isUpVoted() {
-    tmp = !this.state.upVoted
-    tmp2 = this.state.ups
-    tmp3 = this.state.downs
+    actualDowns = this.state.downs
+    actualUps = this.state.ups
 
-    this.setState({ upVoted: tmp })
-    if (tmp) {
-      upVoteImage(this.props.image.id).catch(err => err)
-      this.setState({ ups: tmp2 + 1 })
-      if (this.state.downVoted) {
-        this.setState({ downs: tmp3 - 1, downVoted: false })
-      }
+    if (this.state.upVoted == true) {
+      this.setState({ upVoted: false, ups: actualUps - 1 })
+      cleanVoteImage(this.props.image.id).catch(err => err)
     } else {
-      this.setState({ ups: tmp2 - 1 })
+      upVoteImage(this.props.image.id).catch(err => err)
+      this.setState({ upVoted: true, ups: actualUps + 1 })
+      if (this.state.downVoted) {
+        this.setState({ downs: actualDowns - 1, downVoted: false })
+      }
     }
   }
 
   isDownVoted() {
-    tmp = !this.state.downVoted
-    tmp2 = this.state.downs
-    tmp3 = this.state.ups
+    actualDowns = this.state.downs
+    actualUps = this.state.ups
 
-    this.setState({ downVoted: tmp })
-    if (tmp) {
-      downVoteImage(this.props.image.id).catch(err => err)
-      this.setState({ downs: tmp2 + 1 })
-      if (this.state.upVoted) {
-        this.setState({ ups: tmp3 - 1, upVoted: false })
-      }
+    if (this.state.downVoted == true) {
+      this.setState({ downVoted: false, downs: actualDowns - 1 })
+      cleanVoteImage(this.props.image.id).catch(err => err)
     } else {
-      this.setState({ downs: tmp2 - 1 })
+      downVoteImage(this.props.image.id).catch(err => err)
+      this.setState({ downVoted: true, downs: actualDowns + 1 })
+      if (this.state.upVoted) {
+        this.setState({ ups: actualUps - 1, upVoted: false })
+      }
     }
   }
 
@@ -182,11 +198,11 @@ export default class CardImage extends React.Component {
         </CardItem>
         <CardItem style={styles.card}>
           <Left>
-            <Button transparent>
+            <Button transparent onPress={() => this.isUpVoted()}>
               <Icon style={this.state.upVoted ? styles.active : styles.grey} name='arrow-up' />
               <Text style={styles.white}>{this.state.ups}</Text>
             </Button>
-            <Button transparent>
+            <Button transparent onPress={() => this.isDownVoted()}>
               <Icon style={this.state.downVoted ? styles.active : styles.grey} name='arrow-down' />
               <Text style={styles.white}>{this.state.downs}</Text>
             </Button>
