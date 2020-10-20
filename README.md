@@ -11,7 +11,7 @@ A cross platform mobile client to browse the Imgur platform, designed to be simp
     - [Local build (Android)](#local-build-android)
     - [Local build (iOS)](#local-build-ios)
     - [Run on Android](#run-android)
-        - [With on the Android emulator](#android-emulator)
+    - [With on the Android emulator](#android-emulator)
 
 ## Introduction
 
