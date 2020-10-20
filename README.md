@@ -71,8 +71,8 @@ open epicture.xcworkspace
 
 #### With on the Android emulator
 
-open Android Studio
-configure a AVD manager (top right of tools bar)
+open Android Studio<br/>
+configure a AVD manager (top right of tools bar)<br/>
 run the android device
 back to react-native code (on visual studio code for exemple)
 open terminal
