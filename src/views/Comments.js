@@ -1,28 +1,8 @@
 import React from 'react'
 import { StyleSheet, FlatList, View, RefreshControl } from 'react-native'
 import LottieView from 'lottie-react-native'
-import AsyncStorage from '@react-native-community/async-storage'
-import Api from '../config/Api'
 import Comment from '../components/CardComment'
-
-async function getUserComments() {
-  const token = await AsyncStorage.getItem('accessToken')
-  const username = await AsyncStorage.getItem('userName')
-  return fetch(`${Api.URI}/account/${username}/comments`, {
-    method: 'GET',
-    headers: {
-      'Authorization': 'Bearer ' + token
-    }
-  })
-  .then((response) => {
-    return response.json()
-  })
-  .then((result) => {
-    if (result.success)
-      return Promise.resolve(result.data)
-    return Promise.reject(result.data)
-  })
-}
+import { getUserComments } from '../api/Imgur'
 
 export default class Comments extends React.Component {
   state = {

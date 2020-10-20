@@ -1,28 +1,8 @@
 import React from 'react'
 import { StyleSheet, FlatList, View, RefreshControl } from 'react-native'
-import AsyncStorage from '@react-native-community/async-storage'
 import LottieView from 'lottie-react-native'
 import CardImage from '../components/CardImage'
-
-async function getUserPosts() {
-  const token = await AsyncStorage.getItem('accessToken');
-  return fetch('https://api.imgur.com/3/account/me/images', {
-    method: 'GET',
-    headers: {
-      Accept: 'application/json',
-      'Content-Type': 'application/json',
-      'Authorization': 'Bearer ' + token
-    }
-  })
-    .then((response) => {
-      return response.json();
-    })
-    .then((result) => {
-      if (result.success)
-        return Promise.resolve(result.data);
-      return Promise.reject(result.data);
-    });
-}
+import { getUserPosts } from '../api/Imgur'
 
 export default class Posts extends React.Component {
   state = {

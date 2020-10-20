@@ -1,6 +1,5 @@
 import React from 'react'
 import { View, StyleSheet } from 'react-native'
-import AsyncStorage from '@react-native-community/async-storage'
 import { Header } from 'react-native-elements'
 import I18n from '../i18n/locales'
 import TopTabs from '../navigation/TopTabs'

@@ -4,26 +4,9 @@ import LottieView from 'lottie-react-native'
 import UploadButton from '../components/UploadButton'
 import { Header } from 'react-native-elements'
 import ActionSheet from 'react-native-action-sheet'
-import Api from '../config/Api'
 import CardImage from '../components/CardImage'
 import I18n from '../i18n/locales'
-
-async function getGalleryTop(category, sort, page) {
-  return fetch(`https://api.imgur.com/3/gallery/${category}/${(category === 'user') ? sort : 'time/day'}/${page}?showViral=true&mature=true&album_previews=false`, {
-    'method': 'GET',
-    'headers': {
-      'Authorization': `Client-ID ${Api.clientID}`
-    }
-  })
-  .then((response) => {
-    return response.json()
-  })
-  .then((result) => {
-    if (result.success)
-      return Promise.resolve(result.data)
-    return Promise.reject(result.data)
-  })
-}
+import { getGalleryTop } from '../api/Imgur'
 
 export default class Home extends React.Component {
   constructor () {

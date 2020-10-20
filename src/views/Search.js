@@ -1,39 +1,37 @@
 import React from 'react'
-import { StyleSheet, View, ActivityIndicator, FlatList, TextInput } from 'react-native'
+import { StyleSheet, View, FlatList, TextInput, RefreshControl } from 'react-native'
 import LottieView from 'lottie-react-native'
 import { Header } from 'react-native-elements'
 import CardImage from '../components/CardImage'
 import I18n from '../i18n/locales'
-import Api from '../config/Api'
-
-export async function searchImg(query, sort, window) {
-	var rplc = query.replace(' ', '+')
-	var url = "https://api.imgur.com/3/gallery/search/" + sort + "/" + window + "/1?q=" + rplc
-	return fetch(url, {
-		headers: {
-			'Authorization': `Client-ID ${Api.clientID}`
-		}
-	})
-	.then((response) => response.json())
-	.catch((err) => console.error(err))
-}
+import { searchImg } from '../api/Imgur'
 
 export default class Search extends React.Component {
   constructor() {
     super()
     this.state = {
       data: null,
-      query: ''
+      query: '',
+      isReady: false
     }
   }
 
-  searchImg() {
+  searchImg = () => {
     searchImg(this.state.query)
       .then(response => {
         this.setState({
-          data: response.data
+          data: response.data,
+          isReady: false
         })
       })
+  }
+
+  handleRefresh = () => {
+    this.setState({
+      isReady: true
+    }, () => {
+      this.searchImg()
+    })
   }
 
   render() {
@@ -74,6 +72,15 @@ export default class Search extends React.Component {
                   item={item}
                 />
               }}
+              refreshControl={
+                <RefreshControl
+                  tintColor='red'
+                  titleColor="red"
+                  title="Pull to refresh"
+                  refreshing={this.state.isReady}
+                  onRefresh={this.handleRefresh}
+                />
+              }
           />
         :
           <View style={styles.lottieView}>

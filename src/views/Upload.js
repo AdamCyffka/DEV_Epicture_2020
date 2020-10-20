@@ -1,5 +1,5 @@
 import React from 'react'
-import { SafeAreaView, Keyboard, StyleSheet, Text, TouchableWithoutFeedback, View, Button, Image, TextInput, Alert } from 'react-native'
+import { Keyboard, StyleSheet, Text, TouchableWithoutFeedback, View, Button, Image, TextInput, Alert } from 'react-native'
 import AsyncStorage from '@react-native-community/async-storage'
 import ImagePicker from 'react-native-image-crop-picker'
 import LoadingView from 'react-native-loading-view'

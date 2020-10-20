@@ -1,71 +1,7 @@
 import React from 'react'
 import { Text, View, StyleSheet, ScrollView, RefreshControl } from 'react-native'
-import AsyncStorage from '@react-native-community/async-storage'
 import I18n from '../i18n/locales'
-
-async function getAccountInfo() {
-  const token = await AsyncStorage.getItem('accessToken')
-  const username = await AsyncStorage.getItem('userName')
-  return fetch('https://api.imgur.com/3/account/' + username, {
-    method: 'GET',
-    headers: {
-      Accept: 'application/json',
-      'Content-Type': 'application/json',
-      'Authorization': 'Bearer ' + token
-    }
-  })
-  .then((response) => {
-    return response.json()
-  })
-}
-
-async function getNbComment() {
-  const token = await AsyncStorage.getItem('accessToken')
-  const username = await AsyncStorage.getItem('userName')
-  return fetch('https://api.imgur.com/3/account/' + username + '/comments/count', {
-    method: 'GET',
-    headers: {
-      Accept: 'application/json',
-      'Content-Type': 'application/json',
-      'Authorization': 'Bearer ' + token
-    }
-  })
-  .then((response) => {
-    return response.json()
-  })
-}
-
-async function getNbPic() {
-  const token = await AsyncStorage.getItem('accessToken')
-  const username = await AsyncStorage.getItem('userName')
-  return fetch('https://api.imgur.com/3/account/' + username + '/images/count', {
-    method: 'GET',
-    headers: {
-      Accept: 'application/json',
-      'Content-Type': 'application/json',
-      'Authorization': 'Bearer ' + token
-    }
-  })
-  .then((response) => {
-    return response.json()
-  })
-}
-
-async function getNbAlbums() {
-  const token = await AsyncStorage.getItem('accessToken')
-  const username = await AsyncStorage.getItem('userName')
-  return fetch('https://api.imgur.com/3/account/' + username + '/albums/count', {
-    method: 'GET',
-    headers: {
-      Accept: 'application/json',
-      'Content-Type': 'application/json',
-      'Authorization': 'Bearer ' + token
-    }
-  })
-  .then((response) => {
-    return response.json()
-  })
-}
+import { getAccountInfo, getNbComment, getNbPic, getNbAlbums } from '../api/Imgur'
 
 export default class informations extends React.Component {
   constructor() {

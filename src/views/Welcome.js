@@ -1,7 +1,6 @@
 import React from 'react'
 import { TouchableOpacity, StatusBar, View, Text, StyleSheet, SafeAreaView } from 'react-native'
 import LottieView from 'lottie-react-native'
-
 import I18n from '../i18n/locales'
 
 export default class Welcome extends React.Component {

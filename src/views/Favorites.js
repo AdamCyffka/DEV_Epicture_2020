@@ -1,27 +1,8 @@
 import React from 'react'
 import { StyleSheet, FlatList, View, RefreshControl } from 'react-native'
-import AsyncStorage from '@react-native-community/async-storage'
 import LottieView from 'lottie-react-native'
 import CardImage from '../components/CardImage'
-
-async function getUserFavorites() {
-  const token = await AsyncStorage.getItem('accessToken')
-  const username = await AsyncStorage.getItem('userName')
-  return fetch('https://api.imgur.com/3/account/' + username + '/favorites/', {
-    method: 'GET',
-    headers: {
-      'Authorization': 'Bearer ' + token
-    }
-  })
-  .then((response) => {
-    return response.json()
-  })
-  .then((result) => {
-    if (result.success)
-      return Promise.resolve(result.data)
-    return Promise.reject(result.data)
-  })
-}
+import { getUserFavorites } from '../api/Imgur'
 
 export default class Favorites extends React.Component {
   state = {
