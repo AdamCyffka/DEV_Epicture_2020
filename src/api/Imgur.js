@@ -151,3 +151,108 @@ export async function searchImg(query, sort, window) {
 	.then((response) => response.json())
 	.catch((err) => console.error(err))
 }
+
+export async function favImage(imageHash) {
+  const token = await AsyncStorage.getItem('accessToken')
+  return fetch(`https://api.imgur.com/3/image/${imageHash}/favorite`, {
+    method: 'POST',
+    headers: {
+      'Authorization': 'Bearer ' + token
+    }
+  })
+  .then((response) => {
+    return response.json()
+  })
+  .then((result) => {
+    if (result.success)
+      return Promise.resolve(result.data)
+    return Promise.reject(result.data)
+  })
+}
+
+export async function cleanVoteImage(imageHash) {
+  const token = await AsyncStorage.getItem('accessToken')
+  return fetch(`https://api.imgur.com/3/gallery/${imageHash}/vote/veto`, {
+    method: 'POST',
+    headers: {
+      'Authorization': 'Bearer ' + token
+    }
+  })
+  .then((response) => {
+    return response.json()
+  })
+  .then((result) => {
+    if (result.success)
+      return Promise.resolve()
+    return Promise.reject(result.data)
+  })
+}
+
+export async function downVoteImage(imageHash) {
+  const token = await AsyncStorage.getItem('accessToken')
+  return fetch(`https://api.imgur.com/3/gallery/${imageHash}/vote/down`, {
+    method: 'POST',
+    headers: {
+      'Authorization': 'Bearer ' + token
+    }
+  })
+  .then((response) => {
+    return response.json()
+  })
+  .then((result) => {
+    if (result.success)
+      return Promise.resolve()
+    return Promise.reject(result.data)
+  })
+}
+
+export async function upVoteImage(imageHash) {
+  const token = await AsyncStorage.getItem('accessToken')
+  return fetch(`https://api.imgur.com/3/gallery/${imageHash}/vote/up`, {
+    method: 'POST',
+    headers: {
+      'Authorization': 'Bearer ' + token
+    }
+  })
+  .then((response) => {
+    return response.json()
+  })
+  .then((result) => {
+    if (result.success)
+      return Promise.resolve(result.data)
+    return Promise.reject(result.data)
+  })
+}
+
+export async function getImageInfo(imageHash) {
+  const token = await AsyncStorage.getItem('accessToken')
+  return fetch(`https://api.imgur.com/3/image/${imageHash}`, {
+    'method': 'GET',
+    'headers': {
+      'Authorization': 'Bearer ' + token
+    },
+  })
+    .then((response) => {
+    return response.json()
+  })
+  .then((result) => {
+    if (result.success)
+      return Promise.resolve(result.data)
+    return Promise.reject(result.data)
+  })
+}
+
+export async function DeleteComment(commentId) {
+  const token = await AsyncStorage.getItem('accessToken')
+  return fetch('https://api.imgur.com/3/comment/' + commentId, {
+    method: 'DEL',
+    headers: {
+      Accept: 'application/json',
+      'Content-Type': 'application/json',
+      'Authorization': 'Bearer ' + token
+    }
+  })
+  .then((response) => {
+    return response.json()
+  })
+}

@@ -5,22 +5,7 @@ import { DrawerItem } from '@react-navigation/drawer'
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons'
 import AsyncStorage from '@react-native-community/async-storage'
 import I18n from '../i18n/locales'
-
-async function getAccountInfo() {
-  const token = await AsyncStorage.getItem('accessToken')
-  const username = await AsyncStorage.getItem('userName')
-  return fetch('https://api.imgur.com/3/account/' + username, {
-    method: 'GET',
-    headers: {
-      Accept: 'application/json',
-      'Content-Type': 'application/json',
-      'Authorization': 'Bearer ' + token
-    }
-  })
-  .then((response) => {
-    return response.json()
-  })
-}
+import { getAccountInfo } from '../api/Imgur'
 
 export class DrawerContent extends React.Component {
   constructor() {

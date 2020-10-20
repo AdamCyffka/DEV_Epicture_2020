@@ -2,23 +2,8 @@ import React from 'react'
 import {Text, Button, Thumbnail, Card, CardItem, Left, Body, Icon } from 'native-base'
 import { StyleSheet, View, Animated, TouchableOpacity } from 'react-native'
 import Swipeable from 'react-native-gesture-handler/Swipeable'
-import AsyncStorage from '@react-native-community/async-storage'
-import AlertPro from "react-native-alert-pro"
-
-async function DeleteComment(commentId) {
-  const token = await AsyncStorage.getItem('accessToken')
-  return fetch('https://api.imgur.com/3/comment/' + commentId, {
-    method: 'DEL',
-    headers: {
-      Accept: 'application/json',
-      'Content-Type': 'application/json',
-      'Authorization': 'Bearer ' + token
-    }
-  })
-  .then((response) => {
-    return response.json()
-  })
-}
+import AlertPro from 'react-native-alert-pro'
+import { DeleteComment } from '../api/Imgur'
 
 export default class CardComment extends React.Component {
   state = {
