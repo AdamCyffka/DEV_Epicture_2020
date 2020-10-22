@@ -11,7 +11,8 @@ export default class CardImage extends React.Component {
     downVoted: this.props.item.vote === 'down' ? true : false,
     fav: this.props.item.favorite,
     ups: this.props.item.ups ?this.props.item.ups : 0 ,
-    downs: this.props.item.downs ?this.props.item.downs : 0
+    downs: this.props.item.downs ?this.props.item.downs : 0,
+    favs: this.props.item.favorite_count
   }
 
   componentDidMount() {
@@ -52,10 +53,12 @@ export default class CardImage extends React.Component {
 
   isFav() {
     favImage(this.props.image.id).then((data) => {
-      if (data === 'unfavorited')
-        this.setState({ fav: false })
-      else
-        this.setState({ fav: true })
+      actualFavs = this.state.favs
+      if (data === 'unfavorited') {
+        this.setState({ fav: false, favs: actualFavs - 1 })
+      } else {
+        this.setState({ fav: true, favs: actualFavs + 1 })
+      }
     }).catch(e => e)
   }
 
@@ -118,7 +121,7 @@ export default class CardImage extends React.Component {
             </Button>
             <Button transparent onPress={() => this.isFav()}>
               <Icon style={this.state.fav ? styles.activeFav : styles.grey} name='heart' />
-              <Text style={styles.white}>{this.props.item.favorite_count}</Text>
+              <Text style={styles.white}>{this.state.favs}</Text>
             </Button>
           </Left>
           <Right>
