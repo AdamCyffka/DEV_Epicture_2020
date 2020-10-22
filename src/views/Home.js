@@ -139,7 +139,8 @@ export default class Home extends React.Component {
           }}
         />
         <View style={styles.activeFilter}>
-          <Text style={{color: '#fff'}}> {I18n.t('home.category')}: {this.state.category}          {I18n.t('home.sort')}: {this.state.sort}</Text>
+          <Text style={styles.filter}>{this.state.category}</Text>
+          <Text style={styles.filter}>{this.state.sort}</Text>
         </View>
         {this.state.items !== null ?
           <FlatList
@@ -192,9 +193,22 @@ const styles = StyleSheet.create({
     backgroundColor: '#16202b'
   },
   activeFilter: {
+    flexDirection: 'row',
+    justifyContent: 'space-around',
+    alignItems: 'center',
+    paddingTop: '2%',
+    paddingBottom: '2%'
+  },
+  filter: {
+    color: '#fff',
+    borderWidth: 2,
+    borderRadius: 20,
+    borderColor: '#1ea1f1',
+    width: '20%',
     paddingTop: '2%',
     paddingBottom: '2%',
-    alignItems: 'center'
+    justifyContent: 'center',
+    textAlign: 'center'
   },
   lottieView: {
     flex: 1,

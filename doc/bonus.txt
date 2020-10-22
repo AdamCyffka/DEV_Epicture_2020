@@ -1,6 +1,8 @@
 * When you start the app, it's checking if you are already connected, in order to avoid reconnection.
 
-* In every card image, you can up vote and down vote. You can also share a post. You can see gif and videos.
+* In every card image, you can up vote and down vote. You can also share a post. (half functionnal : see comments in CardImage.js line 74)
+
+* The videos and GIFs are handled in the whole App. We set them to autoplay, loop and be muted. You can also watch videos in fullscreen using the player.
 
 * In the upload screen, you can add a title and a description to your post. You can also choose a photo from your library and take one from your camera. Then, you can resize it.
 

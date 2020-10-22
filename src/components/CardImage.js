@@ -69,6 +69,11 @@ export default class CardImage extends React.Component {
         this.setState({ upVoted: true })
       else if (data.vote == 'down')
         this.setState({ upVoted: false })
+      else
+        console.log(data.vote)
+        // à l'attention d'Ismaïl : la data vote est null alors que je fais une
+        // requête pour get les infos de l'image avec mon access token
+        // (contrairement à la data favorite (boolean) qui est bien remplie) 
     }).catch((err) => err)
   }
 
@@ -94,19 +99,21 @@ export default class CardImage extends React.Component {
           </Left>
         </CardItem>
         <CardItem cardBody style={{ aspectRatio: this.props.image.width / this.props.image.height, flex: 1 }}>
-          <View>
-            <Image
-              source={{ uri: `https://i.imgur.com/${this.props.image.id}.gif` }}
-              style={{ aspectRatio: this.props.image.width / this.props.image.height, flex: 1 }}
-            />
-            {/* <VideoPlayer
-              autoplay
-              defaultMuted
-              loop
-              video={{ uri: 'https://i.imgur.com/MCreGys.mp4' }}
-              videoWidth={this.props.image.width}
-              videoHeight={this.props.image.height}
-            /> */}
+          <View style={{ height: '100%', width: '100%'}}>
+            {this.props.image.type.includes('video/') === false ?
+              <Image
+                source={{ uri: `https://i.imgur.com/${this.props.image.id}.gif` }}
+                style={{ aspectRatio: this.props.image.width / this.props.image.height, flex: 1 }}
+              />
+            :
+              <VideoPlayer
+                autoplay
+                defaultMuted
+                loop
+                video={{ uri: `https://i.imgur.com/${this.props.image.id}.mp4` }}
+                style={{height: '100%'}}
+              />
+            }
           </View>
         </CardItem>
         <CardItem style={styles.card}>
