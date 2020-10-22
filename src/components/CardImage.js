@@ -11,7 +11,8 @@ export default class CardImage extends React.Component {
     downVoted: this.props.item.vote === 'down' ? true : false,
     fav: this.props.item.favorite,
     ups: this.props.item.ups ?this.props.item.ups : 0 ,
-    downs: this.props.item.downs ?this.props.item.downs : 0
+    downs: this.props.item.downs ?this.props.item.downs : 0,
+    favs: this.props.item.favorite_count
   }
 
   componentDidMount() {
@@ -52,10 +53,12 @@ export default class CardImage extends React.Component {
 
   isFav() {
     favImage(this.props.image.id).then((data) => {
-      if (data === 'unfavorited')
-        this.setState({ fav: false })
-      else
-        this.setState({ fav: true })
+      actualFavs = this.state.favs
+      if (data === 'unfavorited') {
+        this.setState({ fav: false, favs: actualFavs - 1 })
+      } else {
+        this.setState({ fav: true, favs: actualFavs + 1 })
+      }
     }).catch(e => e)
   }
 
@@ -66,6 +69,11 @@ export default class CardImage extends React.Component {
         this.setState({ upVoted: true })
       else if (data.vote == 'down')
         this.setState({ upVoted: false })
+      else
+        console.log(data.vote)
+        // à l'attention d'Ismaïl : la data vote est null alors que je fais une
+        // requête pour get les infos de l'image avec mon access token
+        // (contrairement à la data favorite (boolean) qui est bien remplie) 
     }).catch((err) => err)
   }
 
@@ -91,19 +99,21 @@ export default class CardImage extends React.Component {
           </Left>
         </CardItem>
         <CardItem cardBody style={{ aspectRatio: this.props.image.width / this.props.image.height, flex: 1 }}>
-          <View>
-            <Image
-              source={{ uri: `https://i.imgur.com/${this.props.image.id}.gif` }}
-              style={{ aspectRatio: this.props.image.width / this.props.image.height, flex: 1 }}
-            />
-            {/* <VideoPlayer
-              autoplay
-              defaultMuted
-              loop
-              video={{ uri: 'https://i.imgur.com/MCreGys.mp4' }}
-              videoWidth={this.props.image.width}
-              videoHeight={this.props.image.height}
-            /> */}
+          <View style={{ height: '100%', width: '100%'}}>
+            {this.props.image.type.includes('video/') === false ?
+              <Image
+                source={{ uri: `https://i.imgur.com/${this.props.image.id}.gif` }}
+                style={{ aspectRatio: this.props.image.width / this.props.image.height, flex: 1 }}
+              />
+            :
+              <VideoPlayer
+                autoplay
+                defaultMuted
+                loop
+                video={{ uri: `https://i.imgur.com/${this.props.image.id}.mp4` }}
+                style={{height: '100%'}}
+              />
+            }
           </View>
         </CardItem>
         <CardItem style={styles.card}>
@@ -118,7 +128,7 @@ export default class CardImage extends React.Component {
             </Button>
             <Button transparent onPress={() => this.isFav()}>
               <Icon style={this.state.fav ? styles.activeFav : styles.grey} name='heart' />
-              <Text style={styles.white}>{this.props.item.favorite_count}</Text>
+              <Text style={styles.white}>{this.state.favs}</Text>
             </Button>
           </Left>
           <Right>
