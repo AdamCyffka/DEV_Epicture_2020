@@ -23,7 +23,7 @@ export async function getUserComments() {
 export async function getUserFavorites() {
   const token = await AsyncStorage.getItem('accessToken')
   const username = await AsyncStorage.getItem('userName')
-  return fetch('https://api.imgur.com/3/account/' + username + '/favorites/', {
+  return fetch('https://api.imgur.com/3/account/' + username + '/favorites', {
     method: 'GET',
     headers: {
       'Authorization': 'Bearer ' + token
@@ -37,6 +37,26 @@ export async function getUserFavorites() {
       return Promise.resolve(result.data)
     return Promise.reject(result.data)
   })
+}
+
+export async function getUserPosts() {
+  const token = await AsyncStorage.getItem('accessToken')
+  return fetch('https://api.imgur.com/3/account/me/images', {
+    method: 'GET',
+    headers: {
+      Accept: 'application/json',
+      'Content-Type': 'application/json',
+      'Authorization': 'Bearer ' + token
+    }
+  })
+    .then((response) => {
+      return response.json()
+    })
+    .then((result) => {
+      if (result.success)
+        return Promise.resolve(result.data)
+      return Promise.reject(result.data)
+    })
 }
 
 export async function getGalleryTop(category, sort, page) {
@@ -118,26 +138,6 @@ export async function getNbAlbums() {
   .then((response) => {
     return response.json()
   })
-}
-
-export async function getUserPosts() {
-  const token = await AsyncStorage.getItem('accessToken')
-  return fetch('https://api.imgur.com/3/account/me/images', {
-    method: 'GET',
-    headers: {
-      Accept: 'application/json',
-      'Content-Type': 'application/json',
-      'Authorization': 'Bearer ' + token
-    }
-  })
-    .then((response) => {
-      return response.json()
-    })
-    .then((result) => {
-      if (result.success)
-        return Promise.resolve(result.data)
-      return Promise.reject(result.data)
-    })
 }
 
 export async function searchImg(query, sort, window) {

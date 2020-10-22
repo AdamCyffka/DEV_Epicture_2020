@@ -7,7 +7,7 @@ import { getUserPosts } from '../api/Imgur'
 export default class Posts extends React.Component {
   state = {
     isReady: false
-  };
+  }
   items = null
 
   componentDidMount() {

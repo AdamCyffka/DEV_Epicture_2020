@@ -32,6 +32,7 @@ export default class Login extends React.Component {
           }}
         />
         <WebView
+          incognito={true}
           startInLoadingState={true}
           javaScriptEnabled={true}
           domStorageEnabled={true}
