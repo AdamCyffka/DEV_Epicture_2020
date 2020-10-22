@@ -1,12 +1,12 @@
 # Epicture
 
-A cross platform mobile client to browse the Imgur platform, designed to be simple as Instagram.
+A cross platform mobile client to browse the Imgur platform.
 
 ## Introduction
 
 This application is not (yet) an official Imgur client for mobile users.
 
-It was written using react-native and expo, and runs on Android SDK 21-28 / iOS 10.0-12.1.
+It was written using react-native, and runs on Android SDK 28 / iOS 10.0-14.0.
 
 ### Contributors
 
@@ -68,7 +68,7 @@ run the android device<br/>
 go to our project folder root<br/>
 open terminal<br/>
 `npm install`<br/>
-`npm react-native run-android`<br/>
+`react-native run-android`<br/>
 
 #### With a mobile phone
 
@@ -77,7 +77,7 @@ make sure that your phone is correctly selected in available devices<br/>
 go to our project folder root<br/>
 open terminal inside<br/>
 `npm install`<br/>
-`npm react-native run-android`<br/>
+`react-native run-android`<br/>
 
 ### Run on iOS
 
@@ -86,11 +86,11 @@ open terminal inside<br/>
 go to our project folder root<br/>
 open terminal inside<br/>
 `npm install`<br/>
-`npm react-native run-ios`<br/>
+`react-native run-ios`<br/>
 
 #### With a Iphone
 
 go to our project folder root<br/>
 open terminal inside<br/>
 `npm install`<br/>
-`npm react-native run-ios`<br/>
+`react-native run-ios`<br/>
