@@ -243,7 +243,6 @@ export async function getImageInfo(imageHash) {
 }
 
 export async function DeleteComment(commentId) {
-  console.log(commentId)
   const token = await AsyncStorage.getItem('accessToken')
   return fetch('https://api.imgur.com/3/comment/' + commentId, {
     method: 'DELETE',
