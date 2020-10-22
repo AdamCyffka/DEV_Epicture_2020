@@ -42,7 +42,7 @@ export default class Comments extends React.Component {
             renderItem={({ item }) => {
               return <Comment
                 item={item}
-                reload={this.loadComment()}
+                reload={this.handleRefresh}
               />
             }}
             refreshControl={

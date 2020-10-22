@@ -23,7 +23,6 @@ export default class CardComment extends React.Component {
       this.AlertPro.close()
     }).catch((err) => err)
     this.props.reload()
-    this.unmount()
   }
 
   render() {

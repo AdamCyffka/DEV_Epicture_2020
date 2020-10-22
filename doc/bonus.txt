@@ -1,6 +1,8 @@
 * When you start the app, it's checking if you are already connected, in order to avoid reconnection.
 
-* In every card image, you can up vote and down vote. You can also share a post. (half functionnal : see comments in CardImage.js line 74)
+* In every card image, you can up vote and down vote (half functionnal : see comments in CardImage.js line 74).
+
+* You can also share a post using the share button just below a post.
 
 * The videos and GIFs are handled in the whole App. We set them to autoplay, loop and be muted. You can also watch videos in fullscreen using the player.
 
@@ -11,3 +13,9 @@
 * In the profile screen, in Informations tab, you can see all information of your account.  Comment tab is a bonus too, you can see all of your comments and delete them by sliding to the left.
 
 * The whole application is translated into English and French. Ability to add multiple languages ​​easily.
+
+* The app is crossplatform for Android and iOS. For us, it should be taken into account as a bonus because there is some difficulties we had to deal with in react-native to make this application working :
+  - Camera usage is very different from Android to iOS because of the rights it needs.
+  - The Application style differs too, it is not all the time possible to use an unique style between these OS because of the phone notch and the status bar.
+  - The non-possibility to test the application on a real device for iOS.
+  - Dependencies installation requires sometimes hard work to be stable, especially on iOS.
