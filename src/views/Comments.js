@@ -41,7 +41,8 @@ export default class Comments extends React.Component {
             keyExtractor={(item, index) => index.toString()}
             renderItem={({ item }) => {
               return <Comment
-                item={item} 
+                item={item}
+                reload={this.loadComment()}
               />
             }}
             refreshControl={

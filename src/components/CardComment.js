@@ -15,14 +15,17 @@ export default class CardComment extends React.Component {
     comment_id: null,
     isReady: false
   }
-  
-  removeComment = () => {
-    DeleteComment(this.props.item.comment).then((data) => {
+
+  async removeComment() {
+    await DeleteComment(this.props.item.id).then((data) => {
       this.items = data
       this.setState({ isReady: false })
+      this.AlertPro.close()
     }).catch((err) => err)
+    this.props.reload()
+    this.unmount()
   }
-  
+
   render() {
     const RightActions = (progress, dragX, onPress) => {
       scale = dragX.interpolate({
@@ -40,7 +43,7 @@ export default class CardComment extends React.Component {
           ref={ref => {
             this.AlertPro = ref
           }}
-          onConfirm={() => this.removeAndReresh()}
+          onConfirm={() => this.removeComment()}
           onCancel={() => this.AlertPro.close()}
           title="Delete confirmation"
           message="Are you sure to delete this comment?"
