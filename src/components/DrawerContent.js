@@ -21,7 +21,7 @@ export class DrawerContent extends React.Component {
   }
 
   componentDidMount() {
-    this.loadInfo()
+    this.handleRefresh()
   }
 
   loadInfo = () => {
