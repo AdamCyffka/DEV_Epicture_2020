@@ -29,7 +29,58 @@ We do not endorse any responsablities regarding what could happen to your Imgur 
 
 ## Getting started
 
-### Local build (Android)
+### Prerequisites
+
+* NodeJS
+* 
+* Java SE Development Kit (JDK)
+* Android SDK Platform 28
+
+### Run on Android
+
+#### With a virtual device
+
+Download and install Android Studio<br/>
+Open it<br/>
+Configure a AVD manager (top right of tools bar)<br/>
+Run the Android device<br/>
+Define the ANDROID_SDK_ROOT environment variable with the "Android/sdk" location<br/>
+Go to our project folder root<br/>
+Open terminal inside and run `npm install`<br/>
+Then run `npx react-native start`<br/>
+Open a new terminal inside the project folder root and run the following: `npx react-native run-android`<br/>
+
+#### With a physical device
+
+Download and install Android Studio<br/>
+Open it<br/>
+Make sure that your phone is correctly selected in available devices (top bar)<br/>
+Define the ANDROID_SDK_ROOT environment variable with the "Android/sdk" location<br/>
+Go to our project folder root<br/>
+Open terminal inside and run `npm install`<br/>
+Then run `npx react-native start`<br/>
+Open a new terminal inside the project folder root and run the following: `npx react-native run-android`<br/>
+
+### Run on iOS (Mac only)
+
+#### With a virtual device
+
+Download and install Xcode
+Go to our project folder root<br/>
+Open terminal inside and run `npm install`<br/>
+Then run `npx react-native start`<br/>
+Open a new terminal inside the project folder root and run the following: `npx react-native run-ios`<br/>
+
+#### With a physical device
+
+Download and install Xcode
+Make sure that your phone is correctly plug in<br/>
+Go to our project folder root<br/>
+Open terminal inside and run `npm install`<br/>
+Then run `npx react-native start`<br/>
+Open a new terminal inside the project folder root and run the following: `npx react-native run-ios`<br/>
+
+### APK build (Android)
 
 To build the project for Android, use the Graddle Wrapper tool in the `android/` directory.
 
@@ -47,50 +98,3 @@ To generate a production APK, run use:
 ```bash
 ./gradlew assembleRelease
 ```
-
-### Local build (iOS)
-
-To build a production IPA for iOS, open the Xcode workspace in the `ios/` directory (on a mac).
-
-```bash
-cd ios
-pod install
-open epicture.xcworkspace
-```
-
-### Run on Android
-
-#### With on the Android emulator
-
-open Android Studio<br/>
-configure a AVD manager (top right of tools bar)<br/>
-run the android device<br/>
-go to our project folder root<br/>
-open terminal<br/>
-`npm install`<br/>
-`react-native run-android`<br/>
-
-#### With a mobile phone
-
-open Android Studio<br/>
-make sure that your phone is correctly selected in available devices<br/>
-go to our project folder root<br/>
-open terminal inside<br/>
-`npm install`<br/>
-`react-native run-android`<br/>
-
-### Run on iOS
-
-#### With on the iOS emulator
-
-go to our project folder root<br/>
-open terminal inside<br/>
-`npm install`<br/>
-`react-native run-ios`<br/>
-
-#### With a Iphone
-
-go to our project folder root<br/>
-open terminal inside<br/>
-`npm install`<br/>
-`react-native run-ios`<br/>
