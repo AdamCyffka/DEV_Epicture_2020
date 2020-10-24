@@ -4,6 +4,7 @@ import { StyleSheet, Image, View } from 'react-native'
 import Share from 'react-native-share'
 import VideoPlayer from 'react-native-video-player'
 import { favImage, cleanVoteImage, downVoteImage, upVoteImage, getImageInfo } from '../api/Imgur'
+import ZoomImage from 'react-native-zoom-image'
 
 export default class CardImage extends React.Component {
   state = {
@@ -12,7 +13,8 @@ export default class CardImage extends React.Component {
     fav: this.props.item.favorite,
     ups: this.props.item.ups ?this.props.item.ups : 0 ,
     downs: this.props.item.downs ?this.props.item.downs : 0,
-    favs: this.props.item.favorite_count
+    favs: this.props.item.favorite_count,
+    checked: false
   }
 
   componentDidMount() {
@@ -101,8 +103,9 @@ export default class CardImage extends React.Component {
         <CardItem cardBody style={{ aspectRatio: this.props.image.width / this.props.image.height, flex: 1 }}>
           <View style={{ height: '100%', width: '100%'}}>
             {this.props.image.type.includes('video/') === false ?
-              <Image
+              <ZoomImage
                 source={{ uri: `https://i.imgur.com/${this.props.image.id}.gif` }}
+                imgStyle={{width: '100%', height: '100%'}}
                 style={{ aspectRatio: this.props.image.width / this.props.image.height, flex: 1 }}
               />
             :

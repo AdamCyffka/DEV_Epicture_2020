@@ -6388,6 +6388,11 @@ react-native-webview@^10.8.3:
     escape-string-regexp "2.0.0"
     invariant "2.2.4"
 
+react-native-zoom-image@^0.1.2:
+  version "0.1.2"
+  resolved "https://registry.yarnpkg.com/react-native-zoom-image/-/react-native-zoom-image-0.1.2.tgz#33c26744ba47ed5e0637925b92a7bf1e1c8c4515"
+  integrity sha512-4UrLf9mu9qM5ooNd5oQM+w7C0udxhSLwaMMyaFb+uzJyYV4Z1h88KurnqXLT7xeaQjktDMY0z16cNJyHgVcieQ==
+
 react-native@0.63.2:
   version "0.63.2"
   resolved "https://registry.yarnpkg.com/react-native/-/react-native-0.63.2.tgz#eaebf3430577b37fbd66ef228a86b3408259ef8e"
