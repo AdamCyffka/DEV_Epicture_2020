@@ -32,7 +32,7 @@ We do not endorse any responsablities regarding what could happen to your Imgur 
 ### Prerequisites
 
 * NodeJS
-* 
+* Npm
 * Java SE Development Kit (JDK)
 * Android SDK Platform 28
 
