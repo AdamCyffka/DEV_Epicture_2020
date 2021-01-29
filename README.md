@@ -98,3 +98,9 @@ To generate a production APK, run use:
 ```bash
 ./gradlew assembleRelease
 ```
+
+## Preview
+
+![image](https://i.imgur.com/IErbMYM.png)
+![image](https://i.imgur.com/nEFeDNi.png)
+![image](https://i.imgur.com/Dovx9FA.png)
