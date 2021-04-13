@@ -1,3 +1,6 @@
+[![MIT License](https://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/AdamCyffka/DEV_Epicture_2020/main/LICENSE)
+[![Made with](https://img.shields.io/badge/made%20with-React%20Native-orange)](https://reactnative.dev/)
+
 # Epicture
 
 A cross platform mobile client to browse the Imgur platform.
